@@ -1,0 +1,161 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading"> 编辑商品</div>
+            <div class="panel-wrapper collapse in" aria-expanded="true">
+                <div class="panel-body">
+                    <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)" autocomplete="off">
+                        <div class="form-body">
+                            <h3 class="box-title">商品信息</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" [ngClass]="{'has-error': productForm.controls['name'].dirty && productForm.controls['name'].hasError('required')}">
+                                        <label class="control-label">商品名称<span class="text-danger">*</span></label>
+                                        <input type="text" id="name" class="form-control" [formControl]="productForm.controls['name']" placeholder="请输入商品名称">
+                                        <span *ngIf="productForm.controls['name'].dirty && productForm.controls['name'].hasError('required')" class="help-block with-errors"><ul class="list-unstyled"><li>请填写此字段。</li></ul></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" [ngClass]="{'has-error': productForm.controls['brand'].dirty && productForm.controls['brand'].hasError('required')}">
+                                        <label class="control-label">品牌<span class="text-danger">*</span></label>
+                                        <input type="text" id="brand" class="form-control"[formControl]="productForm.controls['brand']" placeholder="请输入品牌">
+                                        <span *ngIf="productForm.controls['brand'].dirty && productForm.controls['brand'].hasError('required')" class="help-block with-errors"><ul class="list-unstyled"><li>请填写此字段。</li></ul></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">商品分类<span class="text-danger">*</span></label>
+                                        <select class="form-control" data-placeholder="Choose a Category" [formControl]="productForm.controls['type']" tabindex="1">
+                                            <option value="watch">手表</option>
+                                            <option value="earring">耳钉</option>
+                                            <option value="bag">包包</option>
+                                            <option value="necklace">项链</option>
+                                            <option value="bracelet">手链</option>
+                                            <option value="ring">戒子</option>
+                                            <option value="brooch">胸针</option>
+                                            <option value="other">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" [ngClass]="{'has-error': productForm.controls['price'].dirty && productForm.controls['price'].hasError('required')}">
+                                        <label class="control-label">价格<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-yen" aria-hidden="true"></i></div>
+                                            <input type="text" class="form-control" [formControl]="productForm.controls['price']"> </div>
+                                            <span *ngIf="productForm.controls['price'].dirty && productForm.controls['price'].hasError('required')" class="help-block with-errors">
+                                                <ul class="list-unstyled"><li>请填写此字段。</li></ul>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>折扣</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-cut" aria-hidden="true"></i></div>
+                                            <input type="text" class="form-control"
+                                                   [formControl]="productForm.controls['discount']" placeholder="请输入整数，比如：9折即90"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">状态<span class="text-danger">*</span></label>
+                                        <div class="radio-list">
+                                            <label class="radio-inline p-0">
+                                                <div class="radio radio-info">
+                                                    <input type="radio" name="radio" id="radio1"
+                                                           [formControl]="productForm.controls['status']" value="inline" checked="true">
+                                                    <label for="radio1">已发布</label>
+                                                </div>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <div class="radio radio-info">
+                                                    <input type="radio" name="radio" id="radio2"
+                                                           [formControl]="productForm.controls['status']" value="offline">
+                                                    <label for="radio2">下架</label>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="box-title">商品描述<span class="text-danger">*</span></h3>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group" [ngClass]="{'has-error': productForm.controls['description'].dirty && productForm.controls['description'].hasError('required')}">
+                                        <textarea class="form-control"  [formControl]="productForm.controls['description']" rows="4" placeholder="请输入对商品的详细描述"></textarea>
+                                        <span *ngIf="productForm.controls['description'].dirty && productForm.controls['description'].hasError('required')" class="help-block with-errors">
+                                                <ul class="list-unstyled"><li>请填写此字段。</li></ul>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">颜色</label>
+                                        <input type="text" id="color" class="form-control"
+                                               [formControl]="productForm.controls['color']">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">尺寸</label>
+                                        <input type="text" id="size" class="form-control"
+                                               [formControl]="productForm.controls['size']" >
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                            <div class="row" [ngClass]="{'block-refresh': uploadLoading}">
+                                <div>
+                                    <h3 class="box-title m-t-20" style="display: inline-block">图片</h3>
+                                    <span class="text-danger">*(一款商品最多可上传6张图片,至少一张)</span>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let image of productImages">
+                                        <div class="product-img-outer">
+                                            <div class="product-img">
+                                                <img [src]="image.fileUrl"  alt="商品图片">
+                                                <div class="pro-img-overlay">
+                                                    <a href="javascript:void(0)" class="bg-danger">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6" *ngIf="!(productImages && productImages.length>=6)">
+                                        <div class="add-img-block">
+                                            <div class="dropify-message text-center">
+                                                <i class="fa fa-cloud-upload"></i>
+                                                <p>上传图片</p>
+                                                <input type="file" class="upload" #fileInput (change)="fileChange($event)" placeholder="Upload file" accept=".jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions m-t-40 text-center">
+                            <button type="submit" [disabled]="productForm.invalid || productImages.length<=0" class="btn btn-success">保存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template ngbModalContainer></template>
+
+<global-loading [ngClass]="{hide:!loading}"></global-loading>
