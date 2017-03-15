@@ -22,14 +22,14 @@ var GlobalLoadingComponent = (function () {
     GlobalLoadingComponent.prototype.cancelLoading = function () {
         this.loading = false;
     };
-    GlobalLoadingComponent = __decorate([
-        core_1.Component({
-            selector: 'global-loading',
-            templateUrl: 'global-loading.component.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], GlobalLoadingComponent);
     return GlobalLoadingComponent;
 }());
+GlobalLoadingComponent = __decorate([
+    core_1.Component({
+        selector: 'global-loading',
+        templateUrl: 'global-loading.component.html'
+    }),
+    __metadata("design:paramtypes", [])
+], GlobalLoadingComponent);
 exports.GlobalLoadingComponent = GlobalLoadingComponent;
 //# sourceMappingURL=global-loading.component.js.map

@@ -11,43 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by Administrator on 2016/11/25.
  */
-var core_1 = require('@angular/core');
-var authentication_service_1 = require("./share/service/authentication.service");
+var core_1 = require("@angular/core");
 var AppComponent = (function () {
-    function AppComponent(authenticationService) {
-        this.authenticationService = authenticationService;
+    function AppComponent() {
         this.title = '英雄帖';
         this.isSignOn = false;
     }
     AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        //首次初始化未登录
-        this.authenticationService.checkIsAuthenticated();
-        this.authenticationService.isAuthenticated.subscribe(function (isAuthenticated) {
-            if (isAuthenticated) {
-                _this.isSignOn = true;
-            }
-            else
-                _this.isSignOn = false;
-        });
-        $(".container-fluid").css("min-height", $(window).height() - 120);
     };
-    //解决footer无法一直在底部的问题
-    AppComponent.prototype.onResize = function (event) {
-        $(".container-fluid").css("min-height", $(window).height() - 120);
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            styleUrls: ['app.component.css'],
-            host: {
-                '(window:resize)': 'onResize($event)'
-            }
-        }), 
-        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        selector: 'my-app',
+        templateUrl: 'app.component.html',
+        styleUrls: ['app.component.css']
+    }),
+    __metadata("design:paramtypes", [])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

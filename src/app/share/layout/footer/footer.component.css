@@ -1,0 +1,13 @@
+.logo-footer img{
+    height: 80px;
+}
+.footer ul>li{
+    line-height: 80px;
+    font-size: 18px;
+}
+.footer-style_1{
+    padding: 30px 0;
+}
+.footer-bot{
+    padding: 0;
+}

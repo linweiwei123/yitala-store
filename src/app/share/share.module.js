@@ -14,37 +14,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
-var header_component_1 = require("./layout/header/header.component");
-var alert_component_1 = require("./alert/alert.component");
-var show_authed_directive_1 = require("./directive/show-authed.directive");
 var global_loading_component_1 = require("./loading/global-loading.component");
 var ShareModule = (function () {
     function ShareModule() {
     }
-    ShareModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                forms_1.FormsModule
-            ],
-            declarations: [
-                header_component_1.HeaderComponent,
-                alert_component_1.AlertComponent,
-                global_loading_component_1.GlobalLoadingComponent,
-                show_authed_directive_1.ShowAuthedDirective
-            ],
-            providers: [],
-            exports: [
-                header_component_1.HeaderComponent,
-                alert_component_1.AlertComponent,
-                global_loading_component_1.GlobalLoadingComponent,
-                show_authed_directive_1.ShowAuthedDirective
-            ],
-            schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ShareModule);
     return ShareModule;
 }());
+ShareModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            forms_1.FormsModule
+        ],
+        declarations: [
+            global_loading_component_1.GlobalLoadingComponent
+        ],
+        providers: [],
+        exports: [
+            global_loading_component_1.GlobalLoadingComponent
+        ],
+        schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
+    }),
+    __metadata("design:paramtypes", [])
+], ShareModule);
 exports.ShareModule = ShareModule;
 //# sourceMappingURL=share.module.js.map

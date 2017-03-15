@@ -1,51 +1,121 @@
-<nav class="navbar navbar-default navbar-static-top m-b-0">
-    <div class="navbar-header">
-        <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
-            <i class="ti-menu"></i>
-        </a>
-        <div class="top-left-part">
-            <a class="logo" href="http://eliteadmin.themedesigner.in/demos/eliteadmin-ecommerce/index.html">
-                <b style="margin-left: 10px;">
-                    <img src="../../../../assets/images/logo.jpg" alt="home" class="light-logo">
-                </b>
-                <span class="hidden-xs">
-                    <img src="../../../../assets/images/logo-text.png" alt="home" class="light-logo">
-                    <!--<h3 style="display: inline-block">ZFC Vintage</h3>-->
-                </span>
-            </a>
+<header id="header" class="header header-basic header-style_7 header-sticky menu-no-transparent">
+    <div class="mobile-navbar">
+        <div class="mobilemenu dblclick" [ngClass]="{active: mobileMenu}">
+            <div class="mobilemenu-header">
+                <div class="title">MENU</div>
+                <a href="javascript:;" class="mobilemenu-toggle" (click)="toggleMobileMenu()"></a>
+            </div>
+            <div class="mobilemenu-content">
+                <ul class="mobile-nav">
+                    <li> <a href="/"><i class="fa fa-home"></i></a> </li>
+                    <li> <a href="#">Layouts</a> <span class="arrow"></span></li>
+                    <li> <a href="#">Layouts</a> <span class="arrow"></span></li>
+                    <li> <a href="#">Layouts</a> <span class="arrow"></span></li>
+                </ul>
+            </div>
         </div>
-
-        <ul class="nav navbar-top-links navbar-left hidden-xs">
-            <li class="current-route"><span>{{currentRoute}}</span></li>
-            <li class="in hidden-sm">
-                <form role="search" class="app-search hidden-xs">
-                    <input type="text" placeholder="Search..." class="form-control">
-                    <a href="http://eliteadmin.themedesigner.in/demos/eliteadmin-ecommerce/" class="active"><i class="fa fa-search"></i></a>
-                </form>
-            </li>
-        </ul>
-        <ul class="nav navbar-top-links navbar-right pull-right">
-            <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
-            </a>
-            </li>
-            <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
-            </a>
-            </li>
-            <li class="mega-dropdown">
-                <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><span class="hidden-xs">Mega</span>
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="mega-dropdown">
-                <a class="dropdown-toggle waves-effect waves-light" href="javascript:;" (click)="logout()" ><span class="hidden-xs">注销</span>
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="right-side-toggle"> <a class="waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
-        </ul>
     </div>
-</nav>
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="header-top-left"> <span class="number-phone">+(00) 123 456 789</span></div>
+                <!-- Header Right -->
+                <div class="header-top-right">
+                    <!-- Navigation Top Bar  -->
+                    <nav class="top-bar-navigation" id="top-bar-navigation">
+                        <ul class="top_bar-nav">
+                            <li class="menu-item"><a href="/account">我的账户</a></li>
+                            <li class="menu-item"><a href="/checkout">我的购物车</a></li>
+                            <li class="menu-item menu-item-has-children"><a href="/account/login">登陆 / 注册</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item"><a href="/checkout">支付</a></li>
+                                    <li class="menu-item"><a href="/account/login">登陆</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- End Header call -->
+            </div>
+        </div>
+    </div>
+    <div class="main-header">
+        <div class="container">
+            <div class="row">
+                <!-- Header Logo -->
+                <div class="col-sm-2 header-logo">
+                    <div class="logo">
+                        <a href="/"> <img src="../../../../assets/img/logo11.png" alt="X Shop"> </a>
+                    </div>
+                </div>
+                <!-- End Logo -->
+                <div class="col-sm-10 header-nav">
+                    <!-- Header Right -->
+                    <div class="header-right">
+
+                        <!-- Cart Element -->
+                        <div class="header-cart header-element">
+                            <a href="/cart">
+                                <span class="icon-cart header-icon" data-togole="header-cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                </span> </a>
+                            <span class="cart-number-items count cartCount"> 0 </span>
+                            <div id="header-cart" class="header-element-content" style="display: none;">
+                                <h4 class="title-element">You have no items in your shopping cart.</h4>
+                                <div class="mini-cart-bottom">
+                                    <p class="buttons"> <a href="/collections/all" class="button">Continue shopping</a> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Cart Element -->
+                        <!-- Button Menu Mobile -->
+                        <a href="javascript:;" class="mobile-navigation" (click)="toggleMobileMenu()">
+                            <span class="button-icon">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </span>
+                        </a>
+                        <!-- End Button Menu Mobile -->
+                    </div>
+
+                    <!-- Main Nav Menu -->
+                    <nav id="primary-navigation" class="site-navigation">
+                        <div id="main-menu" class="main-nav main-menu">
+                            <ul class="menu-nav">
+                                <li class="menu-item menu-item-has-children megamenu-menu-item active">
+                                    <a href="/">首页</a>
+                                </li>
+                                <li class="menu-item menu-item-has-children ">
+                                    <a href="#">商品分类</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="/cart">Shop Cart</a></li>
+                                        <li class="menu-item"><a href="/checkout">Shop Checkout</a></li>
+                                        <li class="menu-item"><a href="/account/login">Login</a></li>
+                                        <li class="menu-item"><a href="/404">404 Page </a></li>
+                                        <li class="menu-item"><a href="/pages/about-us">About Page </a></li>
+                                        <li class="menu-item"><a href="/products/rust-shirt-with-half-sleeves-2">Detail Product</a></li>
+                                        <li class="menu-item"><a href="/blogs/news">Single Post</a></li>
+                                        <li class="menu-item"><a href="/collections/wishlist">Wishlist</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children megamenu-menu-item ">
+                                    <a href="#">精品推荐</a>
+                                </li>
+                                <li class="menu-item menu-item-has-children ">
+                                    <a href="#">优惠促销</a>
+                                </li>
+                                <li class="menu-item ">
+                                    <a href="/blogs/news">博客</a>
+                                </li>
+                                <li class="menu-item  last ">
+                                    <a href="/pages/contact">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

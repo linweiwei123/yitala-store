@@ -1,5 +1,5 @@
 /**
- * Created by Linweiwei on 2016/12/22.
+ * Created by yitala on 2017/3/12.
  */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -12,40 +12,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var authentication_service_1 = require("../../service/authentication.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(route, router, authenticationService) {
-        this.route = route;
-        this.router = router;
-        this.authenticationService = authenticationService;
+    function HeaderComponent() {
+        this.mobileMenu = false;
     }
     HeaderComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.router.events
-            .filter(function (event) { return event instanceof router_1.NavigationEnd; })
-            .subscribe(function (event) {
-            var currentRoute = _this.route.root;
-            while (currentRoute.children[0] !== undefined) {
-                currentRoute = currentRoute.children[0];
+        this.mouseScroll();
+    };
+    HeaderComponent.prototype.toggleMobileMenu = function () {
+        this.mobileMenu = !this.mobileMenu;
+    };
+    HeaderComponent.prototype.mouseScroll = function () {
+        document.addEventListener("mousewheel", function (e) {
+            var scrollY = window.scrollY;
+            if (scrollY > 52) {
+                $("#header").addClass('header-fixed');
             }
-            var obj = currentRoute.snapshot.data;
-            //console.log(obj);
-            _this.currentRoute = obj["name"];
-        });
+            else {
+                $("#header").removeClass('header-fixed');
+            }
+        }, false);
     };
-    HeaderComponent.prototype.logout = function () {
-        this.authenticationService.logout();
-        this.router.navigate(["/login"]);
-    };
-    HeaderComponent = __decorate([
-        core_1.Component({
-            selector: "layout-header",
-            templateUrl: "header.component.html"
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, authentication_service_1.AuthenticationService])
-    ], HeaderComponent);
     return HeaderComponent;
 }());
+HeaderComponent = __decorate([
+    core_1.Component({
+        selector: 'layout-header',
+        templateUrl: 'header.component.html',
+        styleUrls: ['header.component.css']
+    }),
+    __metadata("design:paramtypes", [])
+], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map

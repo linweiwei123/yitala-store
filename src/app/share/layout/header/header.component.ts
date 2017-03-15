@@ -1,42 +1,38 @@
 /**
- * Created by Linweiwei on 2016/12/22.
+ * Created by yitala on 2017/3/12.
  */
 
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
-import {AuthenticationService} from "../../service/authentication.service";
 @Component({
-    selector:"layout-header",
-    templateUrl:"header.component.html"
+    selector:'layout-header',
+    templateUrl:'header.component.html',
+    styleUrls:['header.component.css']
 })
 
 export class HeaderComponent implements OnInit{
 
-    currentRoute:any;
+    mobileMenu:boolean = false;
 
     constructor(
-        private route: ActivatedRoute,
-        private router:Router,
-        private authenticationService:AuthenticationService
-    ){
-    }
+    ){}
 
     ngOnInit(): void {
-        this.router.events
-            .filter(event => event instanceof NavigationEnd)
-            .subscribe((event:any) => {
-                let currentRoute = this.route.root;
-                while (currentRoute.children[0] !== undefined) {
-                    currentRoute = currentRoute.children[0];
-                }
-                let obj = currentRoute.snapshot.data;
-                //console.log(obj);
-                this.currentRoute = obj["name"];
-            })
+        this.mouseScroll();
     }
 
-    logout():void{
-        this.authenticationService.logout();
-        this.router.navigate(["/login"]);
+    toggleMobileMenu():void{
+        this.mobileMenu = !this.mobileMenu;
+    }
+
+    mouseScroll():void{
+        document.addEventListener("mousewheel",(e)=>{
+            let scrollY = window.scrollY;
+            if(scrollY>52){
+                $("#header").addClass('header-fixed');
+            }
+            else {
+                $("#header").removeClass('header-fixed');
+            }
+        },false)
     }
 }
