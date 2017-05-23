@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
  */
 
 @Component({
-    selector:'category',
+    selector:'products',
     templateUrl:'products.component.html',
     styleUrls:['products.component.css']
 })
