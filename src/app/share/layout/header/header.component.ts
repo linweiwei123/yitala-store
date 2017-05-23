@@ -35,4 +35,8 @@ export class HeaderComponent implements OnInit{
             }
         },false)
     }
+
+    gotoPage(type:string):void{
+
+    }
 }

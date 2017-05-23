@@ -7,6 +7,7 @@ import {HomeComponent} from "./home/home.component";
 const appRoutes: Routes = [
 
     {   path: 'home', component: HomeComponent},
+    {   path: 'category/:type', loadChildren:'./category/category.module#CategoryModule'},
     {
         path: '',
         redirectTo: '/home',
@@ -16,7 +17,7 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-    imports:[RouterModule.forRoot(appRoutes)],
+    imports:[RouterModule.forRoot(appRoutes,{ useHash: true })],
     exports:[RouterModule]
 })
 
