@@ -1,0 +1,28 @@
+.new-products .new-item{
+    margin-bottom: 20px;
+}
+.new-products .product-image{
+    width: 70px;
+    margin-right: 10px;
+}
+.new-item>div{
+    display: inline-block;
+}
+.product-image img{
+    width: 100%;
+}
+.product-info{
+    vertical-align:middle;
+}
+.product-info em{
+    font-style: normal;
+    margin-right: 5px;
+}
+.product-info .price{
+    display: block;
+    color: #8cc93b;
+    font-weight: 700;
+}
+.product-info .name{
+    color: #333;
+}

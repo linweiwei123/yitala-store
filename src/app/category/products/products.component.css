@@ -2,3 +2,12 @@
 #secondary {
     padding-top: 40px;
 }
+.products-pagination{
+    text-align: center;
+}
+.title-sidebar{
+    margin-bottom: 20px!important;
+}
+.sidebar .widget.widget_categories {
+    margin-bottom: 50px;
+}

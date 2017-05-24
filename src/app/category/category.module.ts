@@ -11,6 +11,7 @@ import {ShareModule} from "../share/share.module";
 import {ProductsComponent} from "./products/products.component";
 import {RouterModule, Routes} from "@angular/router";
 import {AppRoutingModule} from "../app-routing.module";
+import {NewProductsComponent} from "./newproducts/new-products.component";
 
 const categoryRoutes:Routes = [
     {
@@ -29,7 +30,8 @@ const categoryRoutes:Routes = [
         RouterModule.forChild(categoryRoutes)
     ],
     declarations:[
-        ProductsComponent
+        ProductsComponent,
+        NewProductsComponent
     ],
     schemas:[
 
