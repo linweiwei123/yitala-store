@@ -19,6 +19,8 @@ var forms_1 = require("@angular/forms");
 var header_component_1 = require("./share/layout/header/header.component");
 var home_component_1 = require("./home/home.component");
 var footer_component_1 = require("./share/layout/footer/footer.component");
+var product_component_1 = require("./product/product.component");
+var angular2_image_zoom_1 = require("angular2-image-zoom");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,13 +35,15 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule,
             share_module_1.ShareModule,
-            app_routing_module_1.AppRoutingModule
+            app_routing_module_1.AppRoutingModule,
+            angular2_image_zoom_1.ImageZoomModule
         ],
         declarations: [
             app_component_1.AppComponent,
             header_component_1.HeaderComponent,
             footer_component_1.FooterComponent,
-            home_component_1.HomeComponent
+            home_component_1.HomeComponent,
+            product_component_1.ProductComponent
         ],
         providers: [],
         bootstrap: [app_component_1.AppComponent]

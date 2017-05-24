@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {NgbPaginationConfig} from "@ng-bootstrap/ng-bootstrap";
+import {ActivatedRoute, Router} from "@angular/router";
 /**
  * Created by yitala on 2017/3/18.
  */
@@ -18,9 +19,16 @@ export class ProductsComponent{
         {}
     ]
 
-    constructor(config: NgbPaginationConfig) {
+    constructor(
+        config: NgbPaginationConfig,
+        private router:Router
+    ) {
         // customize default values of paginations used by this component tree
         config.size = 'lg';
         config.boundaryLinks = true;
+    }
+
+    gotoProductDetail(id:string){
+        this.router.navigate([`/product`,id]);
     }
 }

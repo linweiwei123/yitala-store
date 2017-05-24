@@ -79,7 +79,7 @@ module.exports = {
                 use:[{
                     loader: 'file-loader',
                     options: {
-                        name: 'assets/images/[name].[hash].[ext]'
+                        name: 'assets/img/[name].[hash].[ext]'
                     }
                 }]
             },
@@ -88,7 +88,7 @@ module.exports = {
                 use:[{
                     loader: 'file-loader',
                     options: {
-                        name: 'assets/images/[name].[hash].[ext]'
+                        name: 'assets/img/[name].[hash].[ext]'
                     }
                 }]
             },

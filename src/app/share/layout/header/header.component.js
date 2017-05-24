@@ -13,9 +13,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(router) {
+        this.router = router;
         this.mobileMenu = false;
+        this.categorySubMenuStatus = false;
+        router.events.subscribe(function (event) {
+            if (!(event instanceof router_1.NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0);
+            // NavigationEnd
+            // NavigationCancel
+            // NavigationError
+            // RoutesRecognized
+        });
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.mouseScroll();
@@ -35,6 +48,11 @@ var HeaderComponent = (function () {
         }, false);
     };
     HeaderComponent.prototype.gotoPage = function (type) {
+        this.categorySubMenuStatus = true;
+        this.router.navigate(['/category', type]);
+    };
+    HeaderComponent.prototype.toggleCategory = function () {
+        this.categorySubMenuStatus = !this.categorySubMenuStatus;
     };
     return HeaderComponent;
 }());
@@ -44,7 +62,7 @@ HeaderComponent = __decorate([
         templateUrl: 'header.component.html',
         styleUrls: ['header.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [router_1.Router])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map

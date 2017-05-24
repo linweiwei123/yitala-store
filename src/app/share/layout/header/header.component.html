@@ -84,19 +84,13 @@
                         <div id="main-menu" class="main-nav main-menu">
                             <ul class="menu-nav">
                                 <li class="menu-item menu-item-has-children megamenu-menu-item active">
-                                    <a href="/">首页</a>
+                                    <a [routerLink]="['/home']">首页</a>
                                 </li>
-                                <li class="menu-item menu-item-has-children ">
-                                    <a href="#">商品分类</a>
+                                <li class="menu-item menu-item-has-children" [ngClass]="{'show-active':categorySubMenuStatus}" (click)="toggleCategory()">
+                                    <a href="javascript:;">商品分类</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a [routerLink]="['/category','bag']">包包</a></li>
+                                        <li class="menu-item"><a (click)="gotoPage('bag')">包包</a></li>
                                         <li class="menu-item"><a href="/checkout">Shop Checkout</a></li>
-                                        <li class="menu-item"><a href="/account/login">Login</a></li>
-                                        <li class="menu-item"><a href="/404">404 Page </a></li>
-                                        <li class="menu-item"><a href="/pages/about-us">About Page </a></li>
-                                        <li class="menu-item"><a href="/products/rust-shirt-with-half-sleeves-2">Detail Product</a></li>
-                                        <li class="menu-item"><a href="/blogs/news">Single Post</a></li>
-                                        <li class="menu-item"><a href="/collections/wishlist">Wishlist</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children megamenu-menu-item ">

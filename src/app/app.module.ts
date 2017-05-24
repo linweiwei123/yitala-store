@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HeaderComponent} from "./share/layout/header/header.component";
 import {HomeComponent} from "./home/home.component";
 import {FooterComponent} from "./share/layout/footer/footer.component";
+import {ProductComponent} from "./product/product.component";
+import {ImageZoomModule} from "angular2-image-zoom";
 
 @NgModule({
     imports: [
@@ -20,13 +22,15 @@ import {FooterComponent} from "./share/layout/footer/footer.component";
         FormsModule,
         ReactiveFormsModule,
         ShareModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ImageZoomModule
     ],
     declarations: [
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        HomeComponent
+        HomeComponent,
+        ProductComponent
     ],
     providers:[
     ],

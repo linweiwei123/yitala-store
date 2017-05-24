@@ -301,7 +301,7 @@ ul.menu-nav>li {
     padding: 0 20px
 }
 
-ul.menu-nav>li:hover .sub-menu {
+ul.menu-nav>li.show-active .sub-menu {
     opacity: 1;
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
@@ -433,12 +433,11 @@ ul.menu-nav li .sub-menu {
     position: absolute;
     text-align: left;
     top: 100%;
-    margin-top: -30px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.09);
-    -webkit-transform: translateY(50px);
-    -ms-transform: translateY(50px);
-    -o-transform: translateY(50px);
-    transform: translateY(50px);
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px);
     visibility: hidden;
     z-index: 33;
     width: 100%

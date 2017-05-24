@@ -3,6 +3,7 @@
  */
 
 import {Component, OnInit} from "@angular/core";
+import {NavigationEnd, NavigationStart, Router} from "@angular/router";
 @Component({
     selector:'layout-header',
     templateUrl:'header.component.html',
@@ -12,13 +13,27 @@ import {Component, OnInit} from "@angular/core";
 export class HeaderComponent implements OnInit{
 
     mobileMenu:boolean = false;
+    categorySubMenuStatus:boolean = false;
 
     constructor(
-    ){}
+        private router:Router
+    ){
+        router.events.subscribe((event:any) => {
+            if(!(event instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0,0);
+            // NavigationEnd
+            // NavigationCancel
+            // NavigationError
+            // RoutesRecognized
+        });
+    }
 
     ngOnInit(): void {
         this.mouseScroll();
     }
+
 
     toggleMobileMenu():void{
         this.mobileMenu = !this.mobileMenu;
@@ -37,6 +52,12 @@ export class HeaderComponent implements OnInit{
     }
 
     gotoPage(type:string):void{
-
+        this.categorySubMenuStatus = true;
+        this.router.navigate(['/category',type]);
     }
+
+    toggleCategory():void{
+        this.categorySubMenuStatus = !this.categorySubMenuStatus;
+    }
+
 }
