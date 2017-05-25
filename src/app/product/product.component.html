@@ -8,24 +8,78 @@
                     <div class="product-single">
                         <div class="product-content-single">
                             <div class="row">
-                                <div class="col-sm-5">
-                                    <div class="product-viewer">
-                                        <img [imageZoom]="zoomedImageSrc" [src]="smallImageSrc" [maxZoomLevel] = "maxZoomLevel" [minZoomLevel] = "minZoomLevel"
-                                             [lensHeight]="lensHeight" [lensWidth]="lensWidth" [allowZoom] = "allowZoom" >
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="single-product-content">
+                                        <h6 class="product-title">Rust Shirt With Half Sleeves 2</h6>
+                                        <div class="product-price"> <span class="price"><span class="money" data-currency-usd="$75.00">$75.00</span></span> <span class="in-stock"><i class="fa fa-check"></i> Instock</span> </div>
+                                        <!-- Rate code -->
+                                        <div class="star-rating"> <span class="spr-badge" id="spr_badge_6441314053" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews</span> </span>
+                                        </div>
+                                        <!-- End rate-->
+                                        <div class="product-preview" style="display: inline-block; margin-bottom: 0px;  position: relative; top: -34px;">
+                                            <ul class="review-list">
+                                                <li class="review-item"><a class="caption_review" href="#" style=" opacity: 0;">0 Review(M)</a></li>
+                                                <li class="review-item"><a class="btn_add_review" href="#tab_product">Add your review</a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- Descriptioin product-->
+                                        <div class="product-desc"> Keep you skin care products and make-up secure when you are at home or on the road. This Meraki toilet bag has a tiful and simple design with a closure, and the size provides you with lots of room for you. </div>
+
+                                        <div class="product-list-action">
+                                            <div>
+                                                <div class="item-action"><a class="email_to_friend" href="#"><i class="fa fa-envelope-o"></i>Email to a Friend</a></div>
+                                                <div class="item-action">
+                                                    <!-- Created by Andy 13/10/2016 --><a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist"><span class="ti-heart"></span></a> </div>
+                                                <div class="item-action"><a class="compare button" data-pid="rust-shirt-with-half-sleeves-2" title="Compare product" href="#"><i class="flaticon-reload"></i></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="quantity">
+                                            <div class="quantity buttons_added"> <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
+                                                <input id="Quantity" type="text" value="1" title="Qty" class="input-text qty text" size="1"> <a href="#" class="sign plus"><i class="fa fa-plus"></i></a> </div>
+                                        </div> <a href="#" class="button add_to_cart_button single_add_to_cart_button" data-pid="21300741317" title="Add to Cart">Add to Cart</a>
+                                        <!--</form>-->
                                     </div>
-
                                 </div>
-                                <div class="col-sm-7">
-
+                                <div class="col-xs-12 col-sm-6">
+                                    <product-zoom></product-zoom>
                                 </div>
                             </div>
                         </div>
-                        <div style="height: 300px;"></div>
+                        <div class="product-content-preview">
+                            <div id="tab_product" class="tab-product-page">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="">
+                                        <a href="#description" aria-controls="description" role="tab" data-toggle="tab" aria-expanded="false">Description</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#addinformation" aria-controls="addinformation" role="tab" data-toggle="tab" aria-expanded="false">Additional Information</a>
+                                    </li>
+                                    <li role="presentation" class="active">
+                                        <a href="#review" class="review_tab" aria-controls="review" role="tab" data-toggle="tab" aria-expanded="true">review</a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content" style="opacity: 1">
+                                    <div role="tabpanel" class="tab-pane" id="description" >
+                                        <div class="box-content"> <span>Keep you skin care products and make-up secure when you are at home or on the road. This Meraki toilet bag has a tiful and simple design with a closure, and the size provides you with lots of room for you.</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products-relate">
+                            <h4 class="title-single-product">Related Product</h4>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3" *ngFor="let img of imgs">
+                                    <img [src]="img" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- End Main content -->
-
         </div>
     </div>
 </div>

@@ -54,7 +54,7 @@
                     <div class="header-right">
 
                         <!-- Cart Element -->
-                        <div class="header-cart header-element">
+                        <a class="header-cart header-element" [routerLink]="['/cart']">
                             <a href="/cart">
                                 <span class="icon-cart header-icon" data-togole="header-cart">
                                 <i class="fa fa-shopping-cart"></i>
@@ -66,7 +66,7 @@
                                     <p class="buttons"> <a href="/collections/all" class="button">Continue shopping</a> </p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         <!-- End Cart Element -->
                         <!-- Button Menu Mobile -->
                         <a href="javascript:;" class="mobile-navigation" (click)="toggleMobileMenu()">

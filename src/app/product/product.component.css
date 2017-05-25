@@ -1,8 +1,8 @@
 
 .detail-product #primary {
-    padding-top: 50px;
+    padding-top: 0px;
+    margin-top: 50px;
 }
-.product-viewer{
-    height: 450px;
-    width: 375px;
+.single-product-content{
+    padding-left: 10px;
 }

@@ -1,3 +1,6 @@
+body{
+    color: #969696;
+}
 /* mobilemenu */
 @media screen and (min-width: 1024px){
     .mobile-navbar{
@@ -488,9 +491,21 @@ header.header-fixed .main-header .mobile-navigation{
     }
 }
 
+/** @common **/
+.text-orange{
+    color: #df5c53
+}
 
 /** @覆盖样式**/
 
 .carousel-indicators li{
     margin: 3px!important;
+}
+
+.product-content-single .col-xs-12 .zoomer{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.money{
+    color: #df5c53!important;
 }

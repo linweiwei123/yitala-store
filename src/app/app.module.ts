@@ -12,7 +12,11 @@ import {HeaderComponent} from "./share/layout/header/header.component";
 import {HomeComponent} from "./home/home.component";
 import {FooterComponent} from "./share/layout/footer/footer.component";
 import {ProductComponent} from "./product/product.component";
-import {ImageZoomModule} from "angular2-image-zoom";
+import {ZoomableDirective} from "ng2-zoomable";
+import {ProductZoomComponent} from "./product/productzoom/product-zoom.component";
+import {CartComponent} from "./cart/cart.component";
+
+
 
 @NgModule({
     imports: [
@@ -22,19 +26,22 @@ import {ImageZoomModule} from "angular2-image-zoom";
         FormsModule,
         ReactiveFormsModule,
         ShareModule,
-        AppRoutingModule,
-        ImageZoomModule
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
         HeaderComponent,
         FooterComponent,
         HomeComponent,
-        ProductComponent
+        ProductComponent,
+        ZoomableDirective,
+        ProductZoomComponent,
+        CartComponent
     ],
     providers:[
     ],
-    bootstrap: [ AppComponent ]
+    bootstrap: [ AppComponent ],
+    schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 

@@ -20,7 +20,9 @@ var header_component_1 = require("./share/layout/header/header.component");
 var home_component_1 = require("./home/home.component");
 var footer_component_1 = require("./share/layout/footer/footer.component");
 var product_component_1 = require("./product/product.component");
-var angular2_image_zoom_1 = require("angular2-image-zoom");
+var ng2_zoomable_1 = require("ng2-zoomable");
+var product_zoom_component_1 = require("./product/productzoom/product-zoom.component");
+var cart_component_1 = require("./cart/cart.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -35,18 +37,21 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule,
             share_module_1.ShareModule,
-            app_routing_module_1.AppRoutingModule,
-            angular2_image_zoom_1.ImageZoomModule
+            app_routing_module_1.AppRoutingModule
         ],
         declarations: [
             app_component_1.AppComponent,
             header_component_1.HeaderComponent,
             footer_component_1.FooterComponent,
             home_component_1.HomeComponent,
-            product_component_1.ProductComponent
+            product_component_1.ProductComponent,
+            ng2_zoomable_1.ZoomableDirective,
+            product_zoom_component_1.ProductZoomComponent,
+            cart_component_1.CartComponent
         ],
         providers: [],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
+        schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
     })
 ], AppModule);
 exports.AppModule = AppModule;

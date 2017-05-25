@@ -10,10 +10,12 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var home_component_1 = require("./home/home.component");
 var product_component_1 = require("./product/product.component");
+var cart_component_1 = require("./cart/cart.component");
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'category/:type', loadChildren: './category/category.module#CategoryModule' },
     { path: 'product/:id', component: product_component_1.ProductComponent },
+    { path: 'cart', component: cart_component_1.CartComponent },
     {
         path: '',
         redirectTo: '/home',

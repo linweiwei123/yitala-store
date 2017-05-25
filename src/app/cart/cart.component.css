@@ -1,0 +1,26 @@
+.shop_table th{
+    padding-bottom: 20px;
+}
+.cart-total .button{
+    float: right;
+}
+.cart-total .button.checkout-button{
+    margin-right: 30px;
+}
+.shop-cart{
+    padding-bottom: 50px;
+}
+.ship-note{
+    border: 2px dashed #d4d4d4;
+    width: 370px;
+    height: 170px;
+    resize: none;
+    background-color: #f7f7f7;
+    border-radius: 4px!important;
+}
+.product-cart .shopping-cart-element-content input[type="text"]{
+    margin: 0px;
+}
+.form-row label{
+    margin-bottom: 5px!important;
+}
