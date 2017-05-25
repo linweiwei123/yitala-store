@@ -16,6 +16,7 @@ var appRoutes = [
     { path: 'category/:type', loadChildren: './category/category.module#CategoryModule' },
     { path: 'product/:id', component: product_component_1.ProductComponent },
     { path: 'cart', component: cart_component_1.CartComponent },
+    { path: 'account', loadChildren: './account/account.module#AccountModule' },
     {
         path: '',
         redirectTo: '/home',
