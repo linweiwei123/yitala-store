@@ -9,14 +9,11 @@ import {AppRoutingModule} from "./app-routing.module";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HeaderComponent} from "./share/layout/header/header.component";
-import {HomeComponent} from "./home/home.component";
 import {FooterComponent} from "./share/layout/footer/footer.component";
 import {ProductComponent} from "./product/product.component";
 import {ProductZoomComponent} from "./product/productzoom/product-zoom.component";
+import {HomeComponent} from "./home/home.component";
 import {CartComponent} from "./cart/cart.component";
-import {LoginComponent} from "./account/login/login.component";
-import {ProductsComponent} from "./category/products/products.component";
-import {NewProductsComponent} from "./category/newproducts/new-products.component";
 
 @NgModule({
     imports: [
@@ -37,10 +34,7 @@ import {NewProductsComponent} from "./category/newproducts/new-products.componen
         HomeComponent,
         ProductComponent,
         ProductZoomComponent,
-        CartComponent,
-        LoginComponent,
-        ProductsComponent,
-        NewProductsComponent
+        CartComponent
     ],
     providers:[
     ],

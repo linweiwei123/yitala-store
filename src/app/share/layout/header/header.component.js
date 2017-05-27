@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Created by yitala on 2017/3/12.
  */
@@ -11,16 +10,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+import { Component } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
 var HeaderComponent = (function () {
     function HeaderComponent(router) {
         this.router = router;
         this.mobileMenu = false;
         this.categorySubMenuStatus = false;
         router.events.subscribe(function (event) {
-            if (!(event instanceof router_1.NavigationEnd)) {
+            if (!(event instanceof NavigationEnd)) {
                 return;
             }
             window.scrollTo(0, 0);
@@ -57,12 +55,12 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    core_1.Component({
+    Component({
         selector: 'layout-header',
-        templateUrl: 'header.component.html',
-        styleUrls: ['header.component.css']
+        templateUrl: './header.component.html',
+        styleUrls: ['./header.component.css']
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [Router])
 ], HeaderComponent);
-exports.HeaderComponent = HeaderComponent;
+export { HeaderComponent };
 //# sourceMappingURL=header.component.js.map

@@ -1,25 +1,28 @@
 import { NgModule } from '@angular/core';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {ProductComponent} from './product/product.component';
+import {CartComponent} from './cart/cart.component';
+import {AccountModule} from './account/account.module';
+import {CategoryModule} from './category/category.module';
 
-import {HomeComponent} from "./home/home.component";
-import {ProductComponent} from "./product/product.component";
-import {CartComponent} from "./cart/cart.component";
+export function loadAccountModule(){
+    // return System.import('./account/account.module').then((r: any) => r.AccountModule);
+    return AccountModule;
+}
 
-import {ProductsComponent} from "./category/products/products.component";
-import {LoginComponent} from "./account/login/login.component";
-
-// export function loadAboutModule() {
-//     return System.import('./account/account.module').then((r: any) => r.AccountModule);
-// }
+export function loadCategoryModule(){
+    return CategoryModule;
+}
 
 const appRoutes: Routes = [
 
     {   path: 'home', component: HomeComponent},
-    {   path: 'category/:type', component:ProductsComponent},
-    {   path: 'product/:id', component:ProductComponent},
-    {   path: 'cart', component:CartComponent},
-    //{   path: 'account', loadChildren:loadAboutModule},
-    {   path: 'account', component:LoginComponent},
+    {   path: 'category/:type', loadChildren: './category/category.module#CategoryModule'},
+    {   path: 'product/:id', component: ProductComponent},
+    {   path: 'cart', component: CartComponent},
+    {   path: 'account', loadChildren: './account/account.module#AccountModule'},
+    // {   path: 'account', component:LoginComponent},
     {
         path: '',
         redirectTo: '/home',
