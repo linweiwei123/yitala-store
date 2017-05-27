@@ -3,12 +3,11 @@
  */
 import {Component, OnInit} from "@angular/core";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ProductService} from "../share/service/product.service";
 import {GlobalLoadingComponent} from "../share/loading/global-loading.component";
 @Component({
     selector:"my-dashboard",
-    templateUrl:"home.component.html",
-    styleUrls:["home.component.css"]
+    templateUrl:"./home.component.html",
+    styleUrls:["./home.component.css"]
 })
 
 export class HomeComponent extends GlobalLoadingComponent implements OnInit{

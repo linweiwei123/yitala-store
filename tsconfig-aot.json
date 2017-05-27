@@ -1,4 +1,4 @@
-{
+  {
   "compilerOptions": {
     "target": "es5",
     "module": "es2015",
@@ -10,6 +10,10 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
+  "files": [
+    "src/app/app.module.ts",
+    "src/main-aot.ts"
+  ],
   "exclude": [
     "node_modules/*"
   ],

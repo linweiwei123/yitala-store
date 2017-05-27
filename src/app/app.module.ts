@@ -12,16 +12,18 @@ import {HeaderComponent} from "./share/layout/header/header.component";
 import {HomeComponent} from "./home/home.component";
 import {FooterComponent} from "./share/layout/footer/footer.component";
 import {ProductComponent} from "./product/product.component";
-import {ZoomableDirective} from "ng2-zoomable";
 import {ProductZoomComponent} from "./product/productzoom/product-zoom.component";
 import {CartComponent} from "./cart/cart.component";
-
-
+import {LoginComponent} from "./account/login/login.component";
+import {ProductsComponent} from "./category/products/products.component";
+import {NewProductsComponent} from "./category/newproducts/new-products.component";
 
 @NgModule({
     imports: [
         NgbModule.forRoot(),
-        BrowserModule,
+        BrowserModule.withServerTransition({
+            appId: 'toh-universal'
+        }),
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
@@ -34,9 +36,11 @@ import {CartComponent} from "./cart/cart.component";
         FooterComponent,
         HomeComponent,
         ProductComponent,
-        ZoomableDirective,
         ProductZoomComponent,
-        CartComponent
+        CartComponent,
+        LoginComponent,
+        ProductsComponent,
+        NewProductsComponent
     ],
     providers:[
     ],

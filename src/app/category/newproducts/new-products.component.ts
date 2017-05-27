@@ -5,7 +5,7 @@
 import {Component} from "@angular/core";
 @Component({
     selector:'new-products',
-    templateUrl:'new-products.component.html',
+    templateUrl:'./new-products.component.html',
     styleUrls:['./new-products.component.css']
 })
 

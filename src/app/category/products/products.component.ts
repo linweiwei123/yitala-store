@@ -7,13 +7,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector:'products',
-    templateUrl:'products.component.html',
-    styleUrls:['products.component.css']
+    templateUrl:'./products.component.html',
+    styleUrls:['./products.component.css']
 })
 
 export class ProductsComponent{
 
-    private page:number = 4;
+    page:number = 4;
     private productsList:any[] = [
         {},
         {}

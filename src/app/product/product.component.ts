@@ -4,13 +4,13 @@
 import {Component, HostListener} from "@angular/core";
 @Component({
     selector:'product',
-    templateUrl:'product.component.html',
+    templateUrl:'./product.component.html',
     styleUrls:['./product.component.css']
 })
 
 export class ProductComponent{
 
-    private imgs = [
+    images = [
         "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
         "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
         "http://ojp8ivtxn.bkt.clouddn.com/20170113_WechatIMG786.jpeg",

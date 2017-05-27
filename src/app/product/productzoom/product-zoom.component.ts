@@ -4,7 +4,7 @@
 import {Component} from "@angular/core";
 @Component({
     selector:'product-zoom',
-    templateUrl:'product-zoom.component.html',
+    templateUrl:'./product-zoom.component.html',
     styleUrls:['./product-zoom.component.css']
 })
 
@@ -30,7 +30,7 @@ export class ProductZoomComponent{
         }
     }
     private SwipeOptions:any;
-    private imgs = [
+    imgs = [
         "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
         "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
         "http://ojp8ivtxn.bkt.clouddn.com/20170113_WechatIMG786.jpeg",

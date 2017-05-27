@@ -5,7 +5,7 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {NavigationStart, Router, RoutesRecognized} from "@angular/router";
 @Component({
     selector:'login',
-    templateUrl:'login.component.html',
+    templateUrl:'./login.component.html',
     styleUrls:['./login.component.css']
 })
 

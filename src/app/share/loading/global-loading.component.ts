@@ -4,8 +4,8 @@
 
 import {Component} from "@angular/core";
 @Component({
-    selector:'global-loading',
-    templateUrl:'global-loading.component.html'
+    selector:'./global-loading',
+    templateUrl:'./global-loading.component.html'
 })
 
 export class GlobalLoadingComponent{
