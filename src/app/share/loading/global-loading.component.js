@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Created by yitala on 2017/2/19.
  */
@@ -10,7 +11,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from "@angular/core";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var GlobalLoadingComponent = (function () {
     function GlobalLoadingComponent() {
         this.loading = false;
@@ -24,11 +26,11 @@ var GlobalLoadingComponent = (function () {
     return GlobalLoadingComponent;
 }());
 GlobalLoadingComponent = __decorate([
-    Component({
+    core_1.Component({
         selector: './global-loading',
         templateUrl: './global-loading.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], GlobalLoadingComponent);
-export { GlobalLoadingComponent };
+exports.GlobalLoadingComponent = GlobalLoadingComponent;
 //# sourceMappingURL=global-loading.component.js.map

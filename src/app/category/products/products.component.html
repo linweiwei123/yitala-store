@@ -37,38 +37,46 @@
                             </div>
                         </form>
                     </div>
-                    <div class="products row columns-3 products-grid products-wraps" id="collection-product">
+                    <div class="products row columns-4 products-grid products-wraps" id="collection-product">
                         <!-- Created by Andy 13/10/2016 -->
-                        <div class="product-item view-grid" style="display:block; " (click)="gotoProductDetail('1')">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-                        </div>
-                        <div class="product-item view-grid" style="display:block; ">
-                            <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
+                        <div class="product-item view-grid" style="display:block; " *ngFor="let product of productsList" >
+                            <div class="product-item-container">
+                                <div class="product-media" (click)="gotoProductDetail(product.productId)">
+                                    <div class="product-images-wrap">
+                                        <figure class="product-first-figure">
+                                            <a >
+                                                <img alt="商品图片" [src]="product.images">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <a  title="马上查看" class="quick-view-link quick-view-btn">
+                                        <i class="fa fa-eye"></i>
+                                        <span>马上查看</span>
+                                    </a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-name">
+                                        <a href="/products/espadrilles-2">{{product.brand}} {{product.name}}</a>
+                                    </h3>
+                                    <span class="price">
+                                    <span class="money"><em class="rmb">¥</em>{{product.price}}</span>
+                                </span>
+                                    <div class="product-button-action">
+                                        <a href="#" class="button add-to-cart" title="Add to Cart"><i class="iconfont-yitala">&#xe6c8;</i>添加到购物车</a>
+                                        <!--<a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">-->
+                                            <!--<span class="ti-heart"><i class="iconfont-yitala">&#xe6e8;</i>收藏</span>-->
+                                        <!--</a>-->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="products-pagination">
-                        <ngb-pagination [collectionSize]="70" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"></ngb-pagination>
+                    <div class="products-pagination" *ngIf="totalElements>0">
+                        <ngb-pagination [collectionSize]="totalElements" [(page)]="page" [pageSize]="size"
+                                        [maxSize]="5" [boundaryLinks]="true" (pageChange)="queryProductsByType()"></ngb-pagination>
+                    </div>
+                    <div class="products-sell-out text-center" *ngIf="totalElements==0">
+                        <img src="../../../assets/img/soldout2.png" alt="卖光了">
                     </div>
                 </div>
             </div>

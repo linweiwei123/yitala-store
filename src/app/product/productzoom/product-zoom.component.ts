@@ -1,16 +1,20 @@
 /**
  * Created by yitala on 2017/5/25.
  */
-import {Component} from "@angular/core";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from "@angular/core";
 @Component({
     selector:'product-zoom',
     templateUrl:'./product-zoom.component.html',
     styleUrls:['./product-zoom.component.css']
 })
 
-export class ProductZoomComponent{
+export class ProductZoomComponent implements OnChanges{
 
-    smallImageSrc:string = "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg";
+    smallImageSrc:string="";
+
+    @Input()
+    private images:any[];
+
     private zoomOptions = {
         hoverView: {
             zIndex: '10'
@@ -29,13 +33,16 @@ export class ProductZoomComponent{
             zoom: 3   // 4x zoom
         }
     }
-    private SwipeOptions:any;
-    imgs = [
-        "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
-        "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
-        "http://ojp8ivtxn.bkt.clouddn.com/20170113_WechatIMG786.jpeg",
-        "http://ojp8ivtxn.bkt.clouddn.com/20170114_WechatIMG783.jpeg"
-    ]
+
+    constructor(){
+
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.smallImageSrc = this.images[0];
+    }
+
+
     chooseImg(img:string):void{
         this.smallImageSrc = img;
     }

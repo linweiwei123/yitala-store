@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Created by yitala on 2017/3/12.
  */
@@ -10,15 +11,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var HeaderComponent = (function () {
     function HeaderComponent(router) {
         this.router = router;
         this.mobileMenu = false;
         this.categorySubMenuStatus = false;
         router.events.subscribe(function (event) {
-            if (!(event instanceof NavigationEnd)) {
+            if (!(event instanceof router_1.NavigationEnd)) {
                 return;
             }
             window.scrollTo(0, 0);
@@ -45,22 +47,23 @@ var HeaderComponent = (function () {
             }
         }, false);
     };
-    HeaderComponent.prototype.gotoPage = function (type) {
-        this.categorySubMenuStatus = true;
+    HeaderComponent.prototype.gotoCategory = function (type, event) {
+        event.stopPropagation();
+        this.categorySubMenuStatus = false;
         this.router.navigate(['/category', type]);
     };
-    HeaderComponent.prototype.toggleCategory = function () {
-        this.categorySubMenuStatus = !this.categorySubMenuStatus;
+    HeaderComponent.prototype.toggleCategory = function (status) {
+        this.categorySubMenuStatus = status;
     };
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    Component({
+    core_1.Component({
         selector: 'layout-header',
         templateUrl: './header.component.html',
         styleUrls: ['./header.component.css']
     }),
-    __metadata("design:paramtypes", [Router])
+    __metadata("design:paramtypes", [router_1.Router])
 ], HeaderComponent);
-export { HeaderComponent };
+exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map

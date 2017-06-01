@@ -11,3 +11,40 @@
 .sidebar .widget.widget_categories {
     margin-bottom: 50px;
 }
+.product-item-container:hover{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+.product-item-container:hover .quick-view-btn{
+    opacity: 1;
+}
+.product-item .quick-view-btn {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    margin: -26px 0 0 -70px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    padding: 11px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333745;
+    background: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.product-button-action{
+    -webkit-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
+    transform: translateY(50px);
+}
+.product-button-action .button{
+    padding: 0px;
+}

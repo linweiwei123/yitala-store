@@ -6,3 +6,46 @@
 .single-product-content{
     padding-left: 10px;
 }
+.product-status{
+    margin: 5px 0 10px;
+}
+.product-status span.in-stock{
+    margin-left: 0px;
+}
+.product-property{
+    font-weight: normal;
+    font-size: 14px;
+    color: #9b9b9b;
+    line-height: 30px;
+    margin-right: 10px;
+    width: 70px;
+    display: inline-block;
+}
+
+.single-product-content .product-desc {
+    margin: 5px 0 15px;
+}
+.single-add-to-cart-button{
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    color: #df5c53;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 46px;
+    margin-left: 30px;
+}
+span.money{
+}
+.discount{
+    background-color: #df5c53;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0px 10px;
+    border-radius: 20px;
+    margin-bottom: 0px;
+    line-height: 23px;
+}
+.price .money{
+    margin-right: 10px;
+}

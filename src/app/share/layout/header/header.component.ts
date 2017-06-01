@@ -51,13 +51,14 @@ export class HeaderComponent implements OnInit{
         },false)
     }
 
-    gotoPage(type:string):void{
-        this.categorySubMenuStatus = true;
+    gotoCategory(type:string,event:any):void{
+        event.stopPropagation();
+        this.categorySubMenuStatus = false;
         this.router.navigate(['/category',type]);
     }
 
-    toggleCategory():void{
-        this.categorySubMenuStatus = !this.categorySubMenuStatus;
+    toggleCategory(status:boolean):void{
+        this.categorySubMenuStatus = status;
     }
 
 }

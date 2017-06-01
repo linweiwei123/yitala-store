@@ -3,7 +3,7 @@
         <img  [src]='smallImageSrc'>
     </div>
     <ul class="view-images row col-xs-2 col-sm-2 col-md-2">
-        <li *ngFor="let img of imgs" (click)="chooseImg(img)">
+        <li *ngFor="let img of images" (click)="chooseImg(img)">
             <div class="image-box" [ngClass]="{'choose':img==smallImageSrc}">
                 <img [src]="img" alt="">
             </div>

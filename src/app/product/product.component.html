@@ -11,38 +11,72 @@
 
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="single-product-content">
-                                        <h6 class="product-title">Rust Shirt With Half Sleeves 2</h6>
-                                        <div class="product-price"> <span class="price"><span class="money" data-currency-usd="$75.00">$75.00</span></span> <span class="in-stock"><i class="fa fa-check"></i> Instock</span> </div>
-                                        <!-- Rate code -->
-                                        <div class="star-rating"> <span class="spr-badge" id="spr_badge_6441314053" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews</span> </span>
+                                        <h6 class="product-title">
+                                            <span class="product-property">商品：</span>{{product.name}}
+                                        </h6>
+                                        <div class="product-title">
+                                            <span class="product-property">品牌：</span>{{product.brand}}
                                         </div>
-                                        <!-- End rate-->
-                                        <div class="product-preview" style="display: inline-block; margin-bottom: 0px;  position: relative; top: -34px;">
-                                            <ul class="review-list">
-                                                <li class="review-item"><a class="caption_review" href="#" style=" opacity: 0;">0 Review(M)</a></li>
-                                                <li class="review-item"><a class="btn_add_review" href="#tab_product">Add your review</a></li>
-                                            </ul>
+                                        <div class="product-price">
+                                            <span class="product-property">价格：</span>
+                                            <span class="price">
+                                                <span class="money rmb" *ngIf="product.discount" >
+                                                    <del class="small-price"><i class="rmb">¥</i>{{product.price}}</del>
+                                                </span>
+                                                <span class="money">
+                                                    <em class="rmb">¥</em>{{product.discount?product.price*product.discount/100:product.price}}
+                                                    <label *ngIf="product.discount" class="discount">限时促销</label>
+                                                </span>
+                                            </span>
                                         </div>
-                                        <!-- Descriptioin product-->
-                                        <div class="product-desc"> Keep you skin care products and make-up secure when you are at home or on the road. This Meraki toilet bag has a tiful and simple design with a closure, and the size provides you with lots of room for you. </div>
+                                        <div class="product-desc">
+                                            <span class="product-property">商品描述：</span>
+                                            {{product.description}}
+                                        </div>
 
+                                        <div class="product-status">
+                                            <span class="product-property">库存：</span>
+                                            <span class="in-stock">
+                                                <i class="fa fa-check"></i> {{product.status}}
+                                            </span>
+                                        </div>
+                                        <!-- Rate code -->
+                                        <!--<div class="star-rating"> <span class="spr-badge" id="spr_badge_6441314053" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews</span> </span>-->
+                                        <!--</div>-->
+                                        <!-- End rate-->
+                                        <!-- Descriptioin product-->
+                                        <div class="product-status">
+                                            <span class="product-property">浏览次数：</span>
+                                            <span class="in-stock">
+                                                <i class="fa fa-eye"></i> 18
+                                            </span>
+                                        </div>
                                         <div class="product-list-action">
-                                            <div>
-                                                <div class="item-action"><a class="email_to_friend" href="#"><i class="fa fa-envelope-o"></i>Email to a Friend</a></div>
+                                            <div class="mb15">
                                                 <div class="item-action">
-                                                    <!-- Created by Andy 13/10/2016 --><a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist"><span class="ti-heart"></span></a> </div>
-                                                <div class="item-action"><a class="compare button" data-pid="rust-shirt-with-half-sleeves-2" title="Compare product" href="#"><i class="flaticon-reload"></i></a></div>
+                                                    <a class="email_to_friend" href="#">
+                                                        <i class="fa fa-envelope-o"></i>分享给朋友
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="quantity">
-                                            <div class="quantity buttons_added"> <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
-                                                <input id="Quantity" type="text" value="1" title="Qty" class="input-text qty text" size="1"> <a href="#" class="sign plus"><i class="fa fa-plus"></i></a> </div>
-                                        </div> <a href="#" class="button add_to_cart_button single_add_to_cart_button" data-pid="21300741317" title="Add to Cart">Add to Cart</a>
+                                            <div class="quantity buttons_added">
+                                                <a href="#" class="sign minus">
+                                                    <i class="fa fa-minus"></i>
+                                                </a>
+                                                <input id="Quantity" type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                                <a href="#" class="sign plus">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a class="button  single-add-to-cart-button" ><i class="iconfont-yitala">&#xe6c8;</i>添加到购物车</a>
                                         <!--</form>-->
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <product-zoom></product-zoom>
+                                    <product-zoom [images]="product.imagesArray"></product-zoom>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,25 @@
+#primary-navigation .sub-menu li:hover{
+    cursor: pointer;
+    background-color: #F7F7F7;
+    font-weight: bold;
+}
+#primary-navigation .sub-menu li:hover i{
+    font-weight: normal;
+    color: #df5c53;
+}
+#primary-navigation ul.sub-menu{
+    padding-bottom: 10px!important;
+    border-radius: 4px;
+    box-shadow: 0 7px 21px rgba(0,0,0,0.3)
+}
+ul.menu-nav li .sub-menu{
+    min-width: 180px;
+    width: 180px;
+}
+ul.menu-nav li .sub-menu a{
+    padding: 3px 30px 3px 30px
+}
+ul.menu-nav li .sub-menu i{
+    margin-right: 25px;
+    font-size: 18px;
+}

@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Created by Linweiwei on 2016/12/22.
  */
@@ -7,30 +8,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { GlobalLoadingComponent } from "./loading/global-loading.component";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
+var forms_1 = require("@angular/forms");
+var global_loading_component_1 = require("./loading/global-loading.component");
 var ShareModule = (function () {
     function ShareModule() {
     }
     return ShareModule;
 }());
 ShareModule = __decorate([
-    NgModule({
+    core_1.NgModule({
         imports: [
-            CommonModule,
-            FormsModule
+            common_1.CommonModule,
+            forms_1.FormsModule
         ],
         declarations: [
-            GlobalLoadingComponent
+            global_loading_component_1.GlobalLoadingComponent
         ],
         providers: [],
         exports: [
-            GlobalLoadingComponent
+            global_loading_component_1.GlobalLoadingComponent
         ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
     })
 ], ShareModule);
-export { ShareModule };
+exports.ShareModule = ShareModule;
 //# sourceMappingURL=share.module.js.map

@@ -83,11 +83,18 @@
                                 <li class="menu-item menu-item-has-children megamenu-menu-item active">
                                     <a [routerLink]="['/home']">首页</a>
                                 </li>
-                                <li class="menu-item menu-item-has-children" [ngClass]="{'show-active':categorySubMenuStatus}" (click)="toggleCategory()">
+                                <li class="menu-item menu-item-has-children" [ngClass]="{'show-active':categorySubMenuStatus}"
+                                    (mouseenter)="toggleCategory(true)" (click)="toggleCategory(true)" (mouseleave)="toggleCategory(false)">
                                     <a href="javascript:;">商品分类</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a (click)="gotoPage('bag')">包包</a></li>
-                                        <li class="menu-item"><a href="/checkout">Shop Checkout</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('bag',$event)"><i class="iconfont-yitala">&#xe66b;</i>包包</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('watch',$event)"><i class="iconfont-yitala">&#xe628;</i>手表</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('earring',$event)"><i class="iconfont-yitala">&#xe618;</i>耳钉</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('necklace',$event)"><i class="iconfont-yitala">&#xe699;</i>项链</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('bracelet',$event)"><i class="iconfont-yitala">&#xe61f;</i>手链</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('ring',$event)"><i class="iconfont-yitala">&#xe640;</i>戒子</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('brooch',$event)"><i class="iconfont-yitala">&#xe60b;</i>胸针</a></li>
+                                        <li class="menu-item"><a (click)="gotoCategory('other',$event)"><i class="iconfont-yitala">&#xe633;</i>其他</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-has-children megamenu-menu-item ">
