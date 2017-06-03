@@ -23,6 +23,7 @@ var product_zoom_component_1 = require("./product/productzoom/product-zoom.compo
 var home_component_1 = require("./home/home.component");
 var cart_component_1 = require("./cart/cart.component");
 var base_service_1 = require("./share/layout/service/base.service");
+var FilterImagePipe_1 = require("./share/layout/pipes/FilterImagePipe");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -48,7 +49,8 @@ AppModule = __decorate([
             home_component_1.HomeComponent,
             product_component_1.ProductComponent,
             product_zoom_component_1.ProductZoomComponent,
-            cart_component_1.CartComponent
+            cart_component_1.CartComponent,
+            FilterImagePipe_1.FilterImagePipe
         ],
         providers: [
             base_service_1.BaseService

@@ -15,6 +15,7 @@ import {ProductZoomComponent} from "./product/productzoom/product-zoom.component
 import {HomeComponent} from "./home/home.component";
 import {CartComponent} from "./cart/cart.component";
 import {BaseService} from "./share/layout/service/base.service";
+import {FilterImagePipe} from "./share/layout/pipes/FilterImagePipe";
 
 @NgModule({
     imports: [
@@ -35,7 +36,8 @@ import {BaseService} from "./share/layout/service/base.service";
         HomeComponent,
         ProductComponent,
         ProductZoomComponent,
-        CartComponent
+        CartComponent,
+        FilterImagePipe
     ],
     providers:[
         BaseService

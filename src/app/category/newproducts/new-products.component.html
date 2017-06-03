@@ -1,7 +1,7 @@
 <ul class="new-products">
     <li class="new-item" *ngFor="let item of items" >
-        <div class="product-image" (click)="gotoProductDetail(product.productId)">
-            <a href="">
+        <div class="product-image" >
+            <a (click)="gotoProductDetail(item.productId)">
                 <img [src]="item.images|filterImage">
             </a>
         </div>
