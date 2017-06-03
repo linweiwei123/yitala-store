@@ -1,41 +1,16 @@
 <ul class="new-products">
-    <li class="new-item">
-        <div class="product-image">
+    <li class="new-item" *ngFor="let item of items" >
+        <div class="product-image" (click)="gotoProductDetail(product.productId)">
             <a href="">
-                <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
+                <img [src]="item.images|filterImage">
             </a>
         </div>
         <div class="product-info">
-            <a href="">
-                <span class="name">香奈儿包包</span>
-            </a>
-            <span class="price"><em class="unit">¥</em>200</span>
-        </div>
-    </li>
-    <li class="new-item">
-        <div class="product-image">
-            <a href="">
-                <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-            </a>
-        </div>
-        <div class="product-info">
-            <a href="">
-                <span class="name">香奈儿包包</span>
-            </a>
-            <span class="price"><em class="unit">¥</em>200</span>
-        </div>
-    </li>
-    <li class="new-item">
-        <div class="product-image">
-            <a href="">
-                <img alt="Espadrilles 2" src="../../../assets/img/product_demo.jpeg">
-            </a>
-        </div>
-        <div class="product-info">
-            <a href="">
-                <span class="name">香奈儿包包</span>
-            </a>
-            <span class="price"><em class="unit">¥</em>200</span>
+            <div>
+                <span class="name">{{item.name}}</span>
+                <div>{{item.brand}}</div>
+            </div>
+            <span class="money"><em class="rmb">¥</em>{{item.price}}</span>
         </div>
     </li>
 </ul>

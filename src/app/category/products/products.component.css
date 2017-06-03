@@ -48,3 +48,40 @@
 .product-button-action .button{
     padding: 0px;
 }
+#primary{
+    padding-top: 20px;
+}
+
+.product-categories li, .product-brands li {
+    padding: 8px 0 0 0;
+}
+ul.product-categories li i{
+    margin-right: 15px;
+}
+ul.product-categories li:hover{
+   cursor: pointer;
+}
+.sidebar .shop-sidebar-area{
+    padding-left:0px;
+    padding-right:0px;
+}
+#secondary .widget{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sidebar .widget.widget_categories{
+    margin-bottom: 30px;
+}
+.cagegory-bg-1{
+    background-image: url("http://ojp8ivtxn.bkt.clouddn.com/category_01.png");
+}
+.cagegory-bg-2{
+    background-image: url("http://ojp8ivtxn.bkt.clouddn.com/category_02.png");
+}
+.banner-content .title-page {
+    color: #df5c53;
+}
+.banner-wrap{
+    position: relative;
+}

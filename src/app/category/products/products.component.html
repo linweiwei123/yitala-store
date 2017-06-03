@@ -2,21 +2,9 @@
     <div class="banner-overlay-color" style="background-color: rgba(0,0,0,0.4)"></div>
     <div class="banner-header" style="background-image: url(https://cdn.shopify.com/s/files/1/1511/4592/files/banner-img-shop.jpg?7168648318872766401); min-height:460px;">
         <div class="banner-content">
-            <h3 class="title-page" data-color="#333333">
-                Grid Category Left Sidebar
-            </h3>
-            <div class="breadcrumb-wrap">
-                <nav class="breadcrumb-trail breadcrumbs">
-                    <ul class="trail-items">
-                        <li class="trail-item trail-begin">
-                            <a href="/"><span>Home</span></a>
-                        </li>
-                        <li class="trail-item trail-end">
-                            <span>collections / all</span>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <h1 class="title-page" data-color="#333333">
+                真希古懂淘起来！
+            </h1>
         </div>
     </div>
 </div>
@@ -27,18 +15,36 @@
             <!-- 右侧商品列表 -->
             <div id="primary" class="content-area col-xs-12 col-sm-8 col-md-9 has-sidebar-left">
                 <div id="main" class="site-main">
-                    <div class="product-top">
-                        <p class="products-result-count"> 总共 118 件商品</p>
+                    <div class="product-top" [ngClass]="{'block-loading':loading}">
+                        <p class="products-result-count"> 总共 <span class="text-orange">{{totalElements}}</span> 件商品</p>
                         <form class="products-ordering" method="get">
-                            <div class="sort-by"> <span class="lable-title">Sort by</span>
+                            <div class="sort-by">
+                                <span class="lable-title">按</span>
+                                <div class="select-wrapper-sm">
+                                    <select (change)="changeSort($event.target.value)">
+                                        <option value="createTime-DESC">时间，从新到旧</option>
+                                        <option value="createTime-ASC">时间，从旧到新</option>
+                                        <option value="price-ASC">价格，从低到高</option>
+                                        <option value="price-DESC">价格，从高到低</option>
+                                    </select>
+                                </div>
+                                <span class="lable-title">排序</span>
                             </div>
                             <div class="sort-number-show">
-                                <span class="lable-title">Show:</span>
+                                <span class="lable-title">显示：</span>
+                                <div class="select-wrapper-sm">
+                                    <select (change)="changePageSize($event.target.value)">
+                                        <option value="12">12</option>
+                                        <option value="24">24</option>
+                                        <option value="36">36</option>
+                                    </select>
+                                </div>
+                                <span class="lable-title">件</span>
                             </div>
                         </form>
+                        <div class="bg-striped"></div>
                     </div>
                     <div class="products row columns-4 products-grid products-wraps" id="collection-product">
-                        <!-- Created by Andy 13/10/2016 -->
                         <div class="product-item view-grid" style="display:block; " *ngFor="let product of productsList" >
                             <div class="product-item-container">
                                 <div class="product-media" (click)="gotoProductDetail(product.productId)">
@@ -84,35 +90,27 @@
             <!-- 左侧商品推荐 -->
             <div id="secondary" class="sidebar shop-sidebar-area col-xs-12 col-sm-4 col-md-3 sidebar-right">
                 <!-- Widget Categories -->
-                <div class="widget widget_categories">
-                    <h4 class="title-sidebar">Categories</h4>
-                    <ul class="product-categories">
-                        <li class="owl-carousel cat-item "><a href="/collections/across-bags?view=left_grid">Across Bags</a>5</li>
-                        <li class="owl-carousel cat-item "><a href="/collections/bycicle?view=left_grid">Bycicle</a>6</li>
-                        <li class="owl-carousel cat-item "><a href="/collections/dresses?view=left_grid">Dresses</a>5</li>
-                        <li class="owl-carousel cat-item "><a href="/collections/food?view=left_grid">Food</a>5</li>
-                        <li class="owl-carousel cat-item "><a href="/collections/lighting?view=left_grid">Lighting</a>6</li>
-                    </ul>
-                </div>
+                <div class="widget widget_categories" style="position: relative">
+                    <h4 class="title-sidebar">商品分类</h4>
+                    <div [ngClass]="{'block-loading':typeLoading}">
+                        <ul class="product-categories" >
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='earring'}" (click)="changeType('earring')"><a ><i class="iconfont-yitala">&#xe618;</i>耳钉</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='necklace'}" (click)="changeType('necklace')"><a ><i class="iconfont-yitala">&#xe699;</i>项链</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='bracelet'}" (click)="changeType('bracelet')"><a ><i class="iconfont-yitala">&#xe61f;</i>手链</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='ring'}" (click)="changeType('ring')"><a ><i class="iconfont-yitala">&#xe640;</i>戒子</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='brooch'}" (click)="changeType('brooch')"><a ><i class="iconfont-yitala">&#xe60b;</i>胸针</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='bag'}" (click)="changeType('bag')"><a ><i class="iconfont-yitala">&#xe66b;</i>包包</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='watch'}" (click)="changeType('watch')"><a ><i class="iconfont-yitala">&#xe628;</i>手表</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='other'}" (click)="changeType('other')"><a ><i class="iconfont-yitala">&#xe633;</i>其他</a></li>
+                        </ul>
+                        <div class="bg-striped"></div>
+                    </div>
 
-                <div class="widget widget_brands">
-                    <h4 class="title-sidebar">Brands</h4>
-                    <ul class="product-brands">
-                        <li class="brand-item">
-                            <a href="/collections/all/blank?view=left_grid" title="Narrow selection to products matching tag Blank">Blank</a>(2)
-                        </li>
-                        <li class="brand-item">
-                            <a href="/collections/all/x-shop?view=left_grid" title="Narrow selection to products matching tag x-shop">x-shop</a>(1)
-                        </li>
-                        <li class="brand-item">
-                            <a href="/collections/all/zara?view=left_grid" title="Narrow selection to products matching tag Zara">Zara</a>(3)
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="widget widget_new">
-                    <h4 class="title-sidebar">新品推荐</h4>
-                    <new-products></new-products>
+                    <h4 class="title-sidebar" style="position: relative">新品推荐 <span class="new-span"> new</span></h4>
+                    <new-products [items]="randomList"></new-products>
                 </div>
             </div>
 

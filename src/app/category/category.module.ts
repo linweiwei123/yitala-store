@@ -11,6 +11,7 @@ import {ShareModule} from "../share/share.module";
 import {ProductsComponent} from "./products/products.component";
 import {RouterModule, Routes} from "@angular/router";
 import {NewProductsComponent} from "./newproducts/new-products.component";
+import {FilterImagePipe} from "../share/layout/pipes/FilterImagePipe";
 
 const categoryRoutes:Routes = [
     {
@@ -30,7 +31,8 @@ const categoryRoutes:Routes = [
     ],
     declarations:[
         ProductsComponent,
-        NewProductsComponent
+        NewProductsComponent,
+        FilterImagePipe
     ],
     schemas:[
 

@@ -2,6 +2,15 @@ body{
     color: #969696;
 }
 
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    line-height: 20px;
+    padding: 5px 30px 5px 10px;
+    color: #333;
+}
+
 @font-face {
     font-family: 'iconfont';  /* project id 315415 */
     src: url('//at.alicdn.com/t/font_ql60w375l4ish5mi.eot');
@@ -511,6 +520,32 @@ header.header-fixed .main-header .mobile-navigation{
     }
 }
 
+/** @animation **/
+@-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 40px 40px;
+    }
+}
+@-moz-keyframes progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 40px 40px;
+    }
+}
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 40px 40px;
+    }
+}
+
 /** @common **/
 .text-orange{
     color: #df5c53
@@ -518,13 +553,65 @@ header.header-fixed .main-header .mobile-navigation{
 .mb15{
     margin-bottom: 15px;
 }
+.select-wrapper-sm{
+    display: inline-block;
+    position: relative;
+}
+.select-wrapper:before, .select-wrapper-sm:before {
+    content: '\f107';
+    position: absolute;
+    right: 10px;
+    color: #666;
+    font-family:'FontAwesome';
+    font-size: 18px;
+    margin-top: 1px;
+    pointer-events: none;
+}
+
+.block-loading .bg-striped{
+    display: block;
+}
+.bg-striped{
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    opacity: 0.25;
+    background-color: #fff;
+    background-image: linear-gradient(-45deg, #bfbfbf 25%, transparent 25%, transparent 50%, #bfbfbf 50%, #bfbfbf 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+    -webkit-animation: progress-bar-stripes 0.5s linear infinite;
+    -moz-animation: progress-bar-stripes 0.5s linear infinite;
+    animation: progress-bar-stripes 0.5s linear infinite;
+}
+
+.new-span{
+    background-color: #0bc39f;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px 5px;
+    border-radius: 20px;
+    display: inline-block;
+    text-transform: none;
+    position: absolute;
+    top:3px;
+}
 
 /** @覆盖样式**/
 
 .carousel-indicators li{
     margin: 3px!important;
 }
-
+.product-top{
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
 .product-content-single .col-xs-12 .zoomer{
     padding-right: 15px;
     padding-left: 15px;
