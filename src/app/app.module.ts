@@ -16,6 +16,7 @@ import {HomeComponent} from "./home/home.component";
 import {CartComponent} from "./cart/cart.component";
 import {BaseService} from "./share/layout/service/base.service";
 import {FilterImagePipe} from "./share/layout/pipes/FilterImagePipe";
+import {RecommendComponent} from "./home/recommend/recommend.component";
 
 @NgModule({
     imports: [
@@ -34,10 +35,10 @@ import {FilterImagePipe} from "./share/layout/pipes/FilterImagePipe";
         HeaderComponent,
         FooterComponent,
         HomeComponent,
+        RecommendComponent,
         ProductComponent,
         ProductZoomComponent,
-        CartComponent,
-        FilterImagePipe
+        CartComponent
     ],
     providers:[
         BaseService

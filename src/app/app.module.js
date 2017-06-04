@@ -23,7 +23,7 @@ var product_zoom_component_1 = require("./product/productzoom/product-zoom.compo
 var home_component_1 = require("./home/home.component");
 var cart_component_1 = require("./cart/cart.component");
 var base_service_1 = require("./share/layout/service/base.service");
-var FilterImagePipe_1 = require("./share/layout/pipes/FilterImagePipe");
+var recommend_component_1 = require("./home/recommend/recommend.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -47,10 +47,10 @@ AppModule = __decorate([
             header_component_1.HeaderComponent,
             footer_component_1.FooterComponent,
             home_component_1.HomeComponent,
+            recommend_component_1.RecommendComponent,
             product_component_1.ProductComponent,
             product_zoom_component_1.ProductZoomComponent,
-            cart_component_1.CartComponent,
-            FilterImagePipe_1.FilterImagePipe
+            cart_component_1.CartComponent
         ],
         providers: [
             base_service_1.BaseService

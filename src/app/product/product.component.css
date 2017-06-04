@@ -36,16 +36,7 @@
 }
 span.money{
 }
-.discount{
-    background-color: #df5c53;
-    color: #fff;
-    font-size: 12px;
-    font-weight: normal;
-    padding: 0px 10px;
-    border-radius: 20px;
-    margin-bottom: 0px;
-    line-height: 23px;
-}
+
 .price .money{
     margin-right: 10px;
 }

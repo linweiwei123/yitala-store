@@ -1,347 +1,98 @@
-<div class="carousel-response">
-    <ngb-carousel>
-        <ng-template ngbSlide>
-            <img src="../../assets/img/slide_1.jpg" alt="Random first slide">
-            <div class="carousel-caption">
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-        </ng-template>
-        <ng-template ngbSlide>
-            <img src="../../assets/img/slide_2.jpg" alt="Random second slide">
-            <div class="carousel-caption">
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </ng-template>
-        <ng-template ngbSlide>
-            <img src="../../assets/img/slide_3.jpg" alt="Random second slide">
-            <div class="carousel-caption">
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </ng-template>
-    </ngb-carousel>
-</div>
+<div class="home-container">
+    <div class="carousel-response">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <img src="../../assets/img/slide_1.jpg" alt="Random first slide">
+                <div class="carousel-caption">
+                    <h1>推荐宝贝，镇店之宝！</h1>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img src="../../assets/img/slide_2.jpg" alt="Random second slide">
+                <div class="carousel-caption">
+                    <h1>优惠宝贝，全网最低！</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img src="../../assets/img/slide_3.jpg" alt="Random second slide">
+                <div class="carousel-caption">
+                    <h1>新到宝贝，独特品味！</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
 
-<section id="section24">
-    <div class="container">
-        <div class="icons-box-wrap">
-            <div class="row wow fadeInUp">
-                <div class="col-sm-4">
-                    <!-- Icon Box -->
-                    <div class="icon-box icon-box-style2"> <span class="font-icon">
+    <section id="section24">
+        <div class="container">
+            <div class="icons-box-wrap">
+                <div class="row wow fadeInUp">
+                    <div class="col-sm-4">
+                        <!-- Icon Box -->
+                        <div class="icon-box icon-box-style2"> <span class="font-icon">
                       <span class="flaticon-rocket"></span> </span>
-                        <div class="icon-box-content">
-                            <h5 class="icon-box-title"><a href="#">FREE DELIVERY</a></h5>
-                            <p class="icon-box-desc">Free on all order over $80.00</p>
+                            <div class="icon-box-content">
+                                <h5 class="icon-box-title"><a href="#">Vintage NO.1</a></h5>
+                                <p class="icon-box-desc">中国第一家专业的Vintage平台</p>
+                            </div>
                         </div>
+                        <!-- End Icon Box -->
                     </div>
-                    <!-- End Icon Box -->
-                </div>
-                <div class="col-sm-4">
-                    <!-- Icon Box -->
-                    <div class="icon-box icon-box-style2"> <span class="font-icon">
+                    <div class="col-sm-4">
+                        <!-- Icon Box -->
+                        <div class="icon-box icon-box-style2"> <span class="font-icon">
                       <span class="flaticon-lock"></span> </span>
-                        <div class="icon-box-content">
-                            <h5 class="icon-box-title"><a href="#">STORE SECURED</a></h5>
-                            <p class="icon-box-desc">Secure all your payments</p>
+                            <div class="icon-box-content">
+                                <h5 class="icon-box-title"><a href="#">价格最优惠</a></h5>
+                                <p class="icon-box-desc">最优惠价格？别找了就是这！</p>
+                            </div>
                         </div>
+                        <!-- End Icon Box -->
                     </div>
-                    <!-- End Icon Box -->
-                </div>
-                <div class="col-sm-4">
-                    <!-- Icon Box -->
-                    <div class="icon-box icon-box-style2"> <span class="font-icon">
+                    <div class="col-sm-4">
+                        <!-- Icon Box -->
+                        <div class="icon-box icon-box-style2"> <span class="font-icon">
                       <span class="flaticon-passage-of-time"></span> </span>
-                        <div class="icon-box-content">
-                            <h5 class="icon-box-title"><a href="#">MONEY SAFE</a></h5>
-                            <p class="icon-box-desc">30 Days money guarantee</p>
+                            <div class="icon-box-content">
+                                <h5 class="icon-box-title"><a href="#">靠谱</a></h5>
+                                <p class="icon-box-desc">最关键的是：我们是靠谱的vintage销售商</p>
+                            </div>
                         </div>
+                        <!-- End Icon Box -->
                     </div>
-                    <!-- End Icon Box -->
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <!--.title-description-block-->
-        <div class="title-description-block has-underline text-center" >
-            <h3 class="title-block" data-size="28px">推荐宝贝</h3> </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- 推荐 -->
+            <div class="title-description-block has-underline text-center" >
+                <h3 class="title-block" data-size="28px">
+                    <i class="fa fa-thumbs-o-up text-orange mr10"></i>推荐宝贝
+                </h3>
+            </div>
+            <recommend-products [products]="recProducts" [showProducts]="recShowProducts" ></recommend-products>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- 优惠 -->
+            <div class="title-description-block has-underline text-center" >
+                <h3 class="title-block" data-size="28px"><i class="fa fa-cut text-orange mr10"></i>优惠宝贝</h3></div>
 
-        <div class="products-wraps products-wraps-style2 columns-4" >
-            <div class="product-item" *ngFor="let item of recProducts;let i = index" >
-                <div *ngIf="i<4">
-                    <div class="product-media">
-                        <div class="product-images-wrap">
-                            <figure class="product-first-figure">
-                                <a href="#">
-                                    <img alt="Espadrilles 2" [src]="item.images|filterImage"> </a>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">
-                            <a href="/products/espadrilles-2">{{item.name}}</a>
-                        </h3>
-                        <span class="price">
-                        <span class="money">{{item.price}}</span>
-                    </span>
-                        <div class="product-button-action">
-                            <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                            <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                                <span class="ti-heart"></span>
-                            </a>
-                            <a class="compare button" title="Compare product" href="#">
-                                <i class="flaticon-reload"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <recommend-products [products]="discountProducts" [showProducts]="discountShowProducts" ></recommend-products>
         </div>
-        <p class="buttons-link" style="margin-top: 10px">
-            <a href="/collections/all?view=left_grid" class="button-light button-smaller">Shop more</a>
-        </p>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <!--.title-description-block-->
-        <div class="title-description-block has-underline text-center" >
-            <h3 class="title-block" data-size="28px">新品推荐</h3> </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- 推荐 -->
+            <div class="title-description-block has-underline text-center" >
+                <h3 class="title-block" data-size="28px"><i class="fa fa-truck text-orange mr10"></i>新到宝贝</h3></div>
 
-        <div class="products-wraps products-wraps-style2 columns-4" >
-            <div class="product-item">
-                <div class="product-media">
-                    <div class="product-images-wrap">
-                        <figure class="product-first-figure">
-                            <a href="#">
-                                <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                        </figure>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">
-                        <a href="/products/espadrilles-2">Espadrilles 2</a>
-                    </h3>
-                    <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                    <div class="product-button-action">
-                        <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                        <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                            <span class="ti-heart"></span>
-                        </a>
-                        <a class="compare button" title="Compare product" href="#">
-                            <i class="flaticon-reload"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-media">
-                    <div class="product-images-wrap">
-                        <figure class="product-first-figure">
-                            <a href="#">
-                                <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                        </figure>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">
-                        <a href="/products/espadrilles-2">Espadrilles 2</a>
-                    </h3>
-                    <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                    <div class="product-button-action">
-                        <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                        <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                            <span class="ti-heart"></span>
-                        </a>
-                        <a class="compare button" title="Compare product" href="#">
-                            <i class="flaticon-reload"></i>
-                        </a>
-                    </div>
-                </div>
-            </div><div class="product-item">
-            <div class="product-media">
-                <div class="product-images-wrap">
-                    <figure class="product-first-figure">
-                        <a href="#">
-                            <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                    </figure>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">
-                    <a href="/products/espadrilles-2">Espadrilles 2</a>
-                </h3>
-                <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                <div class="product-button-action">
-                    <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                    <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                        <span class="ti-heart"></span>
-                    </a>
-                    <a class="compare button" title="Compare product" href="#">
-                        <i class="flaticon-reload"></i>
-                    </a>
-                </div>
-            </div>
-        </div><div class="product-item">
-            <div class="product-media">
-                <div class="product-images-wrap">
-                    <figure class="product-first-figure">
-                        <a href="#">
-                            <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                    </figure>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">
-                    <a href="/products/espadrilles-2">Espadrilles 2</a>
-                </h3>
-                <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                <div class="product-button-action">
-                    <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                    <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                        <span class="ti-heart"></span>
-                    </a>
-                    <a class="compare button" title="Compare product" href="#">
-                        <i class="flaticon-reload"></i>
-                    </a>
-                </div>
-            </div>
+            <recommend-products [products]="newProducts" [showProducts]="newShowProducts" ></recommend-products>
         </div>
-        </div>
-        <p class="buttons-link" style="margin-top: 10px">
-            <a href="/collections/all?view=left_grid" class="button-light button-smaller">Shop more</a>
-        </p>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <!--.title-description-block-->
-        <div class="title-description-block has-underline text-center" >
-            <h3 class="title-block" data-size="28px">新品推荐</h3> </div>
-
-        <div class="products-wraps products-wraps-style2 columns-4" >
-            <div class="product-item">
-                <div class="product-media">
-                    <div class="product-images-wrap">
-                        <figure class="product-first-figure">
-                            <a href="#">
-                                <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                        </figure>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">
-                        <a href="/products/espadrilles-2">Espadrilles 2</a>
-                    </h3>
-                    <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                    <div class="product-button-action">
-                        <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                        <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                            <span class="ti-heart"></span>
-                        </a>
-                        <a class="compare button" title="Compare product" href="#">
-                            <i class="flaticon-reload"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-media">
-                    <div class="product-images-wrap">
-                        <figure class="product-first-figure">
-                            <a href="#">
-                                <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                        </figure>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">
-                        <a href="/products/espadrilles-2">Espadrilles 2</a>
-                    </h3>
-                    <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                    <div class="product-button-action">
-                        <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                        <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                            <span class="ti-heart"></span>
-                        </a>
-                        <a class="compare button" title="Compare product" href="#">
-                            <i class="flaticon-reload"></i>
-                        </a>
-                    </div>
-                </div>
-            </div><div class="product-item">
-            <div class="product-media">
-                <div class="product-images-wrap">
-                    <figure class="product-first-figure">
-                        <a href="#">
-                            <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                    </figure>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">
-                    <a href="/products/espadrilles-2">Espadrilles 2</a>
-                </h3>
-                <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                <div class="product-button-action">
-                    <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                    <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                        <span class="ti-heart"></span>
-                    </a>
-                    <a class="compare button" title="Compare product" href="#">
-                        <i class="flaticon-reload"></i>
-                    </a>
-                </div>
-            </div>
-        </div><div class="product-item">
-            <div class="product-media">
-                <div class="product-images-wrap">
-                    <figure class="product-first-figure">
-                        <a href="#">
-                            <img alt="Espadrilles 2" src="../../assets/img/product_demo.jpeg"> </a>
-                    </figure>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">
-                    <a href="/products/espadrilles-2">Espadrilles 2</a>
-                </h3>
-                <span class="price">
-                        <span class="money">$130.00</span>
-                    </span>
-                <div class="product-button-action">
-                    <a href="#" class="button add_to_cart_button" title="Add to Cart">Add to Cart</a>
-                    <a class="wishlist-login  button add_to_wishlist " href="javascript:void(0)" title="Add to wishlist">
-                        <span class="ti-heart"></span>
-                    </a>
-                    <a class="compare button" title="Compare product" href="#">
-                        <i class="flaticon-reload"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-        <p class="buttons-link" style="margin-top: 10px">
-            <a href="/collections/all?view=left_grid" class="button-light button-smaller">Shop more</a>
-        </p>
-    </div>
-</section>
+    </section>
+</div>

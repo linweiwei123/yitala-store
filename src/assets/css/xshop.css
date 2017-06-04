@@ -10604,10 +10604,6 @@ div.deals-style3 .xshop-datetime:after {
     opacity: 1
 }
 
-.product-item:not(.slick-cloned) {
-    background-color: #ffffff
-}
-
 .product-item .product-media .product-images-wrap figure>a::before {
     bottom: 0;
     content: "";

@@ -1,12 +1,4 @@
-.full-screen{
-    position: fixed;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right: 0px;
-    z-index: 1000;
-    background-color: #fff;
-}
+
 .login-page-wrapper{
     width: 350px;
     color: #666;

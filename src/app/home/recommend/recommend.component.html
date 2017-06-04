@@ -1,0 +1,38 @@
+
+<div class="products-wraps products-wraps-style2 columns-4" >
+    <div class="product-item" *ngFor="let item of showProducts;let i = index" >
+        <div class="product-item-inner">
+            <div class="product-media" (click)="gotoProductDetail(item.productId)">
+                <div class="product-images-wrap">
+                    <figure class="product-first-figure">
+                        <a >
+                            <img alt="Espadrilles 2" [src]="item.images|filterImage">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">
+                    <a>{{item.brand}} {{item.name}}</a>
+                </h3>
+                <span class="price">
+                                 <span class="money rmb" *ngIf="item.discount" >
+                                    <del class="small-price"><i class="rmb">¥</i>{{item.price}}</del>
+                                </span>
+                                <span class="money">
+                                    <em class="rmb">¥</em>{{item.discount?item.price*item.discount/100:item.price}}
+                                    <label *ngIf="item.discount" class="discount">限时促销</label>
+                                </span>
+                            </span>
+                <div class="product-button-action">
+                    <a class="button add-to-cart">
+                        <i class="iconfont-yitala">&#xe6c8;</i>添加到购物车
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="buttons-link" *ngIf="products.length != showProducts.length">
+        <a (click)="showMore()" class="show-more">显示更多</a>
+    </p>
+</div>

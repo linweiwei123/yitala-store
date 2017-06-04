@@ -1,0 +1,11 @@
+.product-media{
+    overflow: hidden;
+    position: relative;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.product-button-action {
+    left: 0;
+    right: 0;
+}

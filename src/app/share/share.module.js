@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var global_loading_component_1 = require("./loading/global-loading.component");
+var FilterImagePipe_1 = require("./layout/pipes/FilterImagePipe");
 var ShareModule = (function () {
     function ShareModule() {
     }
@@ -25,11 +26,13 @@ ShareModule = __decorate([
             forms_1.FormsModule
         ],
         declarations: [
-            global_loading_component_1.GlobalLoadingComponent
+            global_loading_component_1.GlobalLoadingComponent,
+            FilterImagePipe_1.FilterImagePipe
         ],
         providers: [],
         exports: [
-            global_loading_component_1.GlobalLoadingComponent
+            global_loading_component_1.GlobalLoadingComponent,
+            FilterImagePipe_1.FilterImagePipe
         ],
         schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
     })

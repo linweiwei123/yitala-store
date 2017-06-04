@@ -33,7 +33,8 @@ var appRoutes = [
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
-    }
+    },
+    { path: '**', redirectTo: '/account/404' }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -7,6 +7,9 @@
     font-weight: normal;
     color: #df5c53;
 }
+#primary-navigation .menu-item a.active, #primary-navigation .menu-item a.active:after{
+    color: #df5c53;
+}
 #primary-navigation ul.sub-menu{
     padding-bottom: 10px!important;
     border-radius: 4px;

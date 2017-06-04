@@ -550,8 +550,23 @@ header.header-fixed .main-header .mobile-navigation{
 .text-orange{
     color: #df5c53
 }
+.full-screen{
+    position: fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right: 0px;
+    z-index: 1000;
+    background-color: #fff;
+}
 .mb15{
     margin-bottom: 15px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.mr10{
+    margin-right: 10px;
 }
 .select-wrapper-sm{
     display: inline-block;
@@ -601,9 +616,40 @@ header.header-fixed .main-header .mobile-navigation{
     position: absolute;
     top:3px;
 }
-
+.discount{
+    background-color: #df5c53;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0px 10px;
+    border-radius: 20px;
+    margin-bottom: 0px;
+    line-height: 23px;
+}
+del.small-price{
+    color: #aaa;
+    font-size: 15px;
+}
+.show-more{
+    color: inherit;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 46px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    border: 2px solid #dcdcdc;
+    background-color: transparent;
+}
+a.show-more:hover{
+    cursor: pointer;
+    color: #df5c53;
+    border-color: #df5c53;
+}
 /** @覆盖样式**/
-
+.carousel-response *:focus{
+    outline: none!important;
+}
 .carousel-indicators li{
     margin: 3px!important;
 }
@@ -633,4 +679,7 @@ em.rmb{
 }
 .product-button-action .button{
     font-size: 16px;
+}
+.has-underline .title-block::before {
+    width: 120px;
 }

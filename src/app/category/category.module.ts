@@ -31,8 +31,7 @@ const categoryRoutes:Routes = [
     ],
     declarations:[
         ProductsComponent,
-        NewProductsComponent,
-        FilterImagePipe
+        NewProductsComponent
     ],
     schemas:[
 

@@ -14,7 +14,12 @@ import {Product} from "../share/layout/models/product";
 
 export class HomeComponent extends GlobalLoadingComponent implements OnInit{
 
-    private recProducts:Array<Product>;
+    private recProducts:Array<Product> = [];
+    private recShowProducts:Array<Product> =[];
+    private discountProducts:Array<Product> = [];
+    private discountShowProducts:Array<Product> =[];
+    private newProducts:Array<Product> = [];
+    private newShowProducts:Array<Product> =[];
 
     constructor(
         private modalService:NgbModal,
@@ -28,11 +33,46 @@ export class HomeComponent extends GlobalLoadingComponent implements OnInit{
     }
 
     queryRecProducts() {
-        let url = "api/product/recommend";
-        this.baseService.get(url)
+        let recUrl = "api/product/recommend";
+        let discountUrl = "api/product/discount";
+        let newUrl = "api/product/new";
+
+        this.baseService.get(recUrl)
             .subscribe(
                 (response) => {
                     this.recProducts = response;
+                    this.recShowProducts = this.recProducts.slice(0,Math.min(4,this.recProducts.length));
+                    console.log(response);
+                },
+                (error) => {
+                    console.log(error);
+                },
+                () => {
+                    console.log("complete");
+                }
+            )
+
+
+        this.baseService.get(discountUrl)
+            .subscribe(
+                (response) => {
+                    this.discountProducts = response;
+                    this.discountShowProducts = this.discountProducts.slice(0,Math.min(4,this.discountProducts.length));
+                    console.log(response);
+                },
+                (error) => {
+                    console.log(error);
+                },
+                () => {
+                    console.log("complete");
+                }
+            )
+
+        this.baseService.get(newUrl)
+            .subscribe(
+                (response) => {
+                    this.newProducts = response;
+                    this.newShowProducts = this.newProducts.slice(0,Math.min(4,this.newProducts.length));
                     console.log(response);
                 },
                 (error) => {
@@ -43,5 +83,6 @@ export class HomeComponent extends GlobalLoadingComponent implements OnInit{
                 }
             )
     }
+
 
 }
