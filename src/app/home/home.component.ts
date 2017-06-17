@@ -5,7 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {GlobalLoadingComponent} from "../share/loading/global-loading.component";
 import {BaseService} from "../share/layout/service/base.service";
-import {Product} from "../share/layout/models/product";
+import {Product} from "../share/models/product";
 @Component({
     selector:"my-dashboard",
     templateUrl:"./home.component.html",
@@ -14,12 +14,12 @@ import {Product} from "../share/layout/models/product";
 
 export class HomeComponent extends GlobalLoadingComponent implements OnInit{
 
-    private recProducts:Array<Product> = [];
-    private recShowProducts:Array<Product> =[];
-    private discountProducts:Array<Product> = [];
-    private discountShowProducts:Array<Product> =[];
-    private newProducts:Array<Product> = [];
-    private newShowProducts:Array<Product> =[];
+    public recProducts:Array<Product> = [];
+    public recShowProducts:Array<Product> =[];
+    public discountProducts:Array<Product> = [];
+    public discountShowProducts:Array<Product> =[];
+    public newProducts:Array<Product> = [];
+    public newShowProducts:Array<Product> =[];
 
     constructor(
         private modalService:NgbModal,

@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {NgbPaginationConfig} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BaseService} from "../../share/layout/service/base.service";
-import {Product} from "../../share/layout/models/product";
+import {Product} from "../../share/models/product";
 /**
  * Created by yitala on 2017/3/18.
  */
@@ -15,16 +15,16 @@ import {Product} from "../../share/layout/models/product";
 
 export class ProductsComponent implements OnInit {
 
-    private type: string;
-    page: number = 1;
-    size: number = 12;
-    private sort: string = "createTime";
-    private direction: string = "DESC";
-    private totalElements: number;
-    private productsList: Array<Product> = [];
-    private randomList: Array<Product> = [];
-    private loading: boolean = false;
-    private typeLoading: boolean = false;
+    public type: string;
+    public page: number = 1;
+    public size: number = 12;
+    public sort: string = "createTime";
+    public direction: string = "DESC";
+    public totalElements: number;
+    public productsList: Array<Product> = [];
+    public randomList: Array<Product> = [];
+    public loading: boolean = false;
+    public typeLoading: boolean = false;
 
     constructor(config: NgbPaginationConfig,
                 private router: Router,

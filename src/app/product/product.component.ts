@@ -3,7 +3,7 @@
  */
 import {Component, HostListener, OnInit} from "@angular/core";
 import {BaseService} from "../share/layout/service/base.service";
-import {Product} from "../share/layout/models/product";
+import {Product} from "../share/models/product";
 import {ActivatedRoute} from "@angular/router";
 @Component({
     selector:'product',
@@ -13,8 +13,8 @@ import {ActivatedRoute} from "@angular/router";
 
 export class ProductComponent implements OnInit{
 
-    private product:Product = new Product();
-    private productId:string;
+    public product:Product = new Product();
+    public productId:string;
 
     constructor(
         private baseService:BaseService,

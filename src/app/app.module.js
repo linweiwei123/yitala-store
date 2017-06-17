@@ -24,6 +24,7 @@ var home_component_1 = require("./home/home.component");
 var cart_component_1 = require("./cart/cart.component");
 var base_service_1 = require("./share/layout/service/base.service");
 var recommend_component_1 = require("./home/recommend/recommend.component");
+var cart_service_1 = require("./share/service/cart.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -53,7 +54,8 @@ AppModule = __decorate([
             cart_component_1.CartComponent
         ],
         providers: [
-            base_service_1.BaseService
+            base_service_1.BaseService,
+            cart_service_1.CartService
         ],
         bootstrap: [app_component_1.AppComponent],
         schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]

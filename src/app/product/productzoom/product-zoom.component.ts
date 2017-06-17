@@ -10,12 +10,12 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from "@angular/core"
 
 export class ProductZoomComponent implements OnChanges{
 
-    smallImageSrc:string="";
+    public smallImageSrc:string="";
 
     @Input()
-    private images:any[];
+    public images:any[];
 
-    private zoomOptions = {
+    public zoomOptions = {
         hoverView: {
             zIndex: '10'
         },

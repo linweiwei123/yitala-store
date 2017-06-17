@@ -3,7 +3,7 @@
  */
 
 import {Component, Input} from "@angular/core";
-import {Product} from "../../share/layout/models/product";
+import {Product} from "../../share/models/product";
 import {Router} from "@angular/router";
 @Component({
     selector:'new-products',
@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 export class NewProductsComponent{
 
     @Input()
-    private items:Array<Product>;
+    public items:Array<Product>;
 
     constructor(
         private router:Router

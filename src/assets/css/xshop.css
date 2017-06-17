@@ -321,11 +321,6 @@ ul.menu-nav>li>a {
     color: #333;
     text-transform: uppercase;
     font-size: 18px;
-    -webkit-transition: all .6s ease-in-out;
-    -moz-transition: all .6s ease-in-out;
-    -ms-transition: all .6s ease-in-out;
-    -o-transition: all .6s ease-in-out;
-    transition: all .6s ease-in-out;
     padding: 40px 0
 }
 

@@ -14,11 +14,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var cart_service_1 = require("../../service/cart.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(router) {
+    function HeaderComponent(router, cartService) {
         this.router = router;
+        this.cartService = cartService;
         this.mobileMenu = false;
         this.categorySubMenuStatus = false;
+        this.cartNumber = 0;
         router.events.subscribe(function (event) {
             if (!(event instanceof router_1.NavigationEnd)) {
                 return;
@@ -31,7 +34,13 @@ var HeaderComponent = (function () {
         });
     }
     HeaderComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.mouseScroll();
+        this.cartService.cartProducts$.subscribe(function (cartProducts) {
+            _this.cartNumber = cartProducts.size;
+            console.log(cartProducts, cartProducts.toArray());
+            //this.cartNumber = cartProducts.length;
+        });
     };
     HeaderComponent.prototype.toggleMobileMenu = function () {
         this.mobileMenu = !this.mobileMenu;
@@ -63,7 +72,8 @@ HeaderComponent = __decorate([
         templateUrl: './header.component.html',
         styleUrls: ['./header.component.css']
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router,
+        cart_service_1.CartService])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map

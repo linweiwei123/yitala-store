@@ -54,9 +54,10 @@
                         <a class="header-cart header-element" [routerLink]="['/cart']">
                             <a href="/cart">
                                 <span class="icon-cart header-icon" data-togole="header-cart">
-                                <i class="fa fa-shopping-cart"></i>
+                                <!--<i class="fa fa-shopping-cart"></i>-->
+                                    <i class="iconfont-yitala cart-icon">&#xe608;</i>
                                 </span> </a>
-                            <span class="cart-number-items count cartCount"> 0 </span>
+                            <span class="cart-number-items count cartCount"> {{cartNumber}} </span>
                             <div id="header-cart" class="header-element-content" style="display: none;">
                                 <h4 class="title-element">You have no items in your shopping cart.</h4>
                                 <div class="mini-cart-bottom">

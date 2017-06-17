@@ -4,6 +4,9 @@
 
 import {Component, OnInit} from "@angular/core";
 import {NavigationEnd, NavigationStart, Router} from "@angular/router";
+import {CartService} from "../../service/cart.service";
+import {Product} from "../../models/product";
+import {List} from 'immutable';
 @Component({
     selector:'layout-header',
     templateUrl:'./header.component.html',
@@ -14,9 +17,11 @@ export class HeaderComponent implements OnInit{
 
     mobileMenu:boolean = false;
     categorySubMenuStatus:boolean = false;
+    private cartNumber:number = 0;
 
     constructor(
-        private router:Router
+        private router:Router,
+        private cartService:CartService
     ){
         router.events.subscribe((event:any) => {
             if(!(event instanceof NavigationEnd)) {
@@ -32,6 +37,13 @@ export class HeaderComponent implements OnInit{
 
     ngOnInit(): void {
         this.mouseScroll();
+        this.cartService.cartProducts$.subscribe(
+            (cartProducts: List<Product>)=>{
+                this.cartNumber = cartProducts.size;
+                console.log(cartProducts,cartProducts.toArray());
+                //this.cartNumber = cartProducts.length;
+            }
+        )
     }
 
 

@@ -2,8 +2,9 @@
  * Created by yitala on 2017/6/4.
  */
 import {Component, Input} from "@angular/core";
-import {Product} from "../../share/layout/models/product";
+import {Product} from "../../share/models/product";
 import {Router} from "@angular/router";
+import {CartService} from "../../share/service/cart.service";
 @Component({
     selector:'recommend-products',
     templateUrl:'./recommend.component.html',
@@ -13,12 +14,13 @@ import {Router} from "@angular/router";
 export class RecommendComponent{
 
     @Input()
-    private products:Array<Product> = [];
+    public products:Array<Product> = [];
     @Input()
-    private showProducts:Array<Product> = [];
+    public showProducts:Array<Product> = [];
 
     constructor(
-        private router:Router
+        private router:Router,
+        private cartService:CartService
     ){}
 
     showMore(){
@@ -28,4 +30,9 @@ export class RecommendComponent{
     gotoProductDetail(id: string) {
         this.router.navigate([`/product`, id]);
     }
+
+    addToCart(item:Product){
+        this.cartService.addToCart(item);
+    }
+
 }

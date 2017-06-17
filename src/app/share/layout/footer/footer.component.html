@@ -35,7 +35,59 @@
             </div>
         </div>
     </div>
-    <!-- Back To Top -->
-    <a class="backtotop" (click)="scrollTop()"> <span class="icon-top fa fa-angle-up"></span> Top </a>
-    <!-- End Back To Top -->
+
+    <!-- Fixed items position -->
+    <div class="fixed-func-items">
+        <ul class="fixed-func-container">
+            <li>
+                <a class="func-item item-top item-service" (click)="scrollTop()">
+                    <i class="iconfont-yitala">&#xe626;</i>
+                    客服
+                </a>
+            </li>
+            <li class="cart-li" [ngClass]="{'cart-open':cartOpen}">
+                <a class="func-item item-cart" (click)="toggleCartBox()">
+                    <i class="iconfont-yitala cart-icon">&#xe608;</i>
+                    <span class="cart-number-items count cartCount"> {{cartNumber}}</span>
+                </a>
+                <div class="cart-box" id="cart-box">
+                    <div class="wrapper">
+                        <header>
+                            <i class="iconfont-yitala cart-icon">&#xe608;</i>
+                            <span>购物车</span>
+                        </header>
+                        <div class="cart-box-body">
+                            <ul>
+                                <li class="product" *ngFor="let item of cartProducts">
+                                    <div class="product-image">
+                                        <a href="#0"><img [src]="item.images|filterImage" alt="图片"></a>
+                                    </div>
+                                    <div class="product-details">
+                                        <span>{{item.name}}</span>
+                                        <span>{{item.brand}}</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="money"><em class="rmb">¥</em>{{item.price}}</span>
+                                    </div>
+                                    <div class="product-remove">
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cart-box-footer">
+                            <span>总计：<em class="rmb">¥</em>998</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="func-item item-bottom" (click)="scrollTop()">
+                    <span class="icon-top fa fa-angle-up"></span> Top
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End Fixed items position -->
+
 </footer>

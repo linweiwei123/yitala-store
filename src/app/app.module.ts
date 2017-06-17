@@ -17,6 +17,8 @@ import {CartComponent} from "./cart/cart.component";
 import {BaseService} from "./share/layout/service/base.service";
 import {FilterImagePipe} from "./share/layout/pipes/FilterImagePipe";
 import {RecommendComponent} from "./home/recommend/recommend.component";
+import {CartService} from "./share/service/cart.service";
+import {NewProductsComponent} from "./category/newproducts/new-products.component";
 
 @NgModule({
     imports: [
@@ -41,7 +43,8 @@ import {RecommendComponent} from "./home/recommend/recommend.component";
         CartComponent
     ],
     providers:[
-        BaseService
+        BaseService,
+        CartService
     ],
     bootstrap: [ AppComponent ],
     schemas:[CUSTOM_ELEMENTS_SCHEMA]
