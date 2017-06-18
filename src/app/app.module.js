@@ -25,6 +25,7 @@ var cart_component_1 = require("./cart/cart.component");
 var base_service_1 = require("./share/layout/service/base.service");
 var recommend_component_1 = require("./home/recommend/recommend.component");
 var cart_service_1 = require("./share/service/cart.service");
+var animations_1 = require("@angular/platform-browser/animations");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -38,6 +39,7 @@ AppModule = __decorate([
                 appId: 'toh-universal'
             }),
             http_1.HttpModule,
+            animations_1.BrowserAnimationsModule,
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule,
             share_module_1.ShareModule,

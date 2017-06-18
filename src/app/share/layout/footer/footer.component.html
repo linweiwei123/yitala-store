@@ -38,48 +38,82 @@
 
     <!-- Fixed items position -->
     <div class="fixed-func-items">
-        <ul class="fixed-func-container">
-            <li>
-                <a class="func-item item-top item-service" (click)="scrollTop()">
+        <ul class="fixed-func-container" >
+            <li [ngClass]="{'service-open':serviceOpen}">
+                <a class="func-item item-top item-service" (click)="toggleServiceBox()">
                     <i class="iconfont-yitala">&#xe626;</i>
                     客服
                 </a>
+                <a class="func-item item-top item-close" (click)="toggleServiceBox()">
+                    <i class="iconfont-yitala cart-close">&#xe629;</i>
+                </a>
+                <div class="service-box-wrapper">
+                    <div class="service-box">
+                        <div class="wrapper">
+                            <div class="QR-code">
+                                <img src="http://oflt40zxf.bkt.clouddn.com/service.png" alt="二维码">
+                            </div>
+                            <h3 class="QR-text">微信扫二维码加店主咨询～</h3>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li class="cart-li" [ngClass]="{'cart-open':cartOpen}">
                 <a class="func-item item-cart" (click)="toggleCartBox()">
                     <i class="iconfont-yitala cart-icon">&#xe608;</i>
                     <span class="cart-number-items count cartCount"> {{cartNumber}}</span>
                 </a>
-                <div class="cart-box" id="cart-box">
-                    <div class="wrapper">
-                        <header>
-                            <i class="iconfont-yitala cart-icon">&#xe608;</i>
-                            <span>购物车</span>
-                        </header>
-                        <div class="cart-box-body">
-                            <ul>
-                                <li class="product" *ngFor="let item of cartProducts">
-                                    <div class="product-image">
-                                        <a href="#0"><img [src]="item.images|filterImage" alt="图片"></a>
-                                    </div>
-                                    <div class="product-details">
-                                        <span>{{item.name}}</span>
-                                        <span>{{item.brand}}</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span class="money"><em class="rmb">¥</em>{{item.price}}</span>
-                                    </div>
-                                    <div class="product-remove">
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cart-box-footer">
-                            <span>总计：<em class="rmb">¥</em>998</span>
+                <a class="func-item item-close" (click)="toggleCartBox()">
+                    <i class="iconfont-yitala cart-close">&#xe629;</i>
+                </a>
+                <div class="cart-box-wrapper">
+                    <div class="cart-box" id="cart-box">
+                        <div class="wrapper">
+                            <header>
+                                <i class="iconfont-yitala cart-icon">&#xe608;</i>
+                                <span>购物车</span>
+                                <span class="push-right">
+                                （
+                                <span class="text-orange"> {{cartProducts.length}} </span>
+                                ）
+                            </span>
+                            </header>
+                            <div class="cart-box-body">
+                                <div class="cart-background" *ngIf="cartProducts.length == 0">
+                                    <i class="iconfont-yitala cart-empty">
+                                        &#xe622;
+                                    </i>
+                                    <h3 class="tips">购物车还没有商品～</h3>
+                                </div>
+                                <ul>
+                                    <li class="product" *ngFor="let item of cartProducts" [@productInOut]="in">
+                                        <div class="product-image">
+                                            <a href="#0"><img [src]="item.images|filterImage" alt="图片"></a>
+                                        </div>
+                                        <div class="product-details">
+                                            <span>{{item.name}}</span>
+                                            <span>{{item.brand}}</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="money"><em class="rmb">¥</em>{{item.discount?item.price*item.discount/100:item.price}}</span>
+                                        </div>
+                                        <div class="product-remove" (click)="removeProduct(item)">
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cart-box-footer">
+                                <a class="checkout" (click)="closeCartBox()" [routerLink]="['/cart']">
+                                    去结账
+                                    <span class="money"><em class="rmb">¥</em>{{cartTotalPrice}}</span>
+                                    <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </li>
             <li>
                 <a class="func-item item-bottom" (click)="scrollTop()">

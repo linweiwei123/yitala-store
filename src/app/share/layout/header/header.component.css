@@ -1,3 +1,6 @@
+.main-header{
+    z-index: 10;
+}
 #primary-navigation .sub-menu li:hover{
     cursor: pointer;
     background-color: #F7F7F7;

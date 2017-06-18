@@ -1,0 +1,9 @@
+.adding{
+}
+.adding .spinner{
+    position: absolute;
+    margin-left: -20px;
+}
+a.added{
+    color: #0bc39f!important;
+}

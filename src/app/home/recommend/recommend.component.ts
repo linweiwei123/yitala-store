@@ -4,7 +4,7 @@
 import {Component, Input} from "@angular/core";
 import {Product} from "../../share/models/product";
 import {Router} from "@angular/router";
-import {CartService} from "../../share/service/cart.service";
+
 @Component({
     selector:'recommend-products',
     templateUrl:'./recommend.component.html',
@@ -19,8 +19,7 @@ export class RecommendComponent{
     public showProducts:Array<Product> = [];
 
     constructor(
-        private router:Router,
-        private cartService:CartService
+        private router:Router
     ){}
 
     showMore(){
@@ -31,8 +30,5 @@ export class RecommendComponent{
         this.router.navigate([`/product`, id]);
     }
 
-    addToCart(item:Product){
-        this.cartService.addToCart(item);
-    }
 
 }

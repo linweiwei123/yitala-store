@@ -19,6 +19,8 @@ import {FilterImagePipe} from "./share/layout/pipes/FilterImagePipe";
 import {RecommendComponent} from "./home/recommend/recommend.component";
 import {CartService} from "./share/service/cart.service";
 import {NewProductsComponent} from "./category/newproducts/new-products.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AddToCartComponent} from "./cart/addtocard/add-to-cart.component";
 
 @NgModule({
     imports: [
@@ -27,6 +29,7 @@ import {NewProductsComponent} from "./category/newproducts/new-products.componen
             appId: 'toh-universal'
         }),
         HttpModule,
+        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         ShareModule,

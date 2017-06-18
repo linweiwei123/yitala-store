@@ -7,6 +7,7 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {GlobalLoadingComponent} from "./loading/global-loading.component";
 import {FilterImagePipe} from "./layout/pipes/FilterImagePipe";
+import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
 
 @NgModule({
     imports:[
@@ -15,12 +16,14 @@ import {FilterImagePipe} from "./layout/pipes/FilterImagePipe";
     ],
     declarations:[
         GlobalLoadingComponent,
-        FilterImagePipe
+        FilterImagePipe,
+        AddToCartComponent
     ],
     providers:[],
     exports:[
         GlobalLoadingComponent,
-        FilterImagePipe
+        FilterImagePipe,
+        AddToCartComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

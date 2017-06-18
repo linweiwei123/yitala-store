@@ -17,25 +17,6 @@
 a.backtotop:hover{
     cursor: pointer;
 }
-a.backtotop{
-    background: #df5c53 none repeat scroll 0 0;
-    border-radius: 3px;
-    bottom: 300px;
-    color: #fff;
-    display: inline-block;
-    font-family: "Montserrat", sans-serif;
-    font-size: 11px;
-    height: 45px !important;
-    letter-spacing: 0;
-    line-height: 14px;
-    padding: 0 5px;
-    position: fixed;
-    right: 300px;
-    text-align: center;
-    z-index: 99;
-    text-transform: uppercase;
-    width: 45px !important;
-}
 .fixed-func-items{
     position: fixed;
     right: 30px;
@@ -86,8 +67,12 @@ a.func-item:hover{
     cursor: pointer;
 
 }
-a.func-item.item-cart:hover{
+a.func-item.item-cart:hover,a.func-item.item-top:hover{
     opacity: 1;
+}
+a.item-service{
+    z-index: 190;
+    position: relative;
 }
 a.item-cart i.iconfont-yitala{
     font-size: 27px;
@@ -96,6 +81,11 @@ a.item-cart{
     padding: 17px 0 0 0;
     position: relative;
     z-index: 200;
+}
+a.item-close{
+    position: relative;
+    z-index: 200;
+    display: none;
 }
 a.item-cart .cart-number-items{
     height: 18px;
@@ -114,8 +104,15 @@ a.item-service i.iconfont-yitala{
     margin-bottom: 5px;
     font-size: 30px;
 }
-
-.cart-box{
+.QR-text{
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    padding-right: 45px;
+    /* color: black; */
+    margin-top: 10px;
+}
+.service-box,.cart-box{
     position: fixed;
     right: 30px;
     bottom:76px;
@@ -126,10 +123,14 @@ a.item-service i.iconfont-yitala{
     -webkit-backface-visibility: hidden;
     will-change: transform;
     backface-visibility: hidden;
+    z-index: 199;
 }
-.cart-box .wrapper{
+.service-box{
+    bottom: 121px;
+    z-index: 189;
+}
+.service-box .wrapper,.cart-box .wrapper{
     position: relative;
-    z-index: 50;
     overflow: hidden;
     height: 40px;
     width: 40px;
@@ -142,11 +143,59 @@ a.item-service i.iconfont-yitala{
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.17);
     pointer-events: auto;
 }
+.service-box .wrapper{
+
+}
 .cart-open .cart-box .wrapper{
     height: 400px;
     width: 420px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
+}
+.service-open .service-box .wrapper{
+    padding: 8px 10px 10px 8px;
+    height: 332px;
+    width: 300px;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.cart-open .item-cart,.service-open .item-service{
+    display: none;
+}
+.cart-open .item-close,.service-open .item-close{
+    display: block;
+}
+.cart-open .cart-box-wrapper:before,.service-open .service-box-wrapper:before{
+    opacity: 1;
+    visibility: visible;
+}
+.service-box-wrapper:before{
+    content: '';
+    position: fixed;
+    z-index: 188;  /** 紧跟着cart-box **/
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .4s, visibility .4s;
+    transition: opacity .4s, visibility .4s;
+}
+.cart-box-wrapper:before{
+    content: '';
+    position: fixed;
+    z-index: 49;  /** 紧跟着cart-box **/
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .4s, visibility .4s;
+    transition: opacity .4s, visibility .4s;
 }
 .cart-box .wrapper header{
     color: #333;
@@ -158,9 +207,10 @@ a.item-service i.iconfont-yitala{
     font-size: 20px;
 }
 .cart-box-body{
-    padding: 20px;
-    overflow-y: auto;
+    padding: 20px 20px 40px 20px;
     max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .cart-box-body ul{
     padding: 0px;
@@ -181,14 +231,13 @@ a.item-service i.iconfont-yitala{
     height: 108px;
 }
 .cart-box-body .product-details,.cart-box-body .product-remove{
-    padding-left: 15px;
     text-align: left;
 }
 .cart-box-body .product-details{
-    width: 180px;
+    width: 170px;
     text-align: left;
-    padding: 10px;
     color: #333;
+    padding-left: 10px;
 }
 .product-details{
     vertical-align: middle;
@@ -196,6 +245,11 @@ a.item-service i.iconfont-yitala{
 .product-details span{
     display: block;
     line-height: 30px;
+    font-size: 16px;
+}
+.product-price{
+    padding: 0;
+    width: 80px;
 }
 .product-remove{
     color: #333;
@@ -215,4 +269,38 @@ a.item-service i.iconfont-yitala{
     color: #333;
     text-align: center;
     padding-right: 40px;
+}
+.cart-box-footer:hover{
+    cursor: pointer;
+}
+.cart-box-footer:hover *{
+    color: #df5c53!important;
+}
+a.checkout{
+     -webkit-transition: all .2s;
+     transition: all .2s;
+}
+a.checkout i.fa-arrow-right{
+    display: inline-block;
+    font-size: 20px;
+    opacity: 1;
+    width: 30px;
+}
+.cart-box-footer:hover i.fa-arrow-right{
+
+}
+.item-close{
+    font-size: 30px;
+    padding-top: 13px;
+}
+.cart-background{
+    padding: 50px;
+    text-align: center;
+}
+.cart-empty{
+    color: #aaa;
+    font-size: 100px;
+}
+.cart-background .tips{
+    color: #aaa;
 }

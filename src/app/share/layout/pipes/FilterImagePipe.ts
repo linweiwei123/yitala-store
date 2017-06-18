@@ -11,7 +11,12 @@ export class FilterImagePipe implements PipeTransform{
 
     transform(value: any, ...args: any[]) {
         if(value!=null && value != ""){
-            return value.substring(value,value.indexOf(","));
+            if(value.indexOf(",")>-1){
+                return value.substring(value,value.indexOf(","));
+            }
+            else{
+                return value;
+            }
         }
         else{
           return value;

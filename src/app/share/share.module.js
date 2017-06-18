@@ -14,6 +14,7 @@ var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var global_loading_component_1 = require("./loading/global-loading.component");
 var FilterImagePipe_1 = require("./layout/pipes/FilterImagePipe");
+var add_to_cart_component_1 = require("../cart/addtocard/add-to-cart.component");
 var ShareModule = (function () {
     function ShareModule() {
     }
@@ -27,12 +28,14 @@ ShareModule = __decorate([
         ],
         declarations: [
             global_loading_component_1.GlobalLoadingComponent,
-            FilterImagePipe_1.FilterImagePipe
+            FilterImagePipe_1.FilterImagePipe,
+            add_to_cart_component_1.AddToCartComponent
         ],
         providers: [],
         exports: [
             global_loading_component_1.GlobalLoadingComponent,
-            FilterImagePipe_1.FilterImagePipe
+            FilterImagePipe_1.FilterImagePipe,
+            add_to_cart_component_1.AddToCartComponent
         ],
         schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
     })

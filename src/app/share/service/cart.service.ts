@@ -22,7 +22,8 @@ export class CartService{
     }
 
 
-    addToCart(product:Product):void{
+    //添加到购物车
+    addToCart(product:Product):Observable<boolean>{
         //保存到服务端
         let saveObs = this.addToCartBackend(product);
         saveObs.subscribe(
@@ -34,13 +35,32 @@ export class CartService{
             }
 
         )
+        return saveObs;
+    }
 
+    //从购物车中移除
+    removeFromCart(product:Product):void{
+         let removeObs = this.removeFromCartBackend(product);
+         removeObs.subscribe(
+             (res)=>{
+                 this.cartProducts.next(
+                     this.cartProducts.getValue().delete(this.cartProducts.getValue().indexOf(product))
+                 )
+             },
+             (error)=>{
+                 console.log(error);
+             }
+         )
     }
 
     /********** 保存到服务端 *************/
     addToCartBackend(product:Product){
         return this.baseService.get("api/product/new");
         //this.baseService.post("api/product/new",product);
+    }
+
+    removeFromCartBackend(product:Product){
+        return this.baseService.get("api/product/new");
     }
 
 }
