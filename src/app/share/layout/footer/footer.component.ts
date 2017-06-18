@@ -37,12 +37,12 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 
 export class FooterComponent implements OnInit{
 
-
     private cartNumber:number = 0;
     private cartProducts:Array<Product>=[];
     private cartTotalPrice:number= 0;
     private cartOpen:boolean = false;
     private serviceOpen:boolean = false;
+    private cartId:number;
 
     constructor(
         private cartService:CartService,
@@ -63,6 +63,7 @@ export class FooterComponent implements OnInit{
         )
     }
 
+    //置顶
     scrollTop():void{
         window.scrollTo(0,0);
     }
@@ -85,6 +86,6 @@ export class FooterComponent implements OnInit{
 
     //删除商品
     removeProduct(product:Product):void{
-        this.cartService.removeFromCart(product);
+        let result = this.cartService.removeFromCart(product);
     }
 }

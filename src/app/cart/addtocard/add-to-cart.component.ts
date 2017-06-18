@@ -22,17 +22,22 @@ export class AddToCartComponent{
     ){}
 
     addToCart(){
-        console.log(this.product);
         this.status = "adding";
         let result = this.cartService.addToCart(this.product);
         result.subscribe(
             (res)=>{
-                this.status = "added";
-                setTimeout(()=>{
+                if(res == true){
+                    this.status = "added";
+                    setTimeout(()=>{
+                        this.status = "unadd";
+                    },2000)
+                }
+                else{
                     this.status = "unadd";
-                },2000)
+                }
             },
             (error)=>{
+                this.status = "unadd";
                 console.log(error);
             }
         )

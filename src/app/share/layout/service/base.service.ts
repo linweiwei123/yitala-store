@@ -26,6 +26,15 @@ export class BaseService{
             .map(res=>res.json());
     }
 
+    postNoRepeat(url:string,params:any){
+        let options:RequestOptionsArgs = {};
+        options.headers = this.setHeaders();
+        return this.http.post(url,params,options)
+            .publishLast()
+            .refCount()
+            .map(res=>res.json());
+    }
+
     private setHeaders():Headers{
         let headers = new Headers();
         headers.append("Content-Type", 'application/json');
