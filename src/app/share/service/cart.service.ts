@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Product} from "../models/product";
-import {BaseService} from "../layout/service/base.service";
+import {BaseService} from "./base.service";
 import {List} from 'immutable';
 import {Observable} from "rxjs/Observable";
 /**

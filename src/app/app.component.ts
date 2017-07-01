@@ -2,6 +2,7 @@
  * Created by Administrator on 2016/11/25.
  */
 import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from "./share/service/authentication.service";
 
 @Component({
     selector: 'my-app',
@@ -15,9 +16,11 @@ export class AppComponent implements OnInit{
 
 
     constructor(
+        private authenticationService:AuthenticationService
     ){}
 
     ngOnInit(): void {
+        this.authenticationService.autoLogin();
     }
 
 

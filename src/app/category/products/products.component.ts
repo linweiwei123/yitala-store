@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {NgbPaginationConfig} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
-import {BaseService} from "../../share/layout/service/base.service";
+import {BaseService} from "../../share/service/base.service";
 import {Product} from "../../share/models/product";
 /**
  * Created by yitala on 2017/3/18.

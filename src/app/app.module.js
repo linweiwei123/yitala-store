@@ -22,10 +22,12 @@ var product_component_1 = require("./product/product.component");
 var product_zoom_component_1 = require("./product/productzoom/product-zoom.component");
 var home_component_1 = require("./home/home.component");
 var cart_component_1 = require("./cart/cart.component");
-var base_service_1 = require("./share/layout/service/base.service");
+var base_service_1 = require("./share/service/base.service");
 var recommend_component_1 = require("./home/recommend/recommend.component");
 var cart_service_1 = require("./share/service/cart.service");
 var animations_1 = require("@angular/platform-browser/animations");
+var authentication_service_1 = require("./share/service/authentication.service");
+var jwt_service_1 = require("./share/service/jwt.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -57,6 +59,8 @@ AppModule = __decorate([
         ],
         providers: [
             base_service_1.BaseService,
+            authentication_service_1.AuthenticationService,
+            jwt_service_1.JwtService,
             cart_service_1.CartService
         ],
         bootstrap: [app_component_1.AppComponent],

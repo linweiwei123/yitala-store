@@ -2,7 +2,7 @@
  * Created by yitala on 2017/5/24.
  */
 import {Component, HostListener, OnInit} from "@angular/core";
-import {BaseService} from "../share/layout/service/base.service";
+import {BaseService} from "../share/service/base.service";
 import {Product} from "../share/models/product";
 import {ActivatedRoute} from "@angular/router";
 @Component({

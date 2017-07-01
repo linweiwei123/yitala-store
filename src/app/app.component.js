@@ -13,12 +13,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by Administrator on 2016/11/25.
  */
 var core_1 = require("@angular/core");
+var authentication_service_1 = require("./share/service/authentication.service");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(authenticationService) {
+        this.authenticationService = authenticationService;
         this.title = '英雄帖';
         this.isSignOn = false;
     }
     AppComponent.prototype.ngOnInit = function () {
+        this.authenticationService.autoLogin();
     };
     return AppComponent;
 }());
@@ -28,7 +31,7 @@ AppComponent = __decorate([
         templateUrl: './app.component.html',
         styleUrls: ['./app.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [authentication_service_1.AuthenticationService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

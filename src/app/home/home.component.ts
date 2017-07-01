@@ -4,7 +4,7 @@
 import {Component, OnInit} from "@angular/core";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {GlobalLoadingComponent} from "../share/loading/global-loading.component";
-import {BaseService} from "../share/layout/service/base.service";
+import {BaseService} from "../share/service/base.service";
 import {Product} from "../share/models/product";
 @Component({
     selector:"my-dashboard",
