@@ -2,9 +2,10 @@
  * Created by yitala on 2017/6/18.
  */
 
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnDestroy, OnInit} from "@angular/core";
 import {Product} from "../../share/models/product";
 import {CartService} from "../../share/service/cart.service";
+import {AuthenticationService} from "../../share/service/authentication.service";
 @Component({
     selector:'add-to-cart',
     templateUrl:'./add-to-cart.component.html',

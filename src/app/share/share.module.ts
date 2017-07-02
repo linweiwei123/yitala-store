@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import {GlobalLoadingComponent} from "./loading/global-loading.component";
 import {FilterImagePipe} from "./layout/pipes/FilterImagePipe";
 import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
+import {ShowAuthedDirective} from "./directive/show-authed.directive";
 
 @NgModule({
     imports:[
@@ -17,13 +18,15 @@ import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
     declarations:[
         GlobalLoadingComponent,
         FilterImagePipe,
-        AddToCartComponent
+        AddToCartComponent,
+        ShowAuthedDirective
     ],
     providers:[],
     exports:[
         GlobalLoadingComponent,
         FilterImagePipe,
-        AddToCartComponent
+        AddToCartComponent,
+        ShowAuthedDirective
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

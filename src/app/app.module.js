@@ -28,6 +28,8 @@ var cart_service_1 = require("./share/service/cart.service");
 var animations_1 = require("@angular/platform-browser/animations");
 var authentication_service_1 = require("./share/service/authentication.service");
 var jwt_service_1 = require("./share/service/jwt.service");
+var auth_guard_service_1 = require("./share/service/auth-guard.service");
+var no_auth_guard_service_1 = require("./share/service/no-auth-guard.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -61,6 +63,8 @@ AppModule = __decorate([
             base_service_1.BaseService,
             authentication_service_1.AuthenticationService,
             jwt_service_1.JwtService,
+            auth_guard_service_1.AuthGuard,
+            no_auth_guard_service_1.NoAuthGuard,
             cart_service_1.CartService
         ],
         bootstrap: [app_component_1.AppComponent],

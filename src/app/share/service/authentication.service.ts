@@ -27,15 +27,24 @@ export class AuthenticationService{
 
     //app启动时检查token是否有效，有效则获取用户，无效则删除用户信息
     autoLogin(){
-       this.baseService.authGet("api/user")
-           .subscribe(
-               (data)=>{
-                   console.log(data);
-               },
-               (error)=>{
-                   console.log(error);
-               }
-           );
+       if(this.jwtService.getToken()){
+           this.baseService.authGet("api/user")
+               .subscribe(
+                   (data)=>{
+                       let user = new User();
+                       user.phoneNO = user.username = data.username;
+                       user.email =  data.email;
+                       user.token = this.jwtService.getToken();
+                       this.setAuth(user);
+                   },
+                   (error)=>{
+                       this.cleanAuth();
+                   }
+               );
+       }
+       else {
+           this.cleanAuth();
+       }
     }
 
 
@@ -45,11 +54,21 @@ export class AuthenticationService{
         return this.baseService.post('api/authenticate',param)
             .map((response)=>{
                 if(response.token){
-                    let user = new User();
-                    user.phoneNO = user.username = username;
-                    user.token = response.token;
-                    this.setAuth(user);
                     this.jwtService.saveToken(response.token);
+                    this.baseService.authGet("api/user")
+                        .subscribe(
+                            (data)=>{
+                                let user = new User();
+                                user.phoneNO = user.username = data.username;
+                                user.email =  data.email;
+                                user.token = response.token;
+                                this.setAuth(user);
+                            },
+                            (error)=>{
+                                console.log(error);
+                            }
+                        )
+                    // this.jwtService.saveToken(response.token);
                 }
                 return response;
             })
@@ -61,4 +80,9 @@ export class AuthenticationService{
         this.isAuthenticatedSubject.next(true);
     }
 
+    cleanAuth(){
+        this.jwtService.destoryToken();
+        this.currentUserSubject.next(new User());
+        this.isAuthenticatedSubject.next(false);
+    }
 }

@@ -7,6 +7,7 @@ import {NavigationEnd, NavigationStart, Router} from "@angular/router";
 import {CartService} from "../../service/cart.service";
 import {Product} from "../../models/product";
 import {List} from 'immutable';
+import {AuthenticationService} from "../../service/authentication.service";
 @Component({
     selector:'layout-header',
     templateUrl:'./header.component.html',
@@ -18,10 +19,12 @@ export class HeaderComponent implements OnInit{
     mobileMenu:boolean = false;
     categorySubMenuStatus:boolean = false;
     private cartNumber:number = 0;
+    username:string;
 
     constructor(
         private router:Router,
-        private cartService:CartService
+        private cartService:CartService,
+        private authenticationService:AuthenticationService
     ){
         router.events.subscribe((event:any) => {
             if(!(event instanceof NavigationEnd)) {
@@ -42,6 +45,12 @@ export class HeaderComponent implements OnInit{
                 this.cartNumber = cartProducts.size;
                 console.log(cartProducts,cartProducts.toArray());
                 //this.cartNumber = cartProducts.length;
+            }
+        )
+
+        this.authenticationService.currentUser.subscribe(
+            (data)=>{
+                this.username = data.username;
             }
         )
     }
@@ -71,6 +80,10 @@ export class HeaderComponent implements OnInit{
 
     toggleCategory(status:boolean):void{
         this.categorySubMenuStatus = status;
+    }
+
+    logout():void{
+        this.authenticationService.cleanAuth();
     }
 
 }

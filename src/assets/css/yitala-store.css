@@ -13,13 +13,12 @@ select{
 
 @font-face {
     font-family: 'iconfont';  /* project id 315415 */
-    src: url('//at.alicdn.com/t/font_edixxcovvuc8fr.eot');
-    src: url('//at.alicdn.com/t/font_edixxcovvuc8fr.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_edixxcovvuc8fr.woff') format('woff'),
-    url('//at.alicdn.com/t/font_edixxcovvuc8fr.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_edixxcovvuc8fr.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_lmst9mvej6xkcsor.eot');
+    src: url('//at.alicdn.com/t/font_lmst9mvej6xkcsor.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_lmst9mvej6xkcsor.woff') format('woff'),
+    url('//at.alicdn.com/t/font_lmst9mvej6xkcsor.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_lmst9mvej6xkcsor.svg#iconfont') format('svg');
 }
-
 .iconfont-yitala{
     font-family: 'iconfont';
     font-size:16px;

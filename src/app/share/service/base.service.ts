@@ -30,7 +30,7 @@ export class BaseService{
 
     postNoRepeat(url:string,params:any){
         let options:RequestOptionsArgs = {};
-        options.headers = this.setHeaders();
+        options.headers = this.setAuthHeaders();
         return this.http.post(url,params,options)
             .publishLast()
             .refCount()
@@ -42,14 +42,18 @@ export class BaseService{
         let options:RequestOptionsArgs = {};
         options.headers = this.setAuthHeaders();
         return this.http.get(url,options)
-            .map(res=>res.json());
+            .map(res=>{
+                return res.json();
+            });
     }
 
     authPost(url:string,params:any){
         let options:RequestOptionsArgs = {};
         options.headers = this.setAuthHeaders();
         return this.http.post(url,params,options)
-            .map(res=>res.json());
+            .map(res=>{
+                return res.json();
+            });
     }
 
 

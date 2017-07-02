@@ -4,6 +4,8 @@ import {Product} from "../models/product";
 import {BaseService} from "./base.service";
 import {List} from 'immutable';
 import {Observable} from "rxjs/Observable";
+import {AuthenticationService} from "./authentication.service";
+import {Router} from "@angular/router";
 /**
  * Created by yitala on 2017/6/17.
  */
@@ -11,13 +13,16 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class CartService{
 
+    private username:string;
     private cartId:number;
     private cartProducts : BehaviorSubject<List<Product>> = new BehaviorSubject(List([]));
-
     public cartProducts$ = this.cartProducts.asObservable();
+    public isAuthenticated:boolean;
 
     constructor(
-        private baseService:BaseService
+        private baseService:BaseService,
+        private authenticationService:AuthenticationService,
+        private router:Router
     ){
         this.initCartInfo()
     }
@@ -25,15 +30,37 @@ export class CartService{
     //init cart info
     initCartInfo(){
         //初始化用户的购物车
-        this.baseService.get(`api/cart/linweiwei`).subscribe(
-            (res)=>{
-                let products:Product[] = [];
-                for(let item of res){
-                    this.cartId = item.cartId;
-                    console.log(item.product);
-                    products.push(item.product);
+        this.authenticationService.currentUser.flatMap(
+                (data)=>{
+                    console.log("用户信息",data.username);
+                    if(data.username){
+                        this.username = data.username;
+                        return this.baseService.authGet(`api/cart/${data.username}`)
+                    }
+                    else{
+                        return Observable.from([1]);
+                    }
                 }
-                this.cartProducts.next(List(products));
+            )
+            .subscribe(
+                (res)=>{
+                    console.log("cart 列表",res);
+                    let products:Product[] = [];
+                    for(let item of res){
+                        this.cartId = item.cartId;
+                        console.log(item.product);
+                        products.push(item.product);
+                    }
+                    this.cartProducts.next(List(products));
+                },
+                (error)=>{
+                    console.log("car error",error);
+                }
+            )
+
+        this.authenticationService.isAuthenticated.subscribe(
+            (isAuthenticated)=>{
+                this.isAuthenticated = isAuthenticated;
             }
         )
     }
@@ -41,6 +68,7 @@ export class CartService{
 
     //添加到购物车
     addToCart(product:Product):Observable<boolean>{
+        this.checkAuthenticated();
         //保存到服务端
         let saveObs = this.addToCartBackend(product);
         saveObs.subscribe(
@@ -59,6 +87,7 @@ export class CartService{
 
     //从购物车中移除
     removeFromCart(product:Product):void{
+        this.checkAuthenticated();
          let removeObs = this.removeFromCartBackend(product);
          removeObs.subscribe(
              (res)=>{
@@ -90,7 +119,7 @@ export class CartService{
         //拼装参数
         let params = {};
         params['cartId'] = this.cartId;
-        params['username'] = "linweiwei";
+        params['username'] = this.username;
         params["productNums"] = productsArr.length;
         params["relationList"] = relations;
 
@@ -112,11 +141,19 @@ export class CartService{
         //拼装参数
         let params = {};
         params['cartId'] = this.cartId;
-        params['username'] = "linweiwei";
+        params['username'] = this.username;
         params["productNums"] = productsArr.length;
         params["relationList"] = relations;
 
         return this.baseService.postNoRepeat("api/cart/saveCartInfo",params);
+    }
+
+
+    checkAuthenticated(){
+        if(!this.isAuthenticated){
+            this.router.navigate(["account/login"]);
+        }
+        return;
     }
 
 }

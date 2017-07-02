@@ -23,6 +23,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AddToCartComponent} from "./cart/addtocard/add-to-cart.component";
 import {AuthenticationService} from "./share/service/authentication.service";
 import {JwtService} from "./share/service/jwt.service";
+import {AuthGuard} from "./share/service/auth-guard.service";
+import {NoAuthGuard} from "./share/service/no-auth-guard.service";
 
 @NgModule({
     imports: [
@@ -51,6 +53,8 @@ import {JwtService} from "./share/service/jwt.service";
         BaseService,
         AuthenticationService,
         JwtService,
+        AuthGuard,
+        NoAuthGuard,
         CartService
     ],
     bootstrap: [ AppComponent ],

@@ -7,12 +7,13 @@ import {HttpModule} from "@angular/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ShareModule} from "../share/share.module";
 import {PageNotFoundComponent} from "./404/page-not-found.component";
+import {NoAuthGuard} from "../share/service/no-auth-guard.service";
 /**
  * Created by yitala on 2017/5/25.
  */
 const accountRoutes:Routes = [
     {
-        path:'login',component:LoginComponent
+        path:'login',component:LoginComponent,canActivate:[NoAuthGuard]
     },
     {
         path:'404',component:PageNotFoundComponent

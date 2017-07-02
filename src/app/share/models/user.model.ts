@@ -4,6 +4,7 @@
 export class User{
     phoneNO:string;
     username:string;
+    email:string;
     token:string;
     image?:string;
 }

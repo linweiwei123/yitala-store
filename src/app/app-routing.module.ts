@@ -5,6 +5,7 @@ import {ProductComponent} from './product/product.component';
 import {CartComponent} from './cart/cart.component';
 import {AccountModule} from './account/account.module';
 import {CategoryModule} from './category/category.module';
+import {AuthGuard} from "./share/service/auth-guard.service";
 
 export function loadAccountModule(){
     // return System.import('./account/account.module').then((r: any) => r.AccountModule);
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
     {   path: 'home', component: HomeComponent},
     {   path: 'category/:type', loadChildren: './category/category.module#CategoryModule'},
     {   path: 'product/:id', component: ProductComponent},
-    {   path: 'cart', component: CartComponent},
+    {   path: 'cart', component: CartComponent,canActivate:[AuthGuard]},
     {   path: 'account', loadChildren: './account/account.module#AccountModule'},
     // {   path: 'account', component:LoginComponent},
     {

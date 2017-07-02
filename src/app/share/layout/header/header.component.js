@@ -15,10 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var cart_service_1 = require("../../service/cart.service");
+var authentication_service_1 = require("../../service/authentication.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(router, cartService) {
+    function HeaderComponent(router, cartService, authenticationService) {
         this.router = router;
         this.cartService = cartService;
+        this.authenticationService = authenticationService;
         this.mobileMenu = false;
         this.categorySubMenuStatus = false;
         this.cartNumber = 0;
@@ -40,6 +42,9 @@ var HeaderComponent = (function () {
             _this.cartNumber = cartProducts.size;
             console.log(cartProducts, cartProducts.toArray());
             //this.cartNumber = cartProducts.length;
+        });
+        this.authenticationService.currentUser.subscribe(function (data) {
+            _this.username = data.username;
         });
     };
     HeaderComponent.prototype.toggleMobileMenu = function () {
@@ -64,6 +69,9 @@ var HeaderComponent = (function () {
     HeaderComponent.prototype.toggleCategory = function (status) {
         this.categorySubMenuStatus = status;
     };
+    HeaderComponent.prototype.logout = function () {
+        this.authenticationService.cleanAuth();
+    };
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
@@ -73,7 +81,8 @@ HeaderComponent = __decorate([
         styleUrls: ['./header.component.css']
     }),
     __metadata("design:paramtypes", [router_1.Router,
-        cart_service_1.CartService])
+        cart_service_1.CartService,
+        authentication_service_1.AuthenticationService])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map

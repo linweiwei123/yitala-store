@@ -79,3 +79,19 @@ button.btn-3D:hover{
     position: absolute;
     left: 110px;
 }
+.links{
+    padding-left: 65px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.links .iconfont-yitala{
+    margin-right: 5px;
+}
+.links a{
+    color: #df5c53;
+    cursor: pointer;
+    opacity: 0.85;
+}
+.links a:hover{
+    opacity: 1;
+}
