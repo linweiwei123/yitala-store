@@ -590,6 +590,10 @@ header.header-fixed .main-header .mobile-navigation{
 .text-orange{
     color: #df5c53
 }
+.text-success{
+    color: #4CAF50;
+}
+
 .full-screen{
     position: fixed;
     top:0px;
@@ -598,6 +602,11 @@ header.header-fixed .main-header .mobile-navigation{
     right: 0px;
     z-index: 1000;
     background-color: #fff;
+}
+.full-screen-scroll{
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
 }
 .mb15{
     margin-bottom: 15px;

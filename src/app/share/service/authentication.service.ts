@@ -74,6 +74,12 @@ export class AuthenticationService{
             })
     }
 
+    //认证用户
+    register(username:string,password:string){
+        let param = {username:username,password:password};
+        return this.baseService.post('api/account/register',param);
+    }
+
     setAuth(user:User){
         this.jwtService.saveToken(user.token);
         this.currentUserSubject.next(user);

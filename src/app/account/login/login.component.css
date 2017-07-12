@@ -3,7 +3,7 @@
     width: 350px;
     color: #666;
     position: absolute;
-    top:calc(50% - 280px);
+    top:calc(50% - 300px);
     left:calc(50% - 175px);
     text-align: center;
 }
@@ -76,8 +76,8 @@ button.btn-3D:hover{
 }
 .login-error .iconfont-yitala{
     font-size: 40px;
-    position: absolute;
     left: 110px;
+    float: left;
 }
 .links{
     padding-left: 65px;
@@ -94,4 +94,8 @@ button.btn-3D:hover{
 }
 .links a:hover{
     opacity: 1;
+}
+.auth-type-text{
+    margin-bottom: 20px;
+    padding-left: 50px;
 }

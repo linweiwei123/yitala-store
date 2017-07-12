@@ -16,6 +16,9 @@ const accountRoutes:Routes = [
         path:'login',component:LoginComponent,canActivate:[NoAuthGuard]
     },
     {
+        path:'register',component:LoginComponent,canActivate:[NoAuthGuard]
+    },
+    {
         path:'404',component:PageNotFoundComponent
     },
 ]

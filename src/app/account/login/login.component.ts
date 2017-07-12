@@ -7,12 +7,16 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../share/service/authentication.service";
 
 function validatePhoneNO(c:FormControl){
-    let PHONE_NO = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
+    let PHONE_NO = /^0{0,1}(13[0-9]|15[0-9]|153|156|18[7-9])[0-9]{8}$/;
     return PHONE_NO.test(c.value)?null:{
         validatePhoneNO:{
             valid:false
         }
     }
+}
+
+function passwordConfirm(g:FormGroup){
+    return g.get('password').value === g.get('passwordConfirm').value?null:{'misMatch':true};
 }
 
 @Component({
@@ -27,6 +31,11 @@ export class LoginComponent implements OnInit,OnDestroy{
     private previosUrl:string;
     private loginForm:FormGroup;
     public error:string = "";
+    public authFlag:string;
+    public registerSuccess:boolean = false;
+    public timeOutId:any;
+    public timeIntervalId:any;
+    public time:number = 3;
 
     constructor(
         private activatedRoute:ActivatedRoute,
@@ -46,18 +55,13 @@ export class LoginComponent implements OnInit,OnDestroy{
 
         this.activatedRoute.url.subscribe(
             data=>{
-                console.log(data);
+                this.authFlag = data[data.length-1].path;
+                if(this.authFlag === 'register'){
+                    this.loginForm.addControl('passwordConfirm',new FormControl('',Validators.required));
+                    this.loginForm.setValidators(passwordConfirm);
+                }
             }
         )
-
-        // this.routerSubscrition = this.router.events
-        //     .pairwise().subscribe((e) => {
-        //    console.log(e[0]);
-        //    if( e[0] instanceof NavigationStart){
-        //        this.previosUrl = e[0]["url"];
-        //        console.log(this.previosUrl);
-        //    }
-        // })
     }
 
 
@@ -70,25 +74,57 @@ export class LoginComponent implements OnInit,OnDestroy{
 
     ngOnDestroy(): void {
         //this.routerSubscrition.unsubscribe();
+        clearTimeout(this.timeOutId);
+        clearInterval(this.timeIntervalId);
     }
 
     submitForm(form:any){
         console.log(form);
-        this.authenticationService.login(form.phoneNO,form.password)
-            .subscribe(
-                (response)=>{
-                    console.log(response);
-                    this.router.navigate(["/home"])
-                },
-                (error)=>{
-                    if(error.status == '401'){
-                       this.error = "账号密码错误";
+        if(this.authFlag == 'login'){
+            this.authenticationService.login(form.phoneNO,form.password)
+                .subscribe(
+                    (response)=>{
+                        console.log(response);
+                        this.router.navigate(["/home"])
+                    },
+                    (error)=>{
+                        if(error.status == '401'){
+                            this.error = "账号密码错误";
+                        }
+                        else{
+                            this.error = error.statusText;
+                        }
                     }
-                    else{
-                        this.error = error.statusText;
+                );
+        }
+        else{
+            this.authenticationService.register(form.phoneNO,form.password)
+                .subscribe(
+                    (response)=>{
+                        if(response.errorCode == 500){
+                            this.error = response.message;
+                        }
+                        else{
+                            this.registerSuccess = true;
+                            this.timeOutId = setTimeout(()=>{
+                                this.router.navigate(["/account/login"]);
+                            },3000);
+                            this.timeIntervalId = setInterval(()=>{
+                                this.time--;
+                            },1000)
+                        }
+                    },
+                    (error)=>{
+                        if(error.status == '401'){
+                            this.error = "账号密码错误";
+                        }
+                        else{
+                            this.error = error.statusText;
+                        }
                     }
-                }
-            );
+                );
+        }
+
         //this.error = "账号密码错误"
     }
 }

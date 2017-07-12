@@ -26,12 +26,14 @@
                         <ul class="top_bar-nav">
                             <li class="menu-item"><a href="/account">我的账户</a></li>
                             <li class="menu-item"><a [routerLink]="['/cart']">我的购物车</a></li>
+                            <li class="menu-item" *showAuthed="false">
+                                <a [routerLink]="['/account/login']" *showAuthed="false">登陆 / 注册</a>
+                            </li>
                             <li class="menu-item">
-                                <span class="account-info" *showAuthed="true">
+                                 <span class="account-info" *showAuthed="true">
                                     <i class="iconfont-yitala">&#xe600;</i>
                                     <span class="text-danger">{{username}}</span>
                                 </span>
-                                <a [routerLink]="['/account/login']" *showAuthed="false">登陆 / 注册</a>
                                 <a (click)="logout()" *showAuthed="true">退出</a>
                             </li>
                         </ul>
