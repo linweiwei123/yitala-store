@@ -6,6 +6,8 @@ import {Injectable} from "@angular/core";
 import {Http,Headers,RequestOptionsArgs} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {JwtService} from "./jwt.service";
+import 'rxjs/add/operator/publishLast';
+
 @Injectable()
 export class BaseService{
 
@@ -18,14 +20,14 @@ export class BaseService{
         let options:RequestOptionsArgs = {};
         options.headers = this.setHeaders();
         return this.http.get(url,options)
-            .map(res=>res.json());
+            .map((res:any)=>res.json());
     }
 
     post(url:string,params:any){
         let options:RequestOptionsArgs = {};
         options.headers = this.setHeaders();
         return this.http.post(url,params,options)
-            .map(res=>res.json());
+            .map((res:any)=>res.json());
     }
 
     postNoRepeat(url:string,params:any){
@@ -34,7 +36,7 @@ export class BaseService{
         return this.http.post(url,params,options)
             .publishLast()
             .refCount()
-            .map(res=>res.json());
+            .map((res:any)=>res.json());
     }
 
 
@@ -42,7 +44,7 @@ export class BaseService{
         let options:RequestOptionsArgs = {};
         options.headers = this.setAuthHeaders();
         return this.http.get(url,options)
-            .map(res=>{
+            .map((res:any)=>{
                 return res.json();
             });
     }
@@ -51,7 +53,7 @@ export class BaseService{
         let options:RequestOptionsArgs = {};
         options.headers = this.setAuthHeaders();
         return this.http.post(url,params,options)
-            .map(res=>{
+            .map((res:any)=>{
                 return res.json();
             });
     }

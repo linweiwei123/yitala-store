@@ -27,9 +27,9 @@ function passwordConfirm(g:FormGroup){
 
 export class LoginComponent implements OnInit,OnDestroy{
 
-    private routerSubscrition:any;
-    private previosUrl:string;
-    private loginForm:FormGroup;
+    public routerSubscrition:any;
+    public previosUrl:string;
+    public loginForm:FormGroup;
     public error:string = "";
     public authFlag:string;
     public registerSuccess:boolean = false;

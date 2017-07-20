@@ -13,76 +13,34 @@
                                         <th class="product-thumbnail">商品</th>
                                         <th class="product-name">&nbsp;</th>
                                         <th class="product-price">价格</th>
-                                        <th class="product-quantity">数量</th>
-                                        <th class="product-subtotal">总价</th>
+                                        <th class="product-quantity">优惠价</th>
+                                        <th class="product-subtotal">操作</th>
                                         <th class="product-remove">&nbsp;</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="cart_item">
+                                    <tr class="cart_item" *ngFor="let item of cartProducts">
                                         <td class="product-thumbnail" data-label="Product">
                                             <a href="/products/rust-shirt-with-half-sleeves-2?variant=21300741317">
-                                                <img width="120" height="144" src="//cdn.shopify.com/s/files/1/1511/4592/products/jean2_7731c1f3-202c-4de6-95d2-50347f6c49c5_small.png?v=1482766658" class="attachment-shop_thumbnail wp-post-image" alt="Rust Shirt With Half Sleeves 2">
+                                                <img width="120" height="144" [src]="item.images|filterImage" class="attachment-shop_thumbnail wp-post-image" >
                                             </a>
                                         </td>
                                         <td class="product-name">
                                             <a href="/products/rust-shirt-with-half-sleeves-2?variant=21300741317">
-                                                Rust Shirt With Half Sleeves 2
+                                                {{item.name}}
                                             </a>
                                             <p>
-                                                <span>Keep you skin care products and make-up secure when you are at home or on the road. This Meraki toilet bag has a tiful and simple design with a closure, and the size provides you with lots of room for you.</span>
+                                                <span>{{item.description}}</span>
                                             </p>
                                         </td>
                                         <td class="product-price" data-label="Price">
                                                 <span class="amount">
-                                                    <span class="money" data-currency-usd="$75.00">$75.00</span>
+                                                    <span class="money"><em class="rmb">¥</em>{{item.price}}</span>
                                                 </span>
-                                        </td>
-                                        <td class="product-quantity" data-label="Quantity">
-                                            <div class="quantity">
-                                                <input class="minus" type="button" value="-">
-                                                <input class="input-text qty text" type="text" size="4" title="Qty" value="1" id="updates_21300741317" name="updates[]" min="0">
-                                                <input class="plus" type="button" value="+"> </div>
                                         </td>
                                         <td class="product-subtotal" data-label="Subtotal">
                                                 <span class="amount">
-                                                    <span class="money" data-currency-usd="$75.00">$75.00</span>
-                                                </span>
-                                        </td>
-                                        <td class="product-remove">
-                                            <a href="/cart/change?line=1&amp;quantity=0" class="remove" title="Remove this item">
-                                                <i class="fa fa-trash-o"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="product-thumbnail" data-label="Product">
-                                            <a href="/products/rust-shirt-with-half-sleeves-2?variant=21300741317">
-                                                <img width="120" height="144" src="//cdn.shopify.com/s/files/1/1511/4592/products/jean2_7731c1f3-202c-4de6-95d2-50347f6c49c5_small.png?v=1482766658" class="attachment-shop_thumbnail wp-post-image" alt="Rust Shirt With Half Sleeves 2">
-                                            </a>
-                                        </td>
-                                        <td class="product-name">
-                                            <a href="/products/rust-shirt-with-half-sleeves-2?variant=21300741317">
-                                                Rust Shirt With Half Sleeves 2
-                                            </a>
-                                            <p>
-                                                <span>Keep you skin care products and make-up secure when you are at home or on the road. This Meraki toilet bag has a tiful and simple design with a closure, and the size provides you with lots of room for you.</span>
-                                            </p>
-                                        </td>
-                                        <td class="product-price" data-label="Price">
-                                                <span class="amount">
-                                                    <span class="money" data-currency-usd="$75.00">$75.00</span>
-                                                </span>
-                                        </td>
-                                        <td class="product-quantity" data-label="Quantity">
-                                            <div class="quantity">
-                                                <input class="minus" type="button" value="-">
-                                                <input class="input-text qty text" type="text" size="4" title="Qty" value="1" id="updates_21300741317" name="updates[]" min="0">
-                                                <input class="plus" type="button" value="+"> </div>
-                                        </td>
-                                        <td class="product-subtotal" data-label="Subtotal">
-                                                <span class="amount">
-                                                    <span class="money" data-currency-usd="$75.00">$75.00</span>
+                                                   <span class="money"><em class="rmb">¥</em>{{item.discount?item.price*item.discount/100:item.price}}</span>
                                                 </span>
                                         </td>
                                         <td class="product-remove">

@@ -1,10 +1,11 @@
 /**
  * Created by yitala on 2017/5/24.
  */
-import {Component, HostListener, OnInit} from "@angular/core";
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from "@angular/core";
 import {BaseService} from "../share/service/base.service";
 import {Product} from "../share/models/product";
 import {ActivatedRoute} from "@angular/router";
+import {Base64} from "js-base64";
 @Component({
     selector:'product',
     templateUrl:'./product.component.html',
@@ -15,6 +16,10 @@ export class ProductComponent implements OnInit{
 
     public product:Product = new Product();
     public productId:string;
+    public desc:string;
+
+    @ViewChild('descContainer')
+    descContainer:ElementRef;
 
     constructor(
         private baseService:BaseService,
@@ -29,6 +34,7 @@ export class ProductComponent implements OnInit{
 
     ngOnInit(): void {
         this.getProduct(this.productId);
+        this.getDesc(this.productId);
     }
 
     images = [
@@ -52,4 +58,24 @@ export class ProductComponent implements OnInit{
         );
 
     }
+
+    getDesc(id:string):void{
+        this.baseService.get(`api/productDesc/${id}`).subscribe(
+            (response)=>{
+                if(response.status == 204){
+                    this.desc = "";
+                }
+                else{
+                    this.desc = Base64.decode(response.description);
+                    console.log(this.desc);
+                }
+                this.descContainer.nativeElement.innerHTML = this.desc;
+            },
+            (error)=>{
+                console.log(error);
+            }
+        );
+    }
+
+
 }

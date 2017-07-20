@@ -37,12 +37,12 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 
 export class FooterComponent implements OnInit{
 
-    private cartNumber:number = 0;
-    private cartProducts:Array<Product>=[];
-    private cartTotalPrice:number= 0;
-    private cartOpen:boolean = false;
-    private serviceOpen:boolean = false;
-    private cartId:number;
+    public cartNumber:number = 0;
+    public cartProducts:Array<Product>=[];
+    public cartTotalPrice:number= 0;
+    public cartOpen:boolean = false;
+    public serviceOpen:boolean = false;
+    public cartId:number;
 
     constructor(
         private cartService:CartService,

@@ -6,6 +6,7 @@ import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {AuthenticationService} from "./authentication.service";
+import 'rxjs/add/operator/take';
 @Injectable()
 export class NoAuthGuard implements CanActivate{
 
@@ -14,7 +15,7 @@ export class NoAuthGuard implements CanActivate{
     ){}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-        return this.authenticationService.isAuthenticated.take(1).map(isAuth => !isAuth);
+        return this.authenticationService.isAuthenticated.take(1).map((isAuth:any) => !isAuth);
     }
 
 }

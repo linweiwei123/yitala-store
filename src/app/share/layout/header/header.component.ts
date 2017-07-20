@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit{
 
     mobileMenu:boolean = false;
     categorySubMenuStatus:boolean = false;
-    private cartNumber:number = 0;
+    cartNumber:number = 0;
     username:string;
 
     constructor(

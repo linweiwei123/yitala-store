@@ -24,3 +24,6 @@
 .form-row label{
     margin-bottom: 5px!important;
 }
+.product-cart td.product-remove{
+    text-align: left;
+}

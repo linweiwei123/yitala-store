@@ -6,6 +6,9 @@ import {List} from 'immutable';
 import {Observable} from "rxjs/Observable";
 import {AuthenticationService} from "./authentication.service";
 import {Router} from "@angular/router";
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/observable/from';
+
 /**
  * Created by yitala on 2017/6/17.
  */
@@ -31,7 +34,7 @@ export class CartService{
     initCartInfo(){
         //初始化用户的购物车
         this.authenticationService.currentUser.flatMap(
-                (data)=>{
+                (data:any)=>{
                     console.log("用户信息",data.username);
                     if(data.username){
                         this.username = data.username;
@@ -43,7 +46,7 @@ export class CartService{
                 }
             )
             .subscribe(
-                (res)=>{
+                (res:any)=>{
                     console.log("cart 列表",res);
                     let products:Product[] = [];
                     for(let item of res){
@@ -53,13 +56,13 @@ export class CartService{
                     }
                     this.cartProducts.next(List(products));
                 },
-                (error)=>{
+                (error:any)=>{
                     console.log("car error",error);
                 }
             )
 
         this.authenticationService.isAuthenticated.subscribe(
-            (isAuthenticated)=>{
+            (isAuthenticated:any)=>{
                 this.isAuthenticated = isAuthenticated;
             }
         )
@@ -72,12 +75,12 @@ export class CartService{
         //保存到服务端
         let saveObs = this.addToCartBackend(product);
         saveObs.subscribe(
-            (res)=>{
+            (res:any)=>{
                 if(res == true){
                     this.cartProducts.next(this.cartProducts.getValue().push(product));
                 }
             },
-            (error)=>{
+            (error:any)=>{
                 console.log(error);
             }
 
@@ -90,7 +93,7 @@ export class CartService{
         this.checkAuthenticated();
          let removeObs = this.removeFromCartBackend(product);
          removeObs.subscribe(
-             (res)=>{
+             (res:any)=>{
                  if(res == true){
                      this.cartProducts.next(
                          this.cartProducts.getValue().delete(this.cartProducts.getValue().indexOf(product))
@@ -101,7 +104,7 @@ export class CartService{
                  }
 
              },
-             (error)=>{
+             (error:any)=>{
                  console.log(error);
              }
          )
@@ -130,7 +133,7 @@ export class CartService{
     removeFromCartBackend(product:Product){
         let productsArr:Product[] = this.cartProducts.getValue().toArray();
         productsArr = productsArr.filter(
-            (item)=>{
+            (item:any)=>{
             return item != product
         })
         let relations = [];

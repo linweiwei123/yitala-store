@@ -51,3 +51,8 @@ ul.menu-nav>li>a{
     color: #df5c53;
     cursor: pointer;
 }
+.main-header .logo img {
+    vertical-align: top;
+    margin-top: 5px;
+    height: 64px!important;
+}

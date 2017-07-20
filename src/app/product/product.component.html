@@ -84,20 +84,23 @@
                             <div id="tab_product" class="tab-product-page">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="">
-                                        <a href="#description" aria-controls="description" role="tab" data-toggle="tab" aria-expanded="false">Description</a>
-                                    </li>
-                                    <li role="presentation" class="">
-                                        <a href="#addinformation" aria-controls="addinformation" role="tab" data-toggle="tab" aria-expanded="false">Additional Information</a>
-                                    </li>
                                     <li role="presentation" class="active">
-                                        <a href="#review" class="review_tab" aria-controls="review" role="tab" data-toggle="tab" aria-expanded="true">review</a>
+                                        <a href="#description" aria-controls="description" role="tab" data-toggle="tab" aria-expanded="false">详细信息</a>
                                     </li>
+                                    <!--<li role="presentation" class="">-->
+                                        <!--<a href="#addinformation" aria-controls="addinformation" role="tab" data-toggle="tab" aria-expanded="false">Additional Information</a>-->
+                                    <!--</li>-->
+                                    <!--<li role="presentation" >-->
+                                        <!--<a href="#review" class="review_tab" aria-controls="review" role="tab" data-toggle="tab" aria-expanded="true">review</a>-->
+                                    <!--</li>-->
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content" style="opacity: 1">
-                                    <div role="tabpanel" class="tab-pane" id="description" >
-                                        <div class="box-content"> <span>Keep you skin care products and make-up secure when you are at home or on the road. This Meraki toilet bag has a tiful and simple design with a closure, and the size provides you with lots of room for you.</span> </div>
+                                    <div id="description" >
+                                        <div class="box-content">
+                                            <!--<div [innerHTML]="desc"  ></div>-->
+                                            <div #descContainer></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

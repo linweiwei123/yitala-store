@@ -43,3 +43,7 @@ span.money{
 #primary{
     margin-top: 20px;
 }
+
+.product-content-preview .nav-tabs {
+    margin-bottom: 30px;
+}

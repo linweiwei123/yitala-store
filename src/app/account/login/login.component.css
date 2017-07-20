@@ -7,8 +7,14 @@
     left:calc(50% - 175px);
     text-align: center;
 }
+.login-page-logo{
+    margin-bottom: 20px;
+}
 .login-page-logo img{
-    width: 300px;
+    width: 260px;
+}
+.login-page-logo>a{
+    margin-left: 16%;
 }
 .login .form-group{
     margin-bottom: 35px;
@@ -99,3 +105,4 @@ button.btn-3D:hover{
     margin-bottom: 20px;
     padding-left: 50px;
 }
+

@@ -138,7 +138,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             chunksSortMode: 'dependency',
-            inject: 'body'
+            inject: 'body',
+            favicon:'src/assets/img/favicon.png'
         }),
 
         /*
