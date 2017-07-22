@@ -91,7 +91,7 @@ export class ProductsComponent implements OnInit {
                     for (let item of data) {
                         item.images = item.images.substring(0, item.images.indexOf(','));
                     }
-                    this.productsList = data.concat(data).concat(data);
+                    this.productsList = data;
                     this.totalElements = response.totalElements;
                 },
                 (error) => {

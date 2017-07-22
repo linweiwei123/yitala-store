@@ -62,7 +62,8 @@ export class ProductComponent implements OnInit{
     getDesc(id:string):void{
         this.baseService.get(`api/productDesc/${id}`).subscribe(
             (response)=>{
-                if(response.status == 204){
+                console.log(response);
+                if(!response || response.status == 204){
                     this.desc = "";
                 }
                 else{

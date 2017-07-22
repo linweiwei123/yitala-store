@@ -44,9 +44,9 @@
                         </form>
                         <div class="bg-striped"></div>
                     </div>
-                    <div class="products row columns-4 products-grid products-wraps" id="collection-product">
+                    <div class="products row columns-4 products-grid products-wraps category-products-wrap" id="collection-product">
                         <div class="product-item view-grid" style="display:block; " *ngFor="let product of productsList" >
-                            <div class="product-item-container">
+                            <div class="product-item-container" title="{{product.name}}">
                                 <div class="product-media" (click)="gotoProductDetail(product.productId)">
                                     <div class="product-images-wrap">
                                         <figure class="product-first-figure">
@@ -60,9 +60,9 @@
                                         <span>马上查看</span>
                                     </a>
                                 </div>
-                                <div class="product-info">
+                                <div class="product-info" >
                                     <h3 class="product-name">
-                                        <a href="/products/espadrilles-2">{{product.brand}} {{product.name}}</a>
+                                        <p>{{product.name}}</p>
                                     </h3>
                                     <span class="price">
                                     <span class="money"><em class="rmb">¥</em>{{product.price}}</span>
@@ -95,7 +95,7 @@
                     <h4 class="title-sidebar">商品分类</h4>
                     <div [ngClass]="{'block-loading':typeLoading}">
                         <ul class="product-categories" >
-                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='earring'}" (click)="changeType('earring')"><a ><i class="iconfont-yitala">&#xe618;</i>耳钉</a></li>
+                            <li class="owl-carousel cat-item" [ngClass]="{'active':type=='earring'}" (click)="changeType('earring')"><a ><i class="iconfont-yitala">&#xe618;</i>耳夹／耳钉</a></li>
                             <li class="owl-carousel cat-item" [ngClass]="{'active':type=='necklace'}" (click)="changeType('necklace')"><a ><i class="iconfont-yitala">&#xe699;</i>项链</a></li>
                             <li class="owl-carousel cat-item" [ngClass]="{'active':type=='bracelet'}" (click)="changeType('bracelet')"><a ><i class="iconfont-yitala">&#xe61f;</i>手链</a></li>
                             <li class="owl-carousel cat-item" [ngClass]="{'active':type=='ring'}" (click)="changeType('ring')"><a ><i class="iconfont-yitala">&#xe640;</i>戒子</a></li>

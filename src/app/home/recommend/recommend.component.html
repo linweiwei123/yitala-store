@@ -1,7 +1,7 @@
 
-<div class="products-wraps products-wraps-style2 columns-4" >
+<div class="products-wraps products-wraps-style2 columns-4 home-product-wrap" >
     <div class="product-item" *ngFor="let item of showProducts;let i = index" >
-        <div class="product-item-inner">
+        <div class="product-item-inner" title="{{item.name}}">
             <div class="product-media" (click)="gotoProductDetail(item.productId)">
                 <div class="product-images-wrap">
                     <figure class="product-first-figure">
@@ -13,7 +13,7 @@
             </div>
             <div class="product-info">
                 <h3 class="product-name">
-                    <a>{{item.brand}} {{item.name}}</a>
+                    <p>{{item.name}}</p>
                 </h3>
                 <span class="price">
                                  <span class="money rmb" *ngIf="item.discount" >
