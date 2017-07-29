@@ -1,0 +1,153 @@
+.page-wrapper{
+    padding: 15px;
+}
+.account-header{
+    border-top: 1px solid #ececec;
+    padding: 20px;
+}
+.account-header:after{
+    content: " ";
+    height: 0px;
+    display: block;
+    clear: both;
+}
+.avatar{
+    float: left;
+    width: 80px;
+    height: 80px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+.user-info{
+    display: inline-block;
+    padding: 10px 20px;
+    float: left;
+}
+.user-info .name{
+    font-size: 25px;
+    color: #333;
+}
+
+.customtab.nav-tabs .nav-link {
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+}
+
+.customtab.nav-tabs .nav-link.active,.customtab.nav-tabs .nav-link.active:focus,.customtab.nav-tabs .nav-link:hover {
+    border-bottom: 2px solid #df5c53;
+    color: #df5c53
+}
+.customtab>li>a:focus, .customtab>li>a:hover{
+    background-color: #fff;
+}
+.tab-content{
+    min-height: 300px;
+    padding: 30px 0px;
+}
+ul.address-list li{
+    list-style: none;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f7fafc;
+    width: 100%;
+}
+.locale-icon .iconfont-yitala{
+    font-size: 30px;
+}
+
+.address-item>*{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    width: inherit;
+}
+.address-item .locale-icon{
+    width: 85px;
+}
+.address-item .info{
+    min-width: 200px;
+}
+.address-item .option{
+    padding: 10px 15px 10px 0;
+}
+ul.address-list li:hover{
+    cursor: pointer;
+}
+ul.address-list li.active{
+    background-color: #fb9678;
+    color: #fff;
+}
+
+.add-block{
+
+}
+.address-item.create{
+    height: 80px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    line-height: 56px;
+    background-color: #fff;
+    border: 3px dashed #ddd;
+    -webkit-background-clip: padding-box;
+}
+
+.address-item.create:hover{
+    background-color: #fff;
+    color: inherit;
+    border-color: #df5c53;
+    cursor: pointer!important;
+}
+.address-item.create.active{
+    background-color: #fff;
+    color: inherit;
+    border-color: #df5c53;
+    cursor: pointer!important;
+}
+.address-item .add-block{
+    display: block;
+}
+.option i.iconfont-yitala{
+    font-size: 20px;
+}
+.option i.iconfont-yitala:hover{
+    cursor: pointer;
+}
+
+.shipment-title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.shipment-title-content{
+    font-size: 30px;
+    display: inline-block;
+    padding: 10px;
+}
+.shipment-title-content .iconfont-yitala{
+    font-size: 30px;
+    color: #df5c53;
+    margin-right: 15px;
+}
+
+
+.no-content{
+    padding: 30px 0;
+    text-align: center;
+}
+.no-content .message{
+    font-size: 30px;
+}
+.modal-body p{
+    text-align: center;
+    margin-bottom: 0;
+}
+.btn:focus{
+    outline: none!important;
+}

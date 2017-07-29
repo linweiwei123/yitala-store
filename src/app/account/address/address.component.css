@@ -1,0 +1,22 @@
+.form-control{
+    line-height: 46px;
+    height: 46px;
+}
+.form-group{
+    margin-bottom: 30px;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.form-group .button-submit{
+    line-height: 40px;
+}
+.button-submit{
+    background-color: #fb9678;
+}
+.button-submit:hover{
+    cursor: pointer;
+    background-color: #df5c53;
+}

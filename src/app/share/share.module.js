@@ -16,6 +16,7 @@ var global_loading_component_1 = require("./loading/global-loading.component");
 var FilterImagePipe_1 = require("./layout/pipes/FilterImagePipe");
 var add_to_cart_component_1 = require("../cart/addtocard/add-to-cart.component");
 var show_authed_directive_1 = require("./directive/show-authed.directive");
+var validate_on_blur_directive_1 = require("./directive/validate-on-blur.directive");
 var ShareModule = (function () {
     function ShareModule() {
     }
@@ -31,14 +32,16 @@ ShareModule = __decorate([
             global_loading_component_1.GlobalLoadingComponent,
             FilterImagePipe_1.FilterImagePipe,
             add_to_cart_component_1.AddToCartComponent,
-            show_authed_directive_1.ShowAuthedDirective
+            show_authed_directive_1.ShowAuthedDirective,
+            validate_on_blur_directive_1.ValidateOnBlurDirective
         ],
         providers: [],
         exports: [
             global_loading_component_1.GlobalLoadingComponent,
             FilterImagePipe_1.FilterImagePipe,
             add_to_cart_component_1.AddToCartComponent,
-            show_authed_directive_1.ShowAuthedDirective
+            show_authed_directive_1.ShowAuthedDirective,
+            validate_on_blur_directive_1.ValidateOnBlurDirective
         ],
         schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
     })

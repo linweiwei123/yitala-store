@@ -70,6 +70,15 @@
         <div class="container">
             <!-- 推荐 -->
             <div class="title-description-block has-underline text-center" >
+                <h3 class="title-block" data-size="28px"><i class="fa fa-truck text-orange mr10"></i>新到宝贝</h3></div>
+
+            <recommend-products [products]="newProducts" [showProducts]="newShowProducts" ></recommend-products>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- 推荐 -->
+            <div class="title-description-block has-underline text-center" >
                 <h3 class="title-block" data-size="28px">
                     <i class="fa fa-thumbs-o-up text-orange mr10"></i>推荐宝贝
                 </h3>
@@ -81,18 +90,10 @@
         <div class="container">
             <!-- 优惠 -->
             <div class="title-description-block has-underline text-center" >
-                <h3 class="title-block" data-size="28px"><i class="fa fa-cut text-orange mr10"></i>优惠宝贝</h3></div>
-
+                <h3 class="title-block" data-size="28px"><i class="fa fa-cut text-orange mr10"></i>优惠宝贝</h3>
+            </div>
             <recommend-products [products]="discountProducts" [showProducts]="discountShowProducts" ></recommend-products>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <!-- 推荐 -->
-            <div class="title-description-block has-underline text-center" >
-                <h3 class="title-block" data-size="28px"><i class="fa fa-truck text-orange mr10"></i>新到宝贝</h3></div>
 
-            <recommend-products [products]="newProducts" [showProducts]="newShowProducts" ></recommend-products>
-        </div>
-    </section>
 </div>

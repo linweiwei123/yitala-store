@@ -9,6 +9,7 @@ import {GlobalLoadingComponent} from "./loading/global-loading.component";
 import {FilterImagePipe} from "./layout/pipes/FilterImagePipe";
 import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
 import {ShowAuthedDirective} from "./directive/show-authed.directive";
+import {ValidateOnBlurDirective} from "./directive/validate-on-blur.directive";
 
 @NgModule({
     imports:[
@@ -19,14 +20,16 @@ import {ShowAuthedDirective} from "./directive/show-authed.directive";
         GlobalLoadingComponent,
         FilterImagePipe,
         AddToCartComponent,
-        ShowAuthedDirective
+        ShowAuthedDirective,
+        ValidateOnBlurDirective
     ],
     providers:[],
     exports:[
         GlobalLoadingComponent,
         FilterImagePipe,
         AddToCartComponent,
-        ShowAuthedDirective
+        ShowAuthedDirective,
+        ValidateOnBlurDirective
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

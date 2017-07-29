@@ -154,7 +154,7 @@ export class CartService{
 
     checkAuthenticated(){
         if(!this.isAuthenticated){
-            this.router.navigate(["account/login"]);
+            this.router.navigate(["auth/login"]);
         }
         return;
     }

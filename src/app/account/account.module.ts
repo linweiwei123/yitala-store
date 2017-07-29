@@ -1,31 +1,25 @@
+/**
+ * Created by yitala on 2017/7/25.
+ */
+
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {LoginComponent} from "./login/login.component";
-import {NgModule} from "@angular/core";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {CommonModule} from "@angular/common";
 import {HttpModule} from "@angular/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ShareModule} from "../share/share.module";
-import {PageNotFoundComponent} from "./404/page-not-found.component";
-import {NoAuthGuard} from "../share/service/no-auth-guard.service";
-/**
- * Created by yitala on 2017/5/25.
- */
+import {AccountComponent} from "./account.component";
+import {AuthGuard} from "../share/service/auth-guard.service";
+import {AddressComponent} from "./address/address.component";
+
 const accountRoutes:Routes = [
     {
-        path:'login',component:LoginComponent,canActivate:[NoAuthGuard]
-    },
-    {
-        path:'register',component:LoginComponent,canActivate:[NoAuthGuard]
-    },
-    {
-        path:'404',component:PageNotFoundComponent
-    },
+        path:'',component:AccountComponent,canActivate:[AuthGuard]
+    }
 ]
 
 @NgModule({
     imports:[
-        NgbModule,
         CommonModule,
         HttpModule,
         FormsModule,
@@ -34,11 +28,11 @@ const accountRoutes:Routes = [
         RouterModule.forChild(accountRoutes)
     ],
     declarations:[
-        LoginComponent,
-        PageNotFoundComponent
+        AccountComponent,
+        AddressComponent
     ],
     schemas:[
-
+        CUSTOM_ELEMENTS_SCHEMA
     ]
 })
 

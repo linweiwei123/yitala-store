@@ -41,13 +41,13 @@
                             </div>
                         </div>
                     </form>
-                    <p class="links" *ngIf="authFlag == 'login'"><i class="iconfont-yitala">&#xe61d;</i>还没有账号？<a [routerLink]="['/account/register']">前往注册</a></p>
-                    <p class="links" *ngIf="authFlag == 'register'"><i class="iconfont-yitala">&#xe61d;</i>已经有账号？<a [routerLink]="['/account/login']">前往登录</a></p>
+                    <p class="links" *ngIf="authFlag == 'login'"><i class="iconfont-yitala">&#xe61d;</i>还没有账号？<a [routerLink]="['/auth/register']">前往注册</a></p>
+                    <p class="links" *ngIf="authFlag == 'register'"><i class="iconfont-yitala">&#xe61d;</i>已经有账号？<a [routerLink]="['/auth/login']">前往登录</a></p>
                     <p class="links"><i class="iconfont-yitala">&#xe61d;</i>暂不{{authFlag == 'login'?'登录':'注册'}}，<a [routerLink]="['/home']">回到主页</a>？</p>
                 </div>
                 <div *ngIf="registerSuccess" >
                     <h1 class="text-success">注册成功啦！</h1>
-                    <p class="links">{{time}} 秒后跳转至登录页面，or <a [routerLink]="['/account/login']">立即前往</a></p>
+                    <p class="links">{{time}} 秒后跳转至登录页面，or <a [routerLink]="['/auth/login']">立即前往</a></p>
                     <h3></h3>
                 </div>
 

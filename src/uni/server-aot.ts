@@ -21,7 +21,7 @@ server.engine('html', ngUniversalEngine({
 server.set('views', 'src');
 
 // handle requests for routes in the app.  ngExpressEngine does the rendering.
-server.get(['/home', '/category/:type', '/product/:id','/cart','/account'], (req:any, res:any) => {
+server.get(['/home', '/category/:type', '/product/:id','/cart','/auth'], (req:any, res:any) => {
     res.render('index.html', {req});
 });
 

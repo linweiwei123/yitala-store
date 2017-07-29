@@ -1,0 +1,33 @@
+<form class="form-horizontal" [formGroup]="addressForm" (ngSubmit)="submitForm(addressForm.value)" >
+    <div class="form-group row"
+         [ngClass]="{'has-error':addressForm.controls['username'].dirty && addressForm.controls['username'].invalid}">
+        <label class="col-sm-3 control-label col-form-label">收货人</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control"  [formControl]="addressForm.controls['username']" placeholder="姓名">
+            <span class="text-danger input-error-tips" *ngIf="addressForm.controls['username'].dirty && addressForm.controls['username'].invalid">
+                *请填写收货人</span>
+        </div>
+    </div>
+    <div class="form-group row" [ngClass]="{'has-error':addressForm.controls['phone'].touched  && addressForm.controls['phone'].dirty && addressForm.controls['phone'].invalid}">
+        <label  class="col-sm-3 control-label col-form-label">电话</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" validateOnBlur  [validateFormControl]="addressForm.controls['phone']"
+                   [formControl]="addressForm.controls['phone']"  placeholder="手机号">
+            <span class="text-danger input-error-tips" *ngIf="addressForm.controls['phone'].touched && addressForm.controls['phone'].dirty && addressForm.controls['phone'].invalid">
+                *请填写有效的手机号码</span>
+        </div>
+    </div>
+    <div class="form-group row" [ngClass]="{'has-error':addressForm.controls['address'].dirty && addressForm.controls['address'].invalid}">
+        <label class="col-sm-3 control-label col-form-label">收货地址</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" [formControl]="addressForm.controls['address']" placeholder="收货人地址信息要详细到门牌号">
+            <span class="text-danger input-error-tips" *ngIf="addressForm.controls['address'].dirty && addressForm.controls['address'].invalid">
+                *请填写收获地址</span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-offset-3" style="padding-left: 15px">
+            <button type="submit" name="register" class="button-submit" [disabled]="addressForm.invalid">{{addressInfo!=null?'修改':'创建'}}</button>
+        </div>
+    </div>
+</form>

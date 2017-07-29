@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit,OnDestroy{
                         else{
                             this.registerSuccess = true;
                             this.timeOutId = setTimeout(()=>{
-                                this.router.navigate(["/account/login"]);
+                                this.router.navigate(["/auth/login"]);
                             },3000);
                             this.timeIntervalId = setInterval(()=>{
                                 this.time--;

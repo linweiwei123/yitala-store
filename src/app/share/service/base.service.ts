@@ -58,6 +58,15 @@ export class BaseService{
             });
     }
 
+    authDelete(url:string){
+        let options:RequestOptionsArgs = {};
+        options.headers = this.setAuthHeaders();
+        return this.http.delete(url,options)
+            .map((res:any)=>{
+                return res.json();
+            });
+    }
+
 
     private setHeaders():Headers{
         let headers = new Headers();

@@ -18,16 +18,18 @@
     <div class="header-top">
         <div class="container">
             <div class="header-top-content">
-                <div class="header-top-left"> <span class="number-phone">+(00) 123 456 789</span></div>
+                <div class="header-top-left">
+                    <span class="number-phone"><i class="iconfont-yitala">&#xe683;</i> + 15059153753</span>
+                </div>
                 <!-- Header Right -->
                 <div class="header-top-right">
                     <!-- Navigation Top Bar  -->
                     <nav class="top-bar-navigation" id="top-bar-navigation">
                         <ul class="top_bar-nav">
-                            <li class="menu-item"><a href="/account">我的账户</a></li>
+                            <li class="menu-item"><a [routerLink]="['/account']">我的账户</a></li>
                             <li class="menu-item"><a [routerLink]="['/cart']">我的购物车</a></li>
                             <li class="menu-item" *showAuthed="false">
-                                <a [routerLink]="['/account/login']" *showAuthed="false">登陆 / 注册</a>
+                                <a [routerLink]="['/auth/login']" *showAuthed="false">登陆 / 注册</a>
                             </li>
                             <li class="menu-item">
                                  <span class="account-info" *showAuthed="true">

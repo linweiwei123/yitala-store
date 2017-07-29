@@ -15,12 +15,9 @@ import {ProductZoomComponent} from "./product/productzoom/product-zoom.component
 import {HomeComponent} from "./home/home.component";
 import {CartComponent} from "./cart/cart.component";
 import {BaseService} from "./share/service/base.service";
-import {FilterImagePipe} from "./share/layout/pipes/FilterImagePipe";
 import {RecommendComponent} from "./home/recommend/recommend.component";
 import {CartService} from "./share/service/cart.service";
-import {NewProductsComponent} from "./category/newproducts/new-products.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AddToCartComponent} from "./cart/addtocard/add-to-cart.component";
 import {AuthenticationService} from "./share/service/authentication.service";
 import {JwtService} from "./share/service/jwt.service";
 import {AuthGuard} from "./share/service/auth-guard.service";
