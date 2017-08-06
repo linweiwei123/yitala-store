@@ -13,11 +13,11 @@ select{
 
 @font-face {
     font-family: 'iconfont';  /* project id 315415 */
-    src: url('//at.alicdn.com/t/font_4kimtt8jhbur3sor.eot');
-    src: url('//at.alicdn.com/t/font_4kimtt8jhbur3sor.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_4kimtt8jhbur3sor.woff') format('woff'),
-    url('//at.alicdn.com/t/font_4kimtt8jhbur3sor.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_4kimtt8jhbur3sor.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_mo5vuavgglr0y66r.eot');
+    src: url('//at.alicdn.com/t/font_mo5vuavgglr0y66r.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_mo5vuavgglr0y66r.woff') format('woff'),
+    url('//at.alicdn.com/t/font_mo5vuavgglr0y66r.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_mo5vuavgglr0y66r.svg#iconfont') format('svg');
 }
 .iconfont-yitala{
     font-family: 'iconfont';
@@ -594,6 +594,16 @@ header.header-fixed .main-header .mobile-navigation{
     color: #4CAF50;
 }
 
+.bg-info{
+    background-color: #03a9f3!important;
+}
+.bg-success{
+    background-color: #00c292!important;
+}
+.bg-orange{
+    background-color: #df5c53!important;
+}
+
 .full-screen{
     position: fixed;
     top:0px;
@@ -610,6 +620,9 @@ header.header-fixed .main-header .mobile-navigation{
 }
 .mb15{
     margin-bottom: 15px;
+}
+.mb30{
+    margin-bottom: 30px;
 }
 .ml10{
     margin-left: 10px;

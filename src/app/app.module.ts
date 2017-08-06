@@ -22,6 +22,7 @@ import {AuthenticationService} from "./share/service/authentication.service";
 import {JwtService} from "./share/service/jwt.service";
 import {AuthGuard} from "./share/service/auth-guard.service";
 import {NoAuthGuard} from "./share/service/no-auth-guard.service";
+import {CartContactComponent} from "./cart/contact/contact.component";
 
 @NgModule({
     imports: [
@@ -44,7 +45,8 @@ import {NoAuthGuard} from "./share/service/no-auth-guard.service";
         RecommendComponent,
         ProductComponent,
         ProductZoomComponent,
-        CartComponent
+        CartComponent,
+        CartContactComponent
     ],
     providers:[
         BaseService,

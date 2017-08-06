@@ -5,9 +5,8 @@
                 <div id="main" class="site-main">
 
                     <div class="product-cart">
-                        <form action="/cart" method="post" novalidate="" class="cart">
-                            <div class="table-responsive">
-                                <table class="shop_table cart">
+                            <div class="table-responsive" *ngIf="cartProducts.length>0">
+                                <table class="shop_table cart" >
                                     <thead>
                                     <tr>
                                         <th class="product-thumbnail">商品</th>
@@ -53,22 +52,50 @@
                                 </table>
                             </div>
 
+                            <div class="cart-background" *ngIf="cartProducts.length==0">
+                                <div class="no-content">
+                                    <span>
+                                        <i class="iconfont-yitala cart-empty">
+                                        &#xe622;
+                                    </i>
+                                    </span>
+                                    <h3 class="tips">购物车还没有商品～</h3>
+                                </div>
+                            </div>
+
+                        <form class="cart" *ngIf="cartProducts.length>0">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <!-- Added by Andy 11/10/2016 -->
                                     <div id="shipping-calculator">
                                         <h3 class="title-shopping-cart">送货地址：</h3>
-                                        <div class="shopping-cart-element-content">
-                                            <p class="field form-row form-row-wide">
-                                                <label for="tel">手机号</label>
-                                                <input type="text" id="tel" name="address[zip]">
-                                            </p>
-                                            <p class="field form-row form-row-wide">
-                                                <label for="address">地址（*注意要具体到门牌号）</label>
-                                                <input type="text" id="address" name="address[zip]">
-                                            </p>
+                                        <ul class="address-list">
+                                            <li class="address-item" *ngFor="let item of addressArray;let i = index">
+                                                <input type="radio" class="check" name="address" [(ngModel)]="order.address" [value]="item" style="position: absolute; opacity: 0;">
+                                                <div class="iradio_square-red" style="position: relative;">
+                                                    <ins class="iCheck-helper" ></ins>
+                                                </div>
+                                                <div class="locale-icon">
+                                                    <i class="iconfont-yitala">&#xe669;</i>
+                                                </div>
+                                                <div class="info">
+                                                    <div class="address-locale">{{item.address}}</div>
+                                                    <div class="address-info">
+                                                        <span class="name">{{item.username}}</span>
+                                                        <span class="phone">{{item.phone}}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li *ngIf="addressArray.length > 0">
+                                                <h5 class="address-create">
+                                                    <a [routerLink]="['/account']"><i class="iconfont-yitala">&#xe60f;</i>创建新的送货地址</a>
+                                                </h5>
+                                            </li>
+                                        </ul>
+                                        <div *ngIf="addressArray.length == 0">
+                                            <h5 class="address-create" >
+                                                <a [routerLink]="['/account']"><i class="iconfont-yitala">&#xe60f;</i>去创建送货地址</a>
+                                            </h5>
                                         </div>
-                                        <div id="wrapper-response"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -76,7 +103,7 @@
                                         <h5 class="title-shopping-cart">买家留言：</h5>
                                         <div class="shopping-cart-element-content">
                                             <p class="field form-row form-row-wide">
-                                                <textarea name="note" id="note" class="ship-note" cols="43" rows="4"></textarea>
+                                                <textarea name="words" [(ngModel)]="order.words" class="ship-note" cols="43" rows="4"></textarea>
                                             </p>
                                         </div>
                                     </div>
@@ -88,16 +115,16 @@
                                             <table class="cart-total">
                                                 <tbody>
                                                 <tr class="cart-subtotal">
-                                                    <td>Subtotal:</td>
-                                                    <td><span class="amount"><span class="money" data-currency-usd="$75.00">$75.00</span></span>
+                                                    <td>总价:</td>
+                                                    <td><span class="amount"><span class="money"><em class="rmb">¥</em>{{cartTotalPrice}}</span></span>
                                                     </td>
                                                 </tr>
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <input type="submit" class="button" name="update_cart" value="结算">
-                                                        <a href="/checkout" class="checkout-button button alt wc-forward" name="proceed">继续购物</a>
+                                                        <input type="submit" class="button" value="结算" (click)="submitOrder()">
+                                                        <a [routerLink]="['/category/earring']" class="checkout-button button alt wc-forward">继续购物</a>
                                                     </td>
                                                 </tr>
                                                 </tfoot>
@@ -111,6 +138,23 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-black-back fade" [ngClass]="{'in show':tipsStatus}">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="close()">×</button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                <p>您还没未选择送货地址</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="close()">关闭</button>
             </div>
         </div>
     </div>

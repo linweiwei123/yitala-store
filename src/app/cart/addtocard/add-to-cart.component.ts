@@ -27,11 +27,12 @@ export class AddToCartComponent{
         let result = this.cartService.addToCart(this.product);
         result.subscribe(
             (res)=>{
-                if(res == true){
+                if(res != null){
                     this.status = "added";
                     setTimeout(()=>{
                         this.status = "unadd";
                     },2000)
+                    this.cartService.cartId = res.cartId;
                 }
                 else{
                     this.status = "unadd";

@@ -15,6 +15,7 @@ var category_module_1 = require("./category/category.module");
 var auth_guard_service_1 = require("./share/service/auth-guard.service");
 var auth_module_1 = require("./auth/auth.module");
 var account_module_1 = require("./account/account.module");
+var contact_component_1 = require("./cart/contact/contact.component");
 function loadAuthModule() {
     // return System.import('./auth/auth.module').then((r: any) => r.AccountModule);
     return auth_module_1.AuthModule;
@@ -34,6 +35,7 @@ var appRoutes = [
     { path: 'category/:type', loadChildren: './category/category.module#CategoryModule' },
     { path: 'product/:id', component: product_component_1.ProductComponent },
     { path: 'cart', component: cart_component_1.CartComponent, canActivate: [auth_guard_service_1.AuthGuard] },
+    { path: 'cartcontact', component: contact_component_1.CartContactComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: 'account', loadChildren: './account/account.module#AccountModule' },
     { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
     // {   path: 'auth', component:LoginComponent},

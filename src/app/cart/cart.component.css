@@ -11,12 +11,14 @@
     padding-bottom: 50px;
 }
 .ship-note{
-    border: 2px dashed #d4d4d4;
+    border: 3px dashed #d4d4d4;
     width: 100%;
     height: 170px;
     resize: none;
     background-color: #f7f7f7;
-    border-radius: 4px!important;
+    -webkit-background-clip: content-box;
+    padding: 5px;
+    line-height: 20px;
 }
 .product-cart .shopping-cart-element-content input[type="text"]{
     margin: 0px;
@@ -26,4 +28,53 @@
 }
 .product-cart td.product-remove{
     text-align: left;
+}
+.cart-background{
+    margin-bottom: 60px;
+    text-align: center;
+}
+.cart-background .no-content .iconfont-yitala{
+    font-size: 100px;
+}
+ul.address-list li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.address-item>*{
+    display: table-cell;
+}
+.address-item>*:nth-child(3){
+    padding-right: 5px;
+}
+.address-item>*:nth-child(3) .iconfont-yitala{
+    font-size: 18px;
+}
+.address-item>input[type="radio"]{
+    background-color: #df5c53;
+    height: 40px;
+    width: 20px;
+    z-index: 1;
+}
+.address-item>input[type="radio"]:hover{
+    cursor: pointer;
+}
+.address-item>input[type="radio"]:hover + .iradio_square-red{
+    background-position: -144px 15px;
+}
+.address-item .iradio_square-red{
+    background-position: -120px 15px;
+}
+.address-item>input[type="radio"]:checked + .iradio_square-red{
+    background-position: -168px 15px;
+}
+.address-item .locale-icon{
+    padding-left: 10px;
+}
+.cart-total .button:hover{
+    background-color: #df5c53;
+}
+.address-create i{
+    font-size: 20px;
+    margin-right: 5px;
 }

@@ -17,7 +17,7 @@ import 'rxjs/add/observable/from';
 export class CartService{
 
     private username:string;
-    private cartId:number;
+    public cartId:number;
     private cartProducts : BehaviorSubject<List<Product>> = new BehaviorSubject(List([]));
     public cartProducts$ = this.cartProducts.asObservable();
     public isAuthenticated:boolean;
@@ -47,11 +47,9 @@ export class CartService{
             )
             .subscribe(
                 (res:any)=>{
-                    console.log("cart 列表",res);
                     let products:Product[] = [];
                     for(let item of res){
                         this.cartId = item.cartId;
-                        console.log(item.product);
                         products.push(item.product);
                     }
                     this.cartProducts.next(List(products));
@@ -70,13 +68,13 @@ export class CartService{
 
 
     //添加到购物车
-    addToCart(product:Product):Observable<boolean>{
+    addToCart(product:Product):Observable<any>{
         this.checkAuthenticated();
         //保存到服务端
         let saveObs = this.addToCartBackend(product);
         saveObs.subscribe(
             (res:any)=>{
-                if(res == true){
+                if(res != null && res.cartId != null){
                     this.cartProducts.next(this.cartProducts.getValue().push(product));
                 }
             },
@@ -94,7 +92,7 @@ export class CartService{
          let removeObs = this.removeFromCartBackend(product);
          removeObs.subscribe(
              (res:any)=>{
-                 if(res == true){
+                 if(res != null){
                      this.cartProducts.next(
                          this.cartProducts.getValue().delete(this.cartProducts.getValue().indexOf(product))
                      )
@@ -157,6 +155,27 @@ export class CartService{
             this.router.navigate(["auth/login"]);
         }
         return;
+    }
+
+    reloadCartInfo(){
+        this.baseService.authGet(`api/cart/${this.username}`).subscribe(
+            (res:any)=>{
+                let products:Product[] = [];
+                if(res.length>0){
+                    for(let item of res){
+                        this.cartId = item.cartId;
+                        products.push(item.product);
+                    }
+                }
+                else {
+                    this.cartId = null;
+                }
+                this.cartProducts.next(List(products));
+            },
+            (error:any)=>{
+                console.log("car error",error);
+            }
+        );
     }
 
 }
