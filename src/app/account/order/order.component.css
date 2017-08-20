@@ -1,0 +1,22 @@
+.img-list img{
+    height: 100px;
+    width: 80px;
+}
+.img-td{
+    padding: 2px;
+}
+ul.img-list li{
+    display: inline-block;
+    padding: 5px;
+    list-style: none;
+}
+table,th,td{
+    border: 0px;
+    vertical-align: middle!important;
+    color: #666;
+    text-align: center;
+}
+.table-td-btn:hover{
+    cursor: pointer;
+    color: #df5c53;
+}

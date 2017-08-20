@@ -23,6 +23,7 @@ import {JwtService} from "./share/service/jwt.service";
 import {AuthGuard} from "./share/service/auth-guard.service";
 import {NoAuthGuard} from "./share/service/no-auth-guard.service";
 import {CartContactComponent} from "./cart/contact/contact.component";
+import {OrderService} from "./share/service/order.service";
 
 @NgModule({
     imports: [
@@ -54,7 +55,8 @@ import {CartContactComponent} from "./cart/contact/contact.component";
         JwtService,
         AuthGuard,
         NoAuthGuard,
-        CartService
+        CartService,
+        OrderService
     ],
     bootstrap: [ AppComponent ],
     schemas:[CUSTOM_ELEMENTS_SCHEMA]

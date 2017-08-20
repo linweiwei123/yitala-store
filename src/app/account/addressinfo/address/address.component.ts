@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Address} from "../../share/models/address.model";
+import {Address} from "../../../share/models/address.model";
 /**
  * Created by yitala on 2017/7/29.
  */

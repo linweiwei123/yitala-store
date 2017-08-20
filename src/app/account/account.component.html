@@ -9,77 +9,12 @@
                 <div class="phone">15959047138</div>
             </div>
         </div>
-        <ul class="nav customtab nav-tabs" role="tablist">
-            <li role="presentation" class="nav-item"><a href="#home1" class="nav-link active" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="ti-home"></i></span><span class="hidden-xs">收货地址</span></a></li>
-            <li role="presentation" class="nav-item"><a href="#profile1" class="nav-link" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-user"></i></span> <span class="hidden-xs">订单信息</span></a></li>
+        <ul class="nav customtab nav-tabs" >
+            <li class="nav-item"><a [routerLink]="['/account/addressinfo']" routerLinkActive="active" class="nav-link" ><span class="visible-xs"><i class="ti-home"></i></span><span class="hidden-xs">收货地址</span></a></li>
+            <li class="nav-item"><a [routerLink]="['/account/order']" routerLinkActive="active" class="nav-link" ><span class="visible-xs"><i class="ti-user"></i></span> <span class="hidden-xs">订单信息</span></a></li>
         </ul>
-        <div class="tab-content">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="shipment-title row">
-                        <div class="shipment-title-content">
-                            <i class="iconfont-yitala">&#xe675;</i><span>我的地址</span>
-                        </div>
-                    </div>
-                    <ul class="address-list">
-                        <li class="address-item" *ngFor="let item of addressArray" [ngClass]="{'active':item == editAddress}" (click)="edit(item)">
-                            <div class="locale-icon">
-                                <i class="iconfont-yitala">&#xe669;</i>
-                            </div>
-                            <div class="info">
-                                <div class="address-locale">{{item.address}}</div>
-                                <div class="address-info">
-                                    <span class="name">{{item.username}}</span>
-                                    <span class="phone">{{item.phone}}</span>
-                                </div>
-                            </div>
-                            <div class="option">
-                                <div (click)="delete(item);$event.stopPropagation();"><i class="iconfont-yitala">&#xe646;</i></div>
-                            </div>
-                        </li>
-                        <li class="address-item create" [ngClass]="{'active':state === 'create'}">
-                            <div class="add-block" (click)="newAddress()">
-                                <i class="iconfont-yitala">&#xe621;</i><span style="margin-left: 15px">创建新地址</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-12 col-md-8" [ngClass]="{'block-loading':formStatus}">
-                    <div class="shipment-title row">
-                        <div class="shipment-title-content col-md-offset-3 col-md-9">
-                            <i class="iconfont-yitala">&#xe601;</i><span>物流地址</span>
-                        </div>
-                    </div>
-                    <div *ngIf="state !== ''">
-                        <account-address [addressInfo]="editAddress" (onSubmit)="onSubmitForm($event)"></account-address>
-                    </div>
-                    <div class="no-content" *ngIf="addressArray.length==0 && state === '' ">
-                        <div class="col-md-offset-3 message">
-                            请创建一个物流地址～
-                        </div>
-                    </div>
-                    <div class="bg-striped"></div>
-                </div>
-            </div>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>
 
 
-<div class="modal modal-black-back fade" [ngClass]="{'in show':confirmStatus}">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" (click)="cancelDelete()">×</button>
-                <h4 class="modal-title">提示</h4>
-            </div>
-            <div class="modal-body">
-                <p>是否确认删除?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" (click)="confirm()">确认</button>
-                <button type="button" class="btn btn-danger" (click)="cancelDelete()">取消</button>
-            </div>
-        </div>
-    </div>
-</div>

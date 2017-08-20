@@ -47,12 +47,17 @@ export class CartService{
             )
             .subscribe(
                 (res:any)=>{
-                    let products:Product[] = [];
-                    for(let item of res){
-                        this.cartId = item.cartId;
-                        products.push(item.product);
+                    if(res.cartId){
+                        this.cartId = res.cartId;
                     }
-                    this.cartProducts.next(List(products));
+                    if(res.products && res.products.length>0){
+                        let products:Product[] = [];
+                        for(let item of res.products) {
+                            products.push(item);
+                        }
+                        this.cartProducts.next(List(products));
+                    }
+
                 },
                 (error:any)=>{
                     console.log("car error",error);
@@ -160,17 +165,19 @@ export class CartService{
     reloadCartInfo(){
         this.baseService.authGet(`api/cart/${this.username}`).subscribe(
             (res:any)=>{
-                let products:Product[] = [];
-                if(res.length>0){
-                    for(let item of res){
-                        this.cartId = item.cartId;
-                        products.push(item.product);
+                if(res.cartId){
+                    this.cartId = res.cartId;
+                }
+                if(res.products && res.products.length>0){
+                    let products:Product[] = [];
+                    for(let item of res.products){
+                        products.push(item);
                     }
+                    this.cartProducts.next(List(products));
                 }
                 else {
                     this.cartId = null;
                 }
-                this.cartProducts.next(List(products));
             },
             (error:any)=>{
                 console.log("car error",error);

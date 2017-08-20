@@ -1,0 +1,29 @@
+<div class="tab-content">
+    <h5>订单 <span class="text-orange">#{{orderInfo.orderCode}}</span> 的详情</h5>
+    <a class="btn btn-primary push-right" [routerLink]="['/account/order']">返回</a>
+    <div class="property-wrapper">
+        <p class="p-item">订单总额：{{orderInfo.price}}</p>
+        <p class="p-item">商品总数：{{orderInfo.quantity}}</p>
+        <p class="p-item">订单日期：{{orderInfo.date | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+        <p class="p-item">留言：{{orderInfo.words}}</p>
+        <p class="p-item">订单状态：{{orderInfo.state | orderState}}</p>
+    </div>
+    <table class="table text-center mt10">
+        <thead>
+        <tr>
+            <th>商品名</th>
+            <th>图片</th>
+            <th>价格</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of products">
+            <th scope="row">{{item.name}}</th>
+            <td class="img-td">
+                <img [src]="item.images" alt="">
+            </td>
+            <td><span class="money"><em class="rmb">¥</em>{{item.price}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -10,6 +10,7 @@ import {FilterImagePipe} from "./layout/pipes/FilterImagePipe";
 import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
 import {ShowAuthedDirective} from "./directive/show-authed.directive";
 import {ValidateOnBlurDirective} from "./directive/validate-on-blur.directive";
+import {OrderStatePipe} from "./pipe/common.pipe";
 
 @NgModule({
     imports:[
@@ -19,6 +20,7 @@ import {ValidateOnBlurDirective} from "./directive/validate-on-blur.directive";
     declarations:[
         GlobalLoadingComponent,
         FilterImagePipe,
+        OrderStatePipe,
         AddToCartComponent,
         ShowAuthedDirective,
         ValidateOnBlurDirective
@@ -27,6 +29,7 @@ import {ValidateOnBlurDirective} from "./directive/validate-on-blur.directive";
     exports:[
         GlobalLoadingComponent,
         FilterImagePipe,
+        OrderStatePipe,
         AddToCartComponent,
         ShowAuthedDirective,
         ValidateOnBlurDirective

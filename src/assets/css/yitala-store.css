@@ -603,6 +603,9 @@ header.header-fixed .main-header .mobile-navigation{
 .bg-orange{
     background-color: #df5c53!important;
 }
+.bg-disabled{
+    background-color: #666!important;
+}
 
 .full-screen{
     position: fixed;
@@ -629,6 +632,9 @@ header.header-fixed .main-header .mobile-navigation{
 }
 .mr10{
     margin-right: 10px;
+}
+.mt10{
+    margin-top: 10px;
 }
 
 .push-right{
@@ -826,4 +832,38 @@ em.rmb{
 
 .modal-black-back{
     background-color: rgba(0,0,0,0.5);
+}
+
+.tab-content{
+    padding: 20px 0;
+    min-height: 300px;
+}
+.table-content-container{
+    position: relative;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    vertical-align: middle;
+}
+.label-bander{
+    color: #fff;
+    border-radius: 60px;
+    padding: 4px 12px 3px;
+    font-weight: 500;
+}
+.content-empty{
+    min-height: 200px;
+    position: relative;
+}
+.content-empty .content-empty-box{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    height: 30px;
+}
+.img-td img{
+    height: 120px;
 }

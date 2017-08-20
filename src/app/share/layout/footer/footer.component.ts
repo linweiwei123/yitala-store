@@ -52,6 +52,7 @@ export class FooterComponent implements OnInit{
     ngOnInit(): void {
         this.cartService.cartProducts$.subscribe(
             (cartProducts: List<Product>)=>{
+                console.log(cartProducts.toArray());
                 this.cartNumber = cartProducts.size;
                 this.cartProducts = cartProducts.toArray();
                 let totalPrice = 0;

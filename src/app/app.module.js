@@ -31,6 +31,7 @@ var jwt_service_1 = require("./share/service/jwt.service");
 var auth_guard_service_1 = require("./share/service/auth-guard.service");
 var no_auth_guard_service_1 = require("./share/service/no-auth-guard.service");
 var contact_component_1 = require("./cart/contact/contact.component");
+var order_service_1 = require("./share/service/order.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -67,7 +68,8 @@ AppModule = __decorate([
             jwt_service_1.JwtService,
             auth_guard_service_1.AuthGuard,
             no_auth_guard_service_1.NoAuthGuard,
-            cart_service_1.CartService
+            cart_service_1.CartService,
+            order_service_1.OrderService
         ],
         bootstrap: [app_component_1.AppComponent],
         schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
