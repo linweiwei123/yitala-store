@@ -1,0 +1,44 @@
+<div class="list-container">
+    <ul class="blog-list">
+        <li  class="have-img" *ngFor="let item of blogList">
+            <a class="wrap-img">
+                <img class="img-blur-done" [src]="item.image+'?&imageView2/1/w/130/h/130'" alt="120">
+            </a>
+            <div class="content">
+                <div class="author">
+                    <a class="avatar">
+                        <img src="../../../assets/img/account.png" alt="64">
+                    </a>
+                    <div class="name">
+                        <a class="blue-link">{{item.author}}</a>
+                        <span class="time" >{{item.createTime | date:'yyyy.MM.dd HH:mm'}}</span>
+                    </div>
+                </div>
+                <a class="title" (click)="gotoDetail(item.id)">{{item.title}}</a>
+                <p class="abstract">
+                    {{item.blogAbstract}}
+                </p>
+                <div class="meta">
+                    <a class="blog-tag">vintage故事</a>
+                    <span class="view">
+                        <i class="fa fa-eye"></i>{{item.readCounts}}
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="three-bounce selected text-center"  *ngIf="moreLoading">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+    <a class="load-more" (click)="loadmore()" *ngIf="blogList.length<total">阅读更多
+    </a>
+</div>
+<div class="relation-container">
+    <div class="widget widget_new">
+        <h4 class="title-sidebar" style="position: relative">新品推荐 <span class="new-span"> new</span></h4>
+        <new-products [items]="recommendProducts"></new-products>
+    </div>
+</div>
+<div class="clearfix"></div>

@@ -16,6 +16,7 @@ var auth_guard_service_1 = require("./share/service/auth-guard.service");
 var auth_module_1 = require("./auth/auth.module");
 var account_module_1 = require("./account/account.module");
 var contact_component_1 = require("./cart/contact/contact.component");
+var blog_module_1 = require("./blog/blog.module");
 function loadAuthModule() {
     // return System.import('./auth/auth.module').then((r: any) => r.AccountModule);
     return auth_module_1.AuthModule;
@@ -30,6 +31,10 @@ function loadCategoryModule() {
     return category_module_1.CategoryModule;
 }
 exports.loadCategoryModule = loadCategoryModule;
+function loadBlogModule() {
+    return blog_module_1.BlogModule;
+}
+exports.loadBlogModule = loadBlogModule;
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'category/:type', loadChildren: './category/category.module#CategoryModule' },
@@ -38,6 +43,7 @@ var appRoutes = [
     { path: 'cartcontact', component: contact_component_1.CartContactComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: 'account', loadChildren: './account/account.module#AccountModule' },
     { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+    { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
     // {   path: 'auth', component:LoginComponent},
     {
         path: '',

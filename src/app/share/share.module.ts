@@ -11,6 +11,7 @@ import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
 import {ShowAuthedDirective} from "./directive/show-authed.directive";
 import {ValidateOnBlurDirective} from "./directive/validate-on-blur.directive";
 import {OrderStatePipe} from "./pipe/common.pipe";
+import {NewProductsComponent} from "../category/newproducts/new-products.component";
 
 @NgModule({
     imports:[
@@ -22,6 +23,7 @@ import {OrderStatePipe} from "./pipe/common.pipe";
         FilterImagePipe,
         OrderStatePipe,
         AddToCartComponent,
+        NewProductsComponent,
         ShowAuthedDirective,
         ValidateOnBlurDirective
     ],
@@ -31,6 +33,7 @@ import {OrderStatePipe} from "./pipe/common.pipe";
         FilterImagePipe,
         OrderStatePipe,
         AddToCartComponent,
+        NewProductsComponent,
         ShowAuthedDirective,
         ValidateOnBlurDirective
     ],

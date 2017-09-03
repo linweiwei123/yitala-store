@@ -8,6 +8,7 @@ import {AuthGuard} from "./share/service/auth-guard.service";
 import {AuthModule} from "./auth/auth.module";
 import {AccountModule} from "./account/account.module";
 import {CartContactComponent} from "./cart/contact/contact.component";
+import {BlogModule} from "./blog/blog.module";
 
 export function loadAuthModule(){
     // return System.import('./auth/auth.module').then((r: any) => r.AccountModule);
@@ -22,6 +23,10 @@ export function loadAccountModule(){
 export function loadCategoryModule(){
     return CategoryModule;
 }
+export function loadBlogModule(){
+    return BlogModule;
+}
+
 
 const appRoutes: Routes = [
 
@@ -32,6 +37,7 @@ const appRoutes: Routes = [
     {   path: 'cartcontact', component: CartContactComponent,canActivate:[AuthGuard]},
     {   path: 'account', loadChildren: './account/account.module#AccountModule'},
     {   path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
+    {   path: 'blog', loadChildren: './blog/blog.module#BlogModule'},
     // {   path: 'auth', component:LoginComponent},
     {
         path: '',

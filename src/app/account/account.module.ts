@@ -51,7 +51,6 @@ const accountRoutes:Routes = [
         AddressComponent,
         OrderComponent,
         OrderDetailComponent
-
     ],
     schemas:[
         CUSTOM_ELEMENTS_SCHEMA

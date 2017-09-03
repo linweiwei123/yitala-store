@@ -107,11 +107,11 @@
                                         <li class="menu-item"><a (click)="gotoCategory('other',$event)"><i class="iconfont-yitala">&#xe633;</i>其他</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item menu-item-has-children ">
-                                    <a href="#">优惠促销</a>
-                                </li>
+                                <!--<li class="menu-item menu-item-has-children ">-->
+                                    <!--<a href="#">优惠促销</a>-->
+                                <!--</li>-->
                                 <li class="menu-item ">
-                                    <a href="/blogs/news">博客</a>
+                                    <a [routerLink]="['/blog']" routerLinkActive="active">vintage故事</a>
                                 </li>
                                 <li class="menu-item  last ">
                                     <a href="/pages/contact">联系</a>

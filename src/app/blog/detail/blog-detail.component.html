@@ -1,0 +1,28 @@
+<div class="blog-wrapper">
+    <a [routerLink]="['/blog']" class="back">
+        <i class="iconfont-yitala" style="margin-right: 5px;">&#xe604;</i>
+        <span>返回vintage故事列表</span>
+    </a>
+    <div class="blog-title">
+        <h1>{{blog.title}}</h1>
+    </div>
+    <div class="author">
+        <a class="avatar">
+            <img src="../../../assets/img/account.png" alt="64">
+        </a>
+        <div>
+            <div class="name">
+                <span class="author-tag">作者</span>
+                <a class="blue-link">{{blog.author}}</a>
+                <span class="time" >{{blog.createTime | date:'yyyy.MM.dd HH:mm'}}</span>
+            </div>
+            <div class="property">
+              <span class="view">
+                  <span>阅读</span>{{blog.readCounts}}
+              </span>
+            </div>
+        </div>
+    </div>
+    <div #contentContainer></div>
+</div>
+

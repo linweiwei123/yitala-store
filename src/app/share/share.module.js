@@ -18,6 +18,7 @@ var add_to_cart_component_1 = require("../cart/addtocard/add-to-cart.component")
 var show_authed_directive_1 = require("./directive/show-authed.directive");
 var validate_on_blur_directive_1 = require("./directive/validate-on-blur.directive");
 var common_pipe_1 = require("./pipe/common.pipe");
+var new_products_component_1 = require("../category/newproducts/new-products.component");
 var ShareModule = (function () {
     function ShareModule() {
     }
@@ -34,6 +35,7 @@ ShareModule = __decorate([
             FilterImagePipe_1.FilterImagePipe,
             common_pipe_1.OrderStatePipe,
             add_to_cart_component_1.AddToCartComponent,
+            new_products_component_1.NewProductsComponent,
             show_authed_directive_1.ShowAuthedDirective,
             validate_on_blur_directive_1.ValidateOnBlurDirective
         ],
@@ -43,6 +45,7 @@ ShareModule = __decorate([
             FilterImagePipe_1.FilterImagePipe,
             common_pipe_1.OrderStatePipe,
             add_to_cart_component_1.AddToCartComponent,
+            new_products_component_1.NewProductsComponent,
             show_authed_directive_1.ShowAuthedDirective,
             validate_on_blur_directive_1.ValidateOnBlurDirective
         ],
