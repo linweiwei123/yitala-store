@@ -78,3 +78,6 @@ ul.address-list li{
     font-size: 20px;
     margin-right: 5px;
 }
+a.remove:hover{
+    cursor: pointer;
+}

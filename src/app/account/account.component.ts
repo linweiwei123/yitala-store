@@ -15,7 +15,23 @@ import {Address} from "../share/models/address.model";
 })
 export class AccountComponent implements OnInit{
 
+    username:string;
+    firstname:string;
+
+    constructor(
+        private authenticationService:AuthenticationService
+    ){
+
+    }
+
+
     ngOnInit(): void {
+        this.authenticationService.currentUser.subscribe(
+            (data)=>{
+                this.username = data.username;
+                this.firstname = data.firstname;
+            }
+        )
     }
 
 

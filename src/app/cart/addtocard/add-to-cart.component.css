@@ -7,3 +7,6 @@
 a.added{
     color: #0bc39f!important;
 }
+a.toadd:hover{
+    cursor: pointer;
+}

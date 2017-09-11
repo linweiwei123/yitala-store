@@ -11,6 +11,7 @@ import {AuthenticationService} from "../share/service/authentication.service";
 import {Observable} from "rxjs/Observable";
 import {Order} from "../share/models/order.model";
 import {Router} from "@angular/router";
+import {OrderService} from "../share/service/order.service";
 @Component({
     selector:'cart',
     templateUrl:'./cart.component.html',
@@ -30,7 +31,8 @@ export class CartComponent implements OnInit{
         private cartService:CartService,
         private baseService:BaseService,
         private authService:AuthenticationService,
-        private router:Router
+        private router:Router,
+        private orderService:OrderService
     ){}
 
     ngOnInit(): void {
@@ -97,6 +99,7 @@ export class CartComponent implements OnInit{
                 if(response == true){
                     //success
                     this.cartService.reloadCartInfo();
+                    this.orderService.reloadOrderInfo();
                     this.router.navigate(['./cartcontact']);
                 }
                 else{
@@ -112,6 +115,11 @@ export class CartComponent implements OnInit{
 
     close():void{
         this.tipsStatus = false;
+    }
+
+    //移除商品
+    removeProduct(product:Product):void{
+        this.cartService.removeFromCart(product);
     }
 
 }

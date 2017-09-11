@@ -33,6 +33,7 @@ export class AuthenticationService{
                    (data)=>{
                        let user = new User();
                        user.phoneNO = user.username = data.username;
+                       user.firstname = data.firstname;
                        user.email =  data.email;
                        user.token = this.jwtService.getToken();
                        this.setAuth(user);
@@ -75,8 +76,8 @@ export class AuthenticationService{
     }
 
     //认证用户
-    register(username:string,password:string){
-        let param = {username:username,password:password};
+    register(username:string,password:string,firstname:string){
+        let param = {username:username,password:password,firstname:firstname};
         return this.baseService.post('api/account/register',param);
     }
 

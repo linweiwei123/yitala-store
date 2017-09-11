@@ -17,6 +17,7 @@ export class AddToCartComponent{
     @Input()
     public product:Product;
     public status:string = "unadd";
+    public error:string = "";
 
     constructor(
         private cartService:CartService
@@ -29,9 +30,6 @@ export class AddToCartComponent{
             (res)=>{
                 if(res != null){
                     this.status = "added";
-                    setTimeout(()=>{
-                        this.status = "unadd";
-                    },2000)
                     this.cartService.cartId = res.cartId;
                 }
                 else{
@@ -40,7 +38,7 @@ export class AddToCartComponent{
             },
             (error)=>{
                 this.status = "unadd";
-                console.log(error);
+                this.error = error;
             }
         )
 

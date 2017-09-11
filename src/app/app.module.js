@@ -32,6 +32,7 @@ var auth_guard_service_1 = require("./share/service/auth-guard.service");
 var no_auth_guard_service_1 = require("./share/service/no-auth-guard.service");
 var contact_component_1 = require("./cart/contact/contact.component");
 var order_service_1 = require("./share/service/order.service");
+var contact_module_1 = require("./contact/contact.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -49,7 +50,8 @@ AppModule = __decorate([
             forms_1.FormsModule,
             forms_1.ReactiveFormsModule,
             share_module_1.ShareModule,
-            app_routing_module_1.AppRoutingModule
+            app_routing_module_1.AppRoutingModule,
+            contact_module_1.ContactModule
         ],
         declarations: [
             app_component_1.AppComponent,

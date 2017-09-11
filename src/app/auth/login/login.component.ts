@@ -27,8 +27,6 @@ function passwordConfirm(g:FormGroup){
 
 export class LoginComponent implements OnInit,OnDestroy{
 
-    public routerSubscrition:any;
-    public previosUrl:string;
     public loginForm:FormGroup;
     public error:string = "";
     public authFlag:string;
@@ -58,6 +56,7 @@ export class LoginComponent implements OnInit,OnDestroy{
                 this.authFlag = data[data.length-1].path;
                 if(this.authFlag === 'register'){
                     this.loginForm.addControl('passwordConfirm',new FormControl('',Validators.required));
+                    this.loginForm.addControl('firstname',new FormControl('',Validators.required));
                     this.loginForm.setValidators(passwordConfirm);
                 }
             }
@@ -98,7 +97,7 @@ export class LoginComponent implements OnInit,OnDestroy{
                 );
         }
         else{
-            this.authenticationService.register(form.phoneNO,form.password)
+            this.authenticationService.register(form.phoneNO,form.password,form.firstname)
                 .subscribe(
                     (response)=>{
                         if(response.errorCode == 500){

@@ -24,6 +24,7 @@ import {AuthGuard} from "./share/service/auth-guard.service";
 import {NoAuthGuard} from "./share/service/no-auth-guard.service";
 import {CartContactComponent} from "./cart/contact/contact.component";
 import {OrderService} from "./share/service/order.service";
+import {ContactModule} from "./contact/contact.module";
 
 @NgModule({
     imports: [
@@ -36,7 +37,8 @@ import {OrderService} from "./share/service/order.service";
         FormsModule,
         ReactiveFormsModule,
         ShareModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ContactModule
     ],
     declarations: [
         AppComponent,

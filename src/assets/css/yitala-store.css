@@ -586,9 +586,56 @@ header.header-fixed .main-header .mobile-navigation{
       }
 }
 
+@keyframes bounceIn {
+    0%,20%,40%,60%,80%,to {
+        animation-timing-function: cubic-bezier(.215,.61,.355,1)
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3,.3,.3)
+    }
+
+    20% {
+        transform: scale3d(1.1,1.1,1.1)
+    }
+
+    40% {
+        transform: scale3d(.9,.9,.9)
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03,1.03,1.03)
+    }
+
+    80% {
+        transform: scale3d(.97,.97,.97)
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1)
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both
+}
+.bounceIn {
+    animation-name: bounceIn
+}
+
+.animated.bounceIn{
+    animation-duration: .75s
+}
 /** @common **/
 .text-orange{
     color: #df5c53
+}
+.text-light-orange{
+    color: #ff8400;
 }
 .text-success{
     color: #4CAF50;
@@ -608,17 +655,17 @@ header.header-fixed .main-header .mobile-navigation{
 }
 
 .full-screen{
-    position: fixed;
+    position: absolute;
     top:0px;
     bottom:0px;
     left:0px;
     right: 0px;
     z-index: 1000;
+    min-height: 650px;
     background-color: #fff;
 }
 .full-screen-scroll{
     height: 100%;
-    overflow-y: auto;
     position: relative;
 }
 .mb15{
@@ -916,4 +963,17 @@ em.rmb{
         transform: scale(1);
         -webkit-transform: scale(1)
     }
+}
+
+table td,table th{
+    border-color: #ddd;
+}
+.clear:after{
+    display: block;
+    height: 0;
+    clear: both;
+    content: "";
+}
+.site-content-inner{
+    min-height: 400px;
 }

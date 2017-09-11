@@ -5,3 +5,10 @@
 section .container{
     margin-bottom: 20px;
 }
+.carousel-caption{
+    top:calc(50% - 70px);
+}
+.second-h{
+    letter-spacing: 1px;
+    font-size: 20px;
+}

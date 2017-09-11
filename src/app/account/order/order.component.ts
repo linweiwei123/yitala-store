@@ -33,6 +33,7 @@ export class OrderComponent implements OnInit{
                 this.orderService.setOrderInfo(data);
             }
         );
+
     }
 
     goDetail(item:any):void{

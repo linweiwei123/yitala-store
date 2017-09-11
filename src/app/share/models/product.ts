@@ -15,4 +15,5 @@ export class Product{
      size:string;
      images:string;
      imagesArray?:any[]=[];
+     scanTimes:number;
 }

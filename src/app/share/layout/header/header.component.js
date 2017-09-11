@@ -16,14 +16,17 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var cart_service_1 = require("../../service/cart.service");
 var authentication_service_1 = require("../../service/authentication.service");
+var order_service_1 = require("../../service/order.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(router, cartService, authenticationService) {
+    function HeaderComponent(router, cartService, orderService, authenticationService) {
         this.router = router;
         this.cartService = cartService;
+        this.orderService = orderService;
         this.authenticationService = authenticationService;
         this.mobileMenu = false;
         this.categorySubMenuStatus = false;
         this.cartNumber = 0;
+        this.orderNumber = 0;
         router.events.subscribe(function (event) {
             if (!(event instanceof router_1.NavigationEnd)) {
                 return;
@@ -40,12 +43,15 @@ var HeaderComponent = (function () {
         this.mouseScroll();
         this.cartService.cartProducts$.subscribe(function (cartProducts) {
             _this.cartNumber = cartProducts.size;
-            console.log(cartProducts, cartProducts.toArray());
+            //console.log(cartProducts,cartProducts.toArray());
             //this.cartNumber = cartProducts.length;
         });
         this.authenticationService.currentUser.subscribe(function (data) {
             _this.username = data.username;
+            _this.firstname = data.firstname;
         });
+        //初始化未支付订单数
+        this.initOrderInfo();
     };
     HeaderComponent.prototype.toggleMobileMenu = function () {
         this.mobileMenu = !this.mobileMenu;
@@ -72,6 +78,14 @@ var HeaderComponent = (function () {
     HeaderComponent.prototype.logout = function () {
         this.authenticationService.cleanAuth();
     };
+    //init cart info
+    HeaderComponent.prototype.initOrderInfo = function () {
+        var _this = this;
+        this.orderService.orderNum$.subscribe(function (res) {
+            _this.orderNumber = res;
+        }, function () {
+        });
+    };
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
@@ -82,6 +96,7 @@ HeaderComponent = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.Router,
         cart_service_1.CartService,
+        order_service_1.OrderService,
         authentication_service_1.AuthenticationService])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;

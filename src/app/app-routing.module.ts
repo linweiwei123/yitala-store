@@ -38,6 +38,7 @@ const appRoutes: Routes = [
     {   path: 'account', loadChildren: './account/account.module#AccountModule'},
     {   path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
     {   path: 'blog', loadChildren: './blog/blog.module#BlogModule'},
+    {   path: 'contact', loadChildren: './contact/contact.module#ContactModule'},
     // {   path: 'auth', component:LoginComponent},
     {
         path: '',

@@ -6,6 +6,7 @@ import {BaseService} from "../share/service/base.service";
 import {Product} from "../share/models/product";
 import {ActivatedRoute} from "@angular/router";
 import {Base64} from "js-base64";
+import {CartService} from "../share/service/cart.service";
 @Component({
     selector:'product',
     templateUrl:'./product.component.html',
@@ -16,7 +17,10 @@ export class ProductComponent implements OnInit{
 
     public product:Product = new Product();
     public productId:string;
+    public recProducts:Array<Product> = [];
+    public recShowProducts:Array<Product> =[];
     public desc:string;
+    status:string = "unadd";
 
     @ViewChild('descContainer')
     descContainer:ElementRef;
@@ -35,14 +39,9 @@ export class ProductComponent implements OnInit{
     ngOnInit(): void {
         this.getProduct(this.productId);
         this.getDesc(this.productId);
+        this.queryRecProducts();
+        this.addScanTimes(this.productId);
     }
-
-    images = [
-        "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
-        "http://ojp8ivtxn.bkt.clouddn.com/20170113_463667199203471127.jpg",
-        "http://ojp8ivtxn.bkt.clouddn.com/20170113_WechatIMG786.jpeg",
-        "http://ojp8ivtxn.bkt.clouddn.com/20170114_WechatIMG783.jpeg"
-    ]
 
     //获取商品详细信息
     getProduct(id:string):void{
@@ -50,7 +49,6 @@ export class ProductComponent implements OnInit{
             (response)=>{
                 this.product = response;
                 this.product.imagesArray = response.images.substring(0,response.images.length-1).split(",");
-                console.log(this.product);
             },
             (error)=>{
                 console.log(error);
@@ -62,13 +60,11 @@ export class ProductComponent implements OnInit{
     getDesc(id:string):void{
         this.baseService.get(`api/productDesc/${id}`).subscribe(
             (response)=>{
-                console.log(response);
                 if(!response || response.status == 204){
                     this.desc = "";
                 }
                 else{
                     this.desc = Base64.decode(response.description);
-                    console.log(this.desc);
                 }
                 this.descContainer.nativeElement.innerHTML = this.desc;
             },
@@ -78,5 +74,30 @@ export class ProductComponent implements OnInit{
         );
     }
 
+    addScanTimes(id:string){
+        this.baseService.post(`api/product/read/${id}`,{}).subscribe(
+            ()=>{},
+            (error)=>{
+                console.log(error);
+            }
+        )
+    }
+
+    queryRecProducts() {
+        let recUrl = "api/product/recommend";
+        this.baseService.get(recUrl)
+            .subscribe(
+                (response) => {
+                    this.recProducts = response;
+                    this.recShowProducts = this.recProducts.slice(0,Math.min(4,this.recProducts.length));
+                },
+                (error) => {
+                    console.log(error);
+                },
+                () => {
+                    console.log("complete");
+                }
+            )
+    }
 
 }

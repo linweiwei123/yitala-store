@@ -11,9 +11,11 @@
 
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="single-product-content">
-                                        <h6 class="product-title">
-                                            <span class="product-property">商品：</span>{{product.name}}
-                                        </h6>
+                                        <div class="product-title">
+                                            <span class="product-property">商品：</span>
+                                            <div class="product-property-info">{{product.name}}</div>
+                                            <div class="clear"></div>
+                                        </div>
                                         <div class="product-title">
                                             <span class="product-property">品牌：</span>{{product.brand}}
                                         </div>
@@ -31,13 +33,14 @@
                                         </div>
                                         <div class="product-desc">
                                             <span class="product-property">商品描述：</span>
-                                            {{product.description}}
+                                            <div class="product-property-info">{{product.description}}</div>
+                                            <div class="clear"></div>
                                         </div>
 
                                         <div class="product-status">
                                             <span class="product-property">库存：</span>
                                             <span class="in-stock">
-                                                <i class="fa fa-check"></i> {{product.status}}
+                                                <i class="fa fa-check"></i> 1
                                             </span>
                                         </div>
                                         <!-- Rate code -->
@@ -48,10 +51,10 @@
                                         <div class="product-status">
                                             <span class="product-property">浏览次数：</span>
                                             <span class="in-stock">
-                                                <i class="fa fa-eye"></i> 18
+                                                <i class="fa fa-eye"></i> {{product.scanTimes}}
                                             </span>
                                         </div>
-                                        <div class="product-list-action">
+                                        <div class="product-list-action" style="margin-left: 62px;">
                                             <div class="mb15">
                                                 <div class="item-action">
                                                     <a class="email_to_friend" href="#">
@@ -60,19 +63,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="quantity">
-                                            <div class="quantity buttons_added">
-                                                <a href="#" class="sign minus">
-                                                    <i class="fa fa-minus"></i>
-                                                </a>
-                                                <input id="Quantity" type="text" value="1" title="Qty" class="input-text qty text" size="1">
-                                                <a href="#" class="sign plus">
-                                                    <i class="fa fa-plus"></i>
-                                                </a>
-                                            </div>
+                                        <div class="add-to-cart">
+                                            <add-to-cart [product]="product"></add-to-cart>
                                         </div>
-                                        <a class="button  single-add-to-cart-button" ><i class="iconfont-yitala">&#xe6c8;</i>添加到购物车</a>
-                                        <!--</form>-->
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
@@ -105,14 +98,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="products-relate">
-                            <h4 class="title-single-product">Related Product</h4>
-                            <p></p>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-3" *ngFor="let img of images">
-                                    <img [src]="img" alt="">
-                                </div>
-                            </div>
+                        <div >
+                            <h4 class="title-single-product">看看其他</h4>
+                            <div style="margin-bottom: 20px;"></div>
+                            <recommend-products [products]="recProducts" [showProducts]="recShowProducts" ></recommend-products>
                         </div>
                     </div>
                 </div>

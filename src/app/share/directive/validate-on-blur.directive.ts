@@ -15,14 +15,10 @@ export class ValidateOnBlurDirective {
     constructor() { }
     @HostListener('focus', ['$event.target'])
     onFocus(target:any) {
-        console.log("Focus called");
         this.validateFormControl.markAsUntouched();
-
-        console.log(this.validateFormControl.touched);
     }
     @HostListener('focusout', ['$event.target'])
     onFocusout(target:any) {
-        console.log("Focus out called");
         this.validateFormControl.markAsTouched();
     }
 }

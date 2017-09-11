@@ -8,6 +8,9 @@ import {CartService} from "../../service/cart.service";
 import {Product} from "../../models/product";
 import {List} from 'immutable';
 import {AuthenticationService} from "../../service/authentication.service";
+import {BaseService} from "../../service/base.service";
+import {Observable} from "rxjs/Observable";
+import {OrderService} from "../../service/order.service";
 @Component({
     selector:'layout-header',
     templateUrl:'./header.component.html',
@@ -19,11 +22,14 @@ export class HeaderComponent implements OnInit{
     mobileMenu:boolean = false;
     categorySubMenuStatus:boolean = false;
     cartNumber:number = 0;
+    orderNumber:number = 0;
     username:string;
+    firstname:string;
 
     constructor(
         private router:Router,
         private cartService:CartService,
+        private orderService:OrderService,
         private authenticationService:AuthenticationService
     ){
         router.events.subscribe((event:any) => {
@@ -43,7 +49,7 @@ export class HeaderComponent implements OnInit{
         this.cartService.cartProducts$.subscribe(
             (cartProducts: List<Product>)=>{
                 this.cartNumber = cartProducts.size;
-                console.log(cartProducts,cartProducts.toArray());
+                //console.log(cartProducts,cartProducts.toArray());
                 //this.cartNumber = cartProducts.length;
             }
         )
@@ -51,8 +57,12 @@ export class HeaderComponent implements OnInit{
         this.authenticationService.currentUser.subscribe(
             (data)=>{
                 this.username = data.username;
+                this.firstname = data.firstname;
             }
         )
+
+        //初始化未支付订单数
+        this.initOrderInfo();
     }
 
 
@@ -86,4 +96,15 @@ export class HeaderComponent implements OnInit{
         this.authenticationService.cleanAuth();
     }
 
+    //init cart info
+    initOrderInfo(){
+        this.orderService.orderNum$.subscribe(
+            (res)=>{
+                this.orderNumber = res;
+            },
+            ()=>{
+
+            }
+        )
+    }
 }

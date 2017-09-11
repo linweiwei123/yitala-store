@@ -35,7 +35,6 @@ export class CartService{
         //初始化用户的购物车
         this.authenticationService.currentUser.flatMap(
                 (data:any)=>{
-                    console.log("用户信息",data.username);
                     if(data.username){
                         this.username = data.username;
                         return this.baseService.authGet(`api/cart/${data.username}`)
@@ -75,6 +74,17 @@ export class CartService{
     //添加到购物车
     addToCart(product:Product):Observable<any>{
         this.checkAuthenticated();
+        if(this.cartProducts.getValue().size !=0){
+            let isExist:boolean = false;
+            this.cartProducts.getValue().toArray().forEach((item:Product,index:any,arr:any)=>{
+                if(item.productId == product.productId){
+                   isExist = true;
+                }
+            })
+            if(isExist){
+                return Observable.throw("没有库存了...");
+            }
+        }
         //保存到服务端
         let saveObs = this.addToCartBackend(product);
         saveObs.subscribe(
@@ -167,17 +177,21 @@ export class CartService{
             (res:any)=>{
                 if(res.cartId){
                     this.cartId = res.cartId;
-                }
-                if(res.products && res.products.length>0){
-                    let products:Product[] = [];
-                    for(let item of res.products){
-                        products.push(item);
+                    if(res.products && res.products.length>0){
+                        let products:Product[] = [];
+                        for(let item of res.products){
+                            products.push(item);
+                        }
+                        this.cartProducts.next(List(products));
                     }
-                    this.cartProducts.next(List(products));
+                    else {
+                        this.cartId = null;
+                    }
                 }
-                else {
-                    this.cartId = null;
+                else{
+                    this.cartProducts.next(this.cartProducts.getValue().clear());
                 }
+
             },
             (error:any)=>{
                 console.log("car error",error);

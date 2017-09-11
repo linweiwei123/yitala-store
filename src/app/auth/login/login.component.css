@@ -3,9 +3,10 @@
     width: 350px;
     color: #666;
     position: absolute;
-    top:calc(50% - 300px);
+    top:calc(50% - 270px);
     left:calc(50% - 175px);
     text-align: center;
+    padding-bottom: 20px;
 }
 .login-page-logo{
     margin-bottom: 20px;

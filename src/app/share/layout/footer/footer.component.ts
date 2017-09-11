@@ -7,6 +7,7 @@ import {CartService} from "../../service/cart.service";
 import {Product} from "../../models/product";
 import {List} from "immutable";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 
 @Component({
     selector:'layout-footer',
@@ -43,13 +44,29 @@ export class FooterComponent implements OnInit{
     public cartOpen:boolean = false;
     public serviceOpen:boolean = false;
     public cartId:number;
+    public showTools:boolean = true;
 
     constructor(
         private cartService:CartService,
-        private elementRef:ElementRef
-    ){}
+        private router:Router
+    ){
+        //登录与注册页面隐藏footer的悬浮操作栏
+        router.events.subscribe((event:any) => {
+            if(event instanceof NavigationEnd) {
+                this.showTools = event.urlAfterRedirects.indexOf("/auth/register") == -1 && event.urlAfterRedirects.indexOf("/auth/login") == -1;
+            }
+            // window.scrollTo(0,0);
+            // NavigationEnd
+            // NavigationCancel
+            // NavigationError
+            // RoutesRecognized
+        });
+    }
 
     ngOnInit(): void {
+
+        // this.activatedRoute
+
         this.cartService.cartProducts$.subscribe(
             (cartProducts: List<Product>)=>{
                 console.log(cartProducts.toArray());
@@ -89,4 +106,5 @@ export class FooterComponent implements OnInit{
     removeProduct(product:Product):void{
         let result = this.cartService.removeFromCart(product);
     }
+
 }

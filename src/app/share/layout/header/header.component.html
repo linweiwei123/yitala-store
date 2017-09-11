@@ -26,15 +26,24 @@
                     <!-- Navigation Top Bar  -->
                     <nav class="top-bar-navigation" id="top-bar-navigation">
                         <ul class="top_bar-nav">
-                            <li class="menu-item"><a [routerLink]="['/account']">我的账户</a></li>
-                            <li class="menu-item"><a [routerLink]="['/cart']">我的购物车</a></li>
+                            <li class="menu-item"><a [routerLink]="['/account/addressinfo']" routerLinkActive="active">我的账户</a></li>
+                            <li class="menu-item">
+                                <a [routerLink]="['/account/order']" routerLinkActive="active">
+                                我的订单
+                                <span class="cart-number-items count cartCount order-num" *ngIf="orderNumber"> {{orderNumber}} </span>
+                                </a>
+                            </li>
+                            <li class="menu-item"><a [routerLink]="['/cart']" routerLinkActive="active">我的购物车</a></li>
                             <li class="menu-item" *showAuthed="false">
                                 <a [routerLink]="['/auth/login']" *showAuthed="false">登陆 / 注册</a>
                             </li>
                             <li class="menu-item">
+                                <span *showAuthed="true">您好，</span>
                                  <span class="account-info" *showAuthed="true">
-                                    <i class="iconfont-yitala">&#xe600;</i>
-                                    <span class="text-danger">{{username}}</span>
+                                     <i class="iconfont-yitala">&#xe600;</i>
+                                     <a [routerLink]="['/account/addressinfo']">
+                                         <span class="text-orange">{{firstname?firstname:username}}</span>
+                                     </a>
                                 </span>
                                 <a (click)="logout()" *showAuthed="true">退出</a>
                             </li>
@@ -51,7 +60,7 @@
                 <!-- Header Logo -->
                 <div class="col-sm-2 header-logo">
                     <div class="logo">
-                        <a href="/"> <img src="../../../../assets/img/logo-v2-small.png" alt="X Shop"> </a>
+                        <a href="/"> <img src="../../../../assets/img/logo-v3.png" alt="X Shop"> </a>
                     </div>
                 </div>
                 <!-- End Logo -->
@@ -66,7 +75,7 @@
                                 <!--<i class="fa fa-shopping-cart"></i>-->
                                     <i class="iconfont-yitala cart-icon">&#xe608;</i>
                                 </span> </a>
-                            <span class="cart-number-items count cartCount"> {{cartNumber}} </span>
+                            <span class="cart-number-items count cartCount" *ngIf="cartNumber"> {{cartNumber}} </span>
                             <div id="header-cart" class="header-element-content" style="display: none;">
                                 <h4 class="title-element">You have no items in your shopping cart.</h4>
                                 <div class="mini-cart-bottom">
@@ -113,8 +122,11 @@
                                 <li class="menu-item ">
                                     <a [routerLink]="['/blog']" routerLinkActive="active">vintage故事</a>
                                 </li>
+                                <li class="menu-item ">
+                                    <a href="https://shop111895571.taobao.com/shop/view_shop.htm?shop_id=111895571" target="_blank">淘宝店</a>
+                                </li>
                                 <li class="menu-item  last ">
-                                    <a href="/pages/contact">联系</a>
+                                    <a [routerLink]="['/contact']" routerLinkActive="active">关于我们</a>
                                 </li>
                             </ul>
                         </div>

@@ -18,6 +18,12 @@
     border-radius: 4px;
     box-shadow: 0 7px 21px rgba(0,0,0,0.3)
 }
+#top-bar-navigation .menu-item a.active{
+    color: #df5c53;
+}
+#top-bar-navigation .menu-item a:hover{
+    color: #df5c53;
+}
 ul.menu-nav li .sub-menu{
     min-width: 180px;
     width: 180px;
@@ -55,4 +61,11 @@ ul.menu-nav>li>a{
     vertical-align: top;
     margin-top: 5px;
     height: 64px!important;
+}
+header .header-top .order-num{
+    position: absolute;
+    top: 8px;
+    right: 2px;
+    font-size: 6px;
+    padding-left: 0;
 }

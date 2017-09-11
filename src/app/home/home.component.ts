@@ -42,7 +42,6 @@ export class HomeComponent extends GlobalLoadingComponent implements OnInit{
                 (response) => {
                     this.recProducts = response;
                     this.recShowProducts = this.recProducts.slice(0,Math.min(4,this.recProducts.length));
-                    console.log(response);
                 },
                 (error) => {
                     console.log(error);
@@ -58,7 +57,6 @@ export class HomeComponent extends GlobalLoadingComponent implements OnInit{
                 (response) => {
                     this.discountProducts = response;
                     this.discountShowProducts = this.discountProducts.slice(0,Math.min(4,this.discountProducts.length));
-                    console.log(response);
                 },
                 (error) => {
                     console.log(error);
@@ -73,7 +71,6 @@ export class HomeComponent extends GlobalLoadingComponent implements OnInit{
                 (response) => {
                     this.newProducts = response;
                     this.newShowProducts = this.newProducts.slice(0,Math.min(4,this.newProducts.length));
-                    console.log(response);
                 },
                 (error) => {
                     console.log(error);
