@@ -14,7 +14,7 @@
                         <span class="time" >{{item.createTime | date:'yyyy.MM.dd HH:mm'}}</span>
                     </div>
                 </div>
-                <a class="title" (click)="gotoDetail(item.id)">{{item.title}}</a>
+                <a class="title" href="/blog/detail?id={{item.id}}" target="_blank">{{item.title}}</a>
                 <p class="abstract">
                     {{item.blogAbstract}}
                 </p>

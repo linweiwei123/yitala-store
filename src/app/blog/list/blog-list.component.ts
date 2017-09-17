@@ -44,7 +44,8 @@ export class BlogListComponent implements OnInit{
     }
 
     gotoDetail(id:string){
-        this.router.navigate([`blog/detail/${id}`])
+        //this.router.navigate([`blog/detail/${id}`])
+        //window.open("")
     }
 
     loadmore():void{
