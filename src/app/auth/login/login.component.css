@@ -107,3 +107,17 @@ button.btn-3D:hover{
     padding-left: 50px;
 }
 
+.spinner-wrapper{
+    position: absolute;
+    left: 180px;
+    top: 7px;
+}
+@media screen and (max-width: 600px){
+    .login-page-logo>a{
+        margin-left: 0;
+    }
+    .auth-type-text{
+        padding-left: 0;
+    }
+
+}

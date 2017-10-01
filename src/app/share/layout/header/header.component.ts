@@ -46,6 +46,9 @@ export class HeaderComponent implements OnInit{
 
     ngOnInit(): void {
         this.mouseScroll();
+
+        this.initMobileMenu();
+
         this.cartService.cartProducts$.subscribe(
             (cartProducts: List<Product>)=>{
                 this.cartNumber = cartProducts.size;
@@ -63,11 +66,28 @@ export class HeaderComponent implements OnInit{
 
         //初始化未支付订单数
         this.initOrderInfo();
+
     }
 
+    initMobileMenu():void{
+        $(".mobile-second-menu").click(function(){
+            if($(this).hasClass("submenu-open")){
+                $(this).removeClass("submenu-open");
+                $(this).find("ul").slideUp(200);
+            }
+            else {
+                $(this).addClass("submenu-open");
+                $(this).find("ul").slideDown(200);
+            }
+        })
+    }
 
-    toggleMobileMenu():void{
-        this.mobileMenu = !this.mobileMenu;
+    openMobileMenu():void{
+        this.mobileMenu = true;
+    }
+
+    closeModileMenu():void{
+        this.mobileMenu = false;
     }
 
     mouseScroll():void{

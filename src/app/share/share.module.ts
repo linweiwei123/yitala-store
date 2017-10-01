@@ -10,7 +10,7 @@ import {FilterImagePipe} from "./layout/pipes/FilterImagePipe";
 import {AddToCartComponent} from "../cart/addtocard/add-to-cart.component";
 import {ShowAuthedDirective} from "./directive/show-authed.directive";
 import {ValidateOnBlurDirective} from "./directive/validate-on-blur.directive";
-import {OrderStatePipe} from "./pipe/common.pipe";
+import {OrderStatePipe, productCategory} from "./pipe/common.pipe";
 import {NewProductsComponent} from "../category/newproducts/new-products.component";
 
 @NgModule({
@@ -22,6 +22,7 @@ import {NewProductsComponent} from "../category/newproducts/new-products.compone
         GlobalLoadingComponent,
         FilterImagePipe,
         OrderStatePipe,
+        productCategory,
         AddToCartComponent,
         NewProductsComponent,
         ShowAuthedDirective,
@@ -32,6 +33,7 @@ import {NewProductsComponent} from "../category/newproducts/new-products.compone
         GlobalLoadingComponent,
         FilterImagePipe,
         OrderStatePipe,
+        productCategory,
         AddToCartComponent,
         NewProductsComponent,
         ShowAuthedDirective,

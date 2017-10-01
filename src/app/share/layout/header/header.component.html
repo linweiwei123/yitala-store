@@ -1,16 +1,34 @@
 <header id="header" class="header header-basic header-style_7 header-sticky menu-no-transparent">
-    <div class="mobile-navbar">
-        <div class="mobilemenu dblclick" [ngClass]="{active: mobileMenu}">
+    <div class="mobile-navbar" >
+        <div class="mobilemenu dblclick" [ngClass]="{active: mobileMenu}" >
             <div class="mobilemenu-header">
-                <div class="title">MENU</div>
-                <a href="javascript:;" class="mobilemenu-toggle" (click)="toggleMobileMenu()"></a>
+                <div class="title">菜单</div>
+                <a href="javascript:;" class="mobilemenu-toggle" (click)="closeModileMenu()"></a>
             </div>
-            <div class="mobilemenu-content">
+            <div class="mobilemenu-content" >
                 <ul class="mobile-nav">
-                    <li> <a href="/"><i class="fa fa-home"></i></a> </li>
-                    <li> <a href="#">Layouts</a> <span class="arrow"></span></li>
-                    <li> <a href="#">Layouts</a> <span class="arrow"></span></li>
-                    <li> <a href="#">Layouts</a> <span class="arrow"></span></li>
+                    <li (click)="closeModileMenu()"> <a [routerLink]="['/home']" routerLinkActive="active">主页<i class="fa fa-home"></i></a> </li>
+                    <li class="mobile-second-menu">
+                        <a  >商品分类</a>
+                        <span class="arrow"></span>
+                        <ul class="mobile-second-ul">
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/earring']" routerLinkActive="active"><i class="iconfont-yitala">&#xe618;</i>耳夹／耳钉</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/necklace']" routerLinkActive="active"><i class="iconfont-yitala">&#xe699;</i>项链</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/bracelet']" routerLinkActive="active"><i class="iconfont-yitala">&#xe61f;</i>手链</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/ring']" routerLinkActive="active"><i class="iconfont-yitala">&#xe640;</i>戒子</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/brooch']" routerLinkActive="active"><i class="iconfont-yitala">&#xe60b;</i>胸针</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/bag']" routerLinkActive="active"><i class="iconfont-yitala">&#xe66b;</i>包包</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/watch']" routerLinkActive="active"><i class="iconfont-yitala">&#xe628;</i>手表</a></li>
+                            <li (click)="closeModileMenu()"><a [routerLink]="['/category/other']" routerLinkActive="active"><i class="iconfont-yitala">&#xe633;</i>其他</a></li>
+                        </ul>
+                    </li>
+                    <li (click)="closeModileMenu()"> <a [routerLink]="['/blog']" routerLinkActive="active" >VINTAGE故事</a> </li>
+                    <li (click)="closeModileMenu()"> <a href="https://shop111895571.taobao.com/shop/view_shop.htm?shop_id=111895571">淘宝店</a> </li>
+                    <li (click)="closeModileMenu()"> <a [routerLink]="['/account/addressinfo']" routerLinkActive="active" >我的账户</a> </li>
+                    <li (click)="closeModileMenu()"> <a [routerLink]="['/account/order']" routerLinkActive="active" >我的订单</a> </li>
+                    <li (click)="closeModileMenu()" *showAuthed="false"> <a [routerLink]="['/auth/login']" routerLinkActive="active" >登录／注销</a> </li>
+                    <li (click)="closeModileMenu()"> <a [routerLink]="['/contact']" routerLinkActive="active" >关于我们</a> </li>
+                    <li (click)="logout();closeModileMenu()" *showAuthed="true"> <a >退出</a> </li>
                 </ul>
             </div>
         </div>
@@ -61,10 +79,18 @@
                 <div class="col-sm-2 header-logo">
                     <div class="logo">
                         <a href="/"> <img src="../../../../assets/img/logo-v3.png" alt="X Shop"> </a>
+                        <a href="javascript:;" class="mobile-navigation pc-hide" (click)="openMobileMenu()">
+                            <span class="button-icon">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </span>
+                        </a>
                     </div>
+
                 </div>
                 <!-- End Logo -->
-                <div class="col-sm-10 header-nav">
+                <div class="col-sm-10 header-nav mobile-hide">
                     <!-- Header Right -->
                     <div class="header-right">
 
@@ -85,7 +111,7 @@
                         </a>
                         <!-- End Cart Element -->
                         <!-- Button Menu Mobile -->
-                        <a href="javascript:;" class="mobile-navigation" (click)="toggleMobileMenu()">
+                        <a href="javascript:;" class="mobile-navigation mobile-hide" (click)="openMobileMenu()">
                             <span class="button-icon">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>

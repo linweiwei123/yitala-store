@@ -1,39 +1,64 @@
 <div class="tab-content">
     <h5>您的订单列表</h5>
     <div [ngClass]="{'block-loading':loading}" class="table-content-container">
-    <table class="table" >
-        <thead>
-        <tr>
-            <th style="width: 100px;">#订单编号</th>
-            <th>缩略图</th>
-            <th>数量</th>
-            <th>总价</th>
-            <th>状态</th>
-            <th>时间</th>
-            <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of orderInfoArr">
-            <th scope="row">{{item.orderCode}}</th>
-            <td class="img-td">
-                <ul class="img-list">
-                    <li *ngFor="let img of item.images | slice:0:3" >
-                        <img [src]="img" alt="">
-                    </li>
-                </ul>
-            </td>
-            <td>{{item.quantity}}</td>
-            <td><span class="money"><em class="rmb">¥</em>{{item.price}}</span></td>
-            <td>
-                <span class="label-bander" [ngClass]="{'bg-primary':item.state == 'confirm','bg-success':item.state == 'shipped',
-                'bg-disabled':item.state=='finish'}">{{item.state | orderState}}</span>
-            </td>
-            <td>{{item.date | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-            <td><span class="table-td-btn" (click)="goDetail(item)">查看</span></td>
-        </tr>
-        </tbody>
-    </table>
+        <table class="table mobile-hide" >
+            <thead>
+            <tr>
+                <th style="width: 100px;">#订单编号</th>
+                <th>缩略图</th>
+                <th>数量</th>
+                <th>总价</th>
+                <th>状态</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of orderInfoArr">
+                <th scope="row">{{item.orderCode}}</th>
+                <td class="img-td">
+                    <ul class="img-list">
+                        <li *ngFor="let img of item.images | slice:0:3" >
+                            <img [src]="img" alt="">
+                        </li>
+                    </ul>
+                </td>
+                <td>{{item.quantity}}</td>
+                <td><span class="money"><em class="rmb">¥</em>{{item.price}}</span></td>
+                <td>
+                    <span class="label-bander" [ngClass]="{'bg-primary':item.state == 'confirm','bg-success':item.state == 'shipped',
+                    'bg-disabled':item.state=='finish'}">{{item.state | orderState}}</span>
+                </td>
+                <td>{{item.date | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td><span class="table-td-btn" (click)="goDetail(item)">查看</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table pc-hide" >
+            <thead>
+            <tr>
+                <th>缩略图</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of orderInfoArr">
+                <td class="img-td">
+                    <ul class="img-list">
+                        <li *ngFor="let img of item.images | slice:0:3" >
+                            <img [src]="img" alt="">
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="label-bander" [ngClass]="{'bg-primary':item.state == 'confirm','bg-success':item.state == 'shipped',
+                    'bg-disabled':item.state=='finish'}">{{item.state | orderState}}</span>
+                </td>
+                <td><span class="table-td-btn" (click)="goDetail(item)">查看</span></td>
+            </tr>
+            </tbody>
+        </table>
         <div class="bg-striped"></div>
     </div>
     <div class="content-empty" *ngIf="orderInfoArr.length==0 && !loading">

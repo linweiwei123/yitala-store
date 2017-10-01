@@ -114,3 +114,24 @@ a.load-more:hover{
     cursor: pointer;
     background-color: #9b9b9b;
 }
+
+@media screen and (max-width: 600px){
+    .relation-container{
+        width: 100%;
+        padding-top: 0;
+    }
+    .list-container{
+        width: 100%;
+        margin: 0;
+        margin-top: 10px;
+    }
+    .list-container .content{
+        padding-right: 0;
+    }
+    .list-container .wrap-img{
+        display: none;
+    }
+    h4.title-sidebar{
+        margin-bottom: 15px;
+    }
+}

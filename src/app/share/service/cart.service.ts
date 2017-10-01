@@ -56,6 +56,9 @@ export class CartService{
                         }
                         this.cartProducts.next(List(products));
                     }
+                    else {
+                        this.cartProducts.next(List([]));
+                    }
 
                 },
                 (error:any)=>{
@@ -73,7 +76,9 @@ export class CartService{
 
     //添加到购物车
     addToCart(product:Product):Observable<any>{
-        this.checkAuthenticated();
+        if(!this.checkAuthenticated()){
+            return Observable.throw("未登录");
+        }
         if(this.cartProducts.getValue().size !=0){
             let isExist:boolean = false;
             this.cartProducts.getValue().toArray().forEach((item:Product,index:any,arr:any)=>{
@@ -168,8 +173,9 @@ export class CartService{
     checkAuthenticated(){
         if(!this.isAuthenticated){
             this.router.navigate(["auth/login"]);
+            return false;
         }
-        return;
+        return true;
     }
 
     reloadCartInfo(){

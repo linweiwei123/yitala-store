@@ -86,3 +86,16 @@ ul.product-categories li:hover{
 .banner-wrap{
     position: relative;
 }
+@media screen and ( max-width : 767px){
+    .product-item .product-button-action{
+        transform: translateY(95px);
+    }
+    .mobile-price{
+        position: absolute;
+        left: 30px;
+        margin-top: 4px;
+    }
+    #secondary .widget_categories{
+        display: none;
+    }
+}

@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit,OnDestroy{
     public timeOutId:any;
     public timeIntervalId:any;
     public time:number = 3;
+    public loading:boolean = false;
 
     constructor(
         private activatedRoute:ActivatedRoute,
@@ -78,15 +79,16 @@ export class LoginComponent implements OnInit,OnDestroy{
     }
 
     submitForm(form:any){
-        console.log(form);
         if(this.authFlag == 'login'){
+            this.loading = true;
             this.authenticationService.login(form.phoneNO,form.password)
                 .subscribe(
                     (response)=>{
-                        console.log(response);
+                        this.loading = false;
                         this.router.navigate(["/home"])
                     },
                     (error)=>{
+                        this.loading = false;
                         if(error.status == '401'){
                             this.error = "账号密码错误";
                         }
@@ -97,9 +99,11 @@ export class LoginComponent implements OnInit,OnDestroy{
                 );
         }
         else{
+            this.loading = true;
             this.authenticationService.register(form.phoneNO,form.password,form.firstname)
                 .subscribe(
                     (response)=>{
+                        this.loading = false;
                         if(response.errorCode == 500){
                             this.error = response.message;
                         }
@@ -114,6 +118,7 @@ export class LoginComponent implements OnInit,OnDestroy{
                         }
                     },
                     (error)=>{
+                        this.loading = false;
                         if(error.status == '401'){
                             this.error = "账号密码错误";
                         }

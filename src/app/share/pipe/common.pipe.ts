@@ -25,3 +25,27 @@ export class OrderStatePipe implements PipeTransform{
     }
 
 }
+
+@Pipe({
+    name:'productCategory'
+})
+
+export class productCategory implements PipeTransform{
+
+    transform(value: any, ...args: any[]) {
+        let result = "";
+        switch (value){
+            case 'earring':result="耳夹／耳钉";break;
+            case 'necklace':result="项链";break;
+            case 'bracelet':result="手链";break;
+            case 'ring':result="戒子";break;
+            case 'brooch':result="胸针";break;
+            case 'bag':result="包包";break;
+            case 'watch':result="手表";break;
+            case 'other':result="其他";break;
+            default:result="其他";break;
+        }
+        return result;
+    }
+
+}

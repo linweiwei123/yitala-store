@@ -12,3 +12,15 @@ section .container{
     letter-spacing: 1px;
     font-size: 20px;
 }
+
+@media screen and (max-width: 600px){
+    .carousel-response img {
+        height: 230px!important;
+    }
+    .carousel-caption .second-h{
+        display: none;
+    }
+    .carousel-caption{
+        top: calc(50% - 50px);
+    }
+}

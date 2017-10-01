@@ -304,3 +304,22 @@ a.checkout i.fa-arrow-right{
 .cart-background .tips{
     color: #aaa;
 }
+
+@media screen and (max-width: 600px){
+    .fixed-func-items{
+        right: 0;
+    }
+    .service-box,.cart-box{
+        right: 0;
+    }
+    .cart-box{
+        width: 100%;
+    }
+    .cart-open .cart-box .wrapper{
+        width: 100%;
+    }
+    .cart-box .wrapper{
+        right: 0;
+        float: right;
+    }
+}

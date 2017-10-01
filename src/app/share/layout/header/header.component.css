@@ -69,3 +69,9 @@ header .header-top .order-num{
     font-size: 6px;
     padding-left: 0;
 }
+ul.mobile-second-ul li{
+    font-weight: normal;
+}
+ul.mobile-second-ul li i{
+    margin-right: 5px;
+}

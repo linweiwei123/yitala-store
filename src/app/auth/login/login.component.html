@@ -7,47 +7,59 @@
                         <img src="../../../assets/img/logo-v3.png"  alt="yitala store">
                     </a>
                 </div>
-                <div [hidden]="authFlag == 'register' && registerSuccess">
+                <div style="padding-bottom: 20px" [hidden]="authFlag == 'register' && registerSuccess">
                     <div class="auth-type-text" *ngIf="authFlag == 'register'">注册账号</div>
                     <div class="login-error" *ngIf="error"><i class="iconfont-yitala">&#xe620;</i>{{error}}</div>
 
                     <form class="form-horizontal login" [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
+
                         <div class="form-group" [ngClass]="{'has-error':loginForm.controls['phoneNO'].touched && loginForm.controls['phoneNO'].dirty && loginForm.controls['phoneNO'].invalid}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+                            <label for="inputEmail3" class="col-sm-2 control-label mobile-hide">账号</label>
                             <div class="col-sm-10">
                                 <input type="email" class="form-control" id="inputEmail3" validateOnBlur [validateFormControl]="loginForm.controls['phoneNO']"  [formControl]="loginForm.controls['phoneNO']" placeholder="手机号">
                                 <span class="text-danger input-error-tips" *ngIf="loginForm.controls['phoneNO'].touched && loginForm.controls['phoneNO'].dirty && loginForm.controls['phoneNO'].invalid">*请输入有效的手机号码</span>
                             </div>
                         </div>
+
                         <div class="form-group" *ngIf="authFlag == 'register'" [ngClass]="{'has-error':loginForm.controls['firstname'].dirty &&
                             (loginForm.controls['firstname'].hasError('required'))}">
-                            <label  class="col-sm-2 control-label">昵称</label>
+                            <label  class="col-sm-2 control-label mobile-hide">昵称</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" maxlength="25" [formControl]="loginForm.controls['firstname']" placeholder="你打算使用的昵称">
                                 <span class="text-danger input-error-tips" *ngIf="loginForm.controls['firstname'].dirty && loginForm.controls['firstname'].hasError('required')">*来个昵称吧～</span>
                             </div>
                         </div>
+
                         <div class="form-group" [ngClass]="{'has-error':loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('required')}">
-                            <label class="col-sm-2 control-label">密码</label>
+                            <label class="col-sm-2 control-label mobile-hide">密码</label>
                             <div class="col-sm-10">
                                 <input type="password" class="form-control" [formControl]="loginForm.controls['password']" placeholder="密码">
                                 <span class="text-danger input-error-tips" *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].hasError('required')">*请输入密码</span>
                             </div>
                         </div>
+
                         <div class="form-group" *ngIf="authFlag == 'register'" [ngClass]="{'has-error':loginForm.controls['passwordConfirm'].dirty &&
                 (loginForm.controls['passwordConfirm'].hasError('required')||loginForm.hasError('misMatch'))}">
-                            <label  class="col-sm-2 control-label">确认</label>
+                            <label  class="col-sm-2 control-label mobile-hide">确认</label>
                             <div class="col-sm-10">
                                 <input type="password" class="form-control"  [formControl]="loginForm.controls['passwordConfirm']" placeholder="再次输入密码">
                                 <span class="text-danger input-error-tips" *ngIf="loginForm.controls['passwordConfirm'].dirty && loginForm.controls['passwordConfirm'].hasError('required')">*请再次输入密码</span>
                                 <span class="text-danger input-error-tips" *ngIf="loginForm.controls['passwordConfirm'].dirty && loginForm.hasError('misMatch')">*两次密码输入不一致</span>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-3D" [disabled]="loginForm.invalid">{{authFlag == 'login'?'登录':'注册'}}</button>
+                                <button type="submit" class="btn btn-3D" [disabled]="loginForm.invalid || loading">{{authFlag == 'login'?'登录':'注册'}}</button>
+                                <div class="spinner-wrapper" *ngIf="loading">
+                                    <div class="spinner">
+                                        <div class="double-bounce1"></div>
+                                        <div class="double-bounce2"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </form>
                     <p class="links"  *ngIf="authFlag == 'login'"><i class="iconfont-yitala">&#xe61d;</i>还没有账号？<a [routerLink]="['/auth/register']">前往注册</a></p>
                     <p class="links"  *ngIf="authFlag == 'register'"><i class="iconfont-yitala">&#xe61d;</i>已经有账号？<a [routerLink]="['/auth/login']">前往登录</a></p>

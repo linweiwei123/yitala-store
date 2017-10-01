@@ -977,3 +977,51 @@ table td,table th{
 .site-content-inner{
     min-height: 400px;
 }
+
+.loader-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px){
+    .icon-box-style2 .icon-box-content{
+        padding: 0;
+    }
+
+    div.icon-box-style2.icon-box {
+        margin: 15px auto;
+        width: 200px;
+    }
+    .icons-box-wrap{
+        padding: 30px 50px;
+    }
+    .product-item .product-button-action{
+        background-color: #fff;
+    }
+    .product-item .product-button-action .button {
+        color: #df5c53;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .mobile-hide{
+        display: none;
+    }
+    .mobile-min-th{
+        width: 50px;
+    }
+
+}
+
+@media screen and (min-width: 601px){
+    .pc-hide{
+        display: none;
+    }
+
+}

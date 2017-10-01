@@ -34,14 +34,15 @@ export class OrderService{
                 }
             }
         )
-            .subscribe(
-                (res:any)=>{
-                   this.orderNum.next(res);
-                },
-                (error:any)=>{
-                    console.log("car error",error);
-                }
-            )
+        .subscribe(
+            (res:any)=>{
+                console.log("order fresh",res);
+               this.orderNum.next(res);
+            },
+            (error:any)=>{
+                console.log("car error",error);
+            }
+        )
     }
 
     //刷新订单数
