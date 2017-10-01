@@ -8,7 +8,9 @@
                     <div class="product-single">
                         <div class="product-content-single">
                             <div class="row">
-
+                                <div class="col-xs-12 col-sm-6 pc-hide">
+                                    <product-zoom [images]="product.imagesArray"></product-zoom>
+                                </div>
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="single-product-content">
                                         <div class="product-title">
@@ -54,21 +56,21 @@
                                                 <i class="fa fa-eye"></i> {{product.scanTimes}}
                                             </span>
                                         </div>
-                                        <div class="product-list-action" style="margin-left: 62px;">
-                                            <div class="mb15">
-                                                <div class="item-action">
-                                                    <a class="email_to_friend" href="#">
-                                                        <i class="fa fa-envelope-o"></i>分享给朋友
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <!--<div class="product-list-action" style="margin-left: 62px;">-->
+                                            <!--<div class="mb15">-->
+                                                <!--<div class="item-action">-->
+                                                    <!--<a class="email_to_friend" href="#">-->
+                                                        <!--<i class="fa fa-envelope-o"></i>分享给朋友-->
+                                                    <!--</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
                                         <div class="add-to-cart">
                                             <add-to-cart [product]="product"></add-to-cart>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-6">
+                                <div class="col-xs-12 col-sm-6 mobile-hide">
                                     <product-zoom [images]="product.imagesArray"></product-zoom>
                                 </div>
                             </div>

@@ -1,14 +1,13 @@
 <div class="zoomer">
-    <div class="product-viewer col-xs-10 col-sm-10 col-md-10">
+    <div class="product-viewer col-xs-12 col-sm-10 col-md-10">
         <img  [src]='smallImageSrc'>
     </div>
-    <ul class="view-images row col-xs-2 col-sm-2 col-md-2">
+    <ul class="view-images row col-xs-12 col-sm-2 col-md-2">
         <li *ngFor="let img of images" (click)="chooseImg(img)">
             <div class="image-box" [ngClass]="{'choose':img==smallImageSrc}">
                 <img [src]="img" alt="">
             </div>
         </li>
     </ul>
-
 </div>
 

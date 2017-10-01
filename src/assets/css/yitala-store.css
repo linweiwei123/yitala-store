@@ -1008,10 +1008,16 @@ table td,table th{
         color: #df5c53;
     }
 }
+header.header-basic .main-header .top-mobile-navigation{
+    display: none;
+}
 
 @media screen and (max-width: 600px){
     .mobile-hide{
         display: none;
+    }
+    header.header-basic .main-header .top-mobile-navigation{
+        display: inline-block;
     }
     .mobile-min-th{
         width: 50px;

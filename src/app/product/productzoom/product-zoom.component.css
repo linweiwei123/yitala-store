@@ -47,3 +47,9 @@ ul.view-images li:last-child{
     border-color: rgba(216,96,78,0.75);
 }
 
+@media screen and (max-width: 600px){
+    .zoomer .view-images li{
+        display: inline-block;
+        width: 75px;
+    }
+}

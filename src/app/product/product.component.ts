@@ -31,16 +31,22 @@ export class ProductComponent implements OnInit{
     ){
         this.activatedRoute.params.subscribe(
             params=>{
+                console.log(params);
                 this.productId = params["id"];
             }
         );
     }
 
     ngOnInit(): void {
-        this.getProduct(this.productId);
-        this.getDesc(this.productId);
-        this.queryRecProducts();
-        this.addScanTimes(this.productId);
+        this.activatedRoute.params.subscribe(
+            params=>{
+                this.getProduct(this.productId);
+                this.getDesc(this.productId);
+                this.queryRecProducts();
+                this.addScanTimes(this.productId);
+            }
+        );
+
     }
 
     //获取商品详细信息
